@@ -1,12 +1,10 @@
 import React from 'react'
 import Card from './Card.js'
-// import { action } from '@storybook/addon-actions'
-// import React from 'react'
 
 import imageFile from './Minikleid.png'
 
 export default {
-  title: 'Card',
+  title: 'Card-Component',
   component: Card,
 }
 
