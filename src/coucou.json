@@ -77,7 +77,7 @@
     {
       "id": 9,
       "name": "Pailetten-Abendkleid",
-      "image": "IMAGES/Pailetten-Abendkleid.png",
+      "image": "IMAGES/Pailletten-Abendkleid.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
@@ -87,7 +87,7 @@
     {
       "id": 11,
       "name": "Wanderstiefel",
-      "image": "IMAGES/Wanderstiefel.png",
+      "image": "IMAGES/ Wanderstiefel.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
