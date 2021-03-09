@@ -5,7 +5,7 @@ export default function Card({ name, image }) {
   return (
     <CardContainer>
       <H2>{name}</H2>
-      <IMG src={image} alt="" width="100" heigh="100" />
+      <IMG src={image} alt="" width="100" height="100" />
     </CardContainer>
   )
 }
