@@ -4,8 +4,8 @@ import React from 'react'
 export default function Card({ name, image }) {
   return (
     <CardContainer>
-      <H2> {name} </H2>
-      <IMG src={image} alt="" width="100px" />
+      <H2>{name}</H2>
+      <IMG src={image} alt="" width="100" heigh="100" />
     </CardContainer>
   )
 }

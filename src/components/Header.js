@@ -3,11 +3,9 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <>
-      <HeaderContainer>
-        <h1>coucou! </h1>
-      </HeaderContainer>
-    </>
+    <HeaderContainer>
+      <h1>coucou!</h1>
+    </HeaderContainer>
   )
 }
 
