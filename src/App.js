@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Card from './components/Card'
+import Header from './components/Header'
+import { clothes } from './coucou.json'
+import styled from 'styled-components/macro'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header />
+      <Layout>
+        {clothes.map(({ name, image, id }) => (
+          <Card key={id} image={image} name={name} />
+        ))}
+      </Layout>
+    </>
+  )
 }
 
-export default App;
+export default App
+
+const Layout = styled.div`
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+`

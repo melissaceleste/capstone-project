@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Bluse aus Baumwolle",
-      "image": "IMAGES/Bluse_aus_Baumwolle.png",
+      "image": "images_clothes/bluse_aus_baumwolle.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "20 Euro",
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "name": "Lederhemd",
-      "image": "IMAGES/Lederhemd.png",
+      "image": "images_clothes/lederhemd.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "name": "Organza-Bluse",
-      "image": "IMAGES/Organza-Bluse.png",
+      "image": "images_clothes/organza-bluse.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "40 Euro",
@@ -31,7 +31,7 @@
     {
       "id": 4,
       "name": "Karierte Hose",
-      "image": "IMAGES/Karierte_Hose.png",
+      "image": "images_clothes/karierte_hose.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
@@ -40,7 +40,7 @@
     {
       "id": 5,
       "name": "Utility-Hose",
-      "image": "IMAGES/Utility-Hose.png",
+      "image": "images_clothes/utility-hose.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
@@ -50,7 +50,7 @@
     {
       "id": 6,
       "name": "Bodycon-Kleid",
-      "image": "IMAGES/Bodycon-Kleid.png",
+      "image": "images_clothes/bodycon-kleid.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
@@ -59,7 +59,7 @@
     {
       "id": 7,
       "name": "Minikleid mit Puffärmeln",
-      "image": "IMAGES/Minikleid_mit_Puffärmeln.png",
+      "image": "images_clothes/minikleid_mit_puffärmeln.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
@@ -68,7 +68,7 @@
     {
       "id": 8,
       "name": "Minikleid",
-      "image": "IMAGES/Minikleid.png",
+      "image": "images_clothes/minikleid.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
@@ -77,7 +77,7 @@
     {
       "id": 9,
       "name": "Pailetten-Abendkleid",
-      "image": "IMAGES/Pailetten-Abendkleid.png",
+      "image": "images_clothes/pailletten-abendkleid.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
@@ -87,7 +87,7 @@
     {
       "id": 11,
       "name": "Wanderstiefel",
-      "image": "IMAGES/Wanderstiefel.png",
+      "image": "images_clothes/wanderstiefel.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
@@ -96,7 +96,7 @@
     {
       "id": 12,
       "name": "Espadrilles",
-      "image": "IMAGES/Espadrilles.png",
+      "image": "images_clothes/espadrilles.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
@@ -105,7 +105,7 @@
     {
       "id": 13,
       "name": "Mules",
-      "image": "IMAGES/Mules.png",
+      "image": "images_clothes/mules.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
@@ -115,7 +115,7 @@
     {
       "id": 14,
       "name": "Strickjacke mit Schulterpolstern",
-      "image": "IMAGES/Strickjacke_mit_Schulterpolstern.png",
+      "image": "images_clothes/strickjacke_mit_schulterpolstern.png",
       "Kaufdatum": "30.01.2020",
       "Geschäft": "Zara",
       "Preis": "30 Euro",
