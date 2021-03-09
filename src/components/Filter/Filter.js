@@ -1,10 +1,9 @@
 import styled from 'styled-components/macro'
-// import React, { useState } from 'react'
 
 export default function Filter({ userInput, setUserInput }) {
   return (
     <FilterContainer>
-      <H1>Wer suchet der findet...</H1>
+      <H1>Such nach deinem Kleidungsstück...</H1>
       <FilterByName>
         <H2>Name:</H2>
         <Input

@@ -1,8 +1,8 @@
-import Card from './components/Card'
-import Header from './components/Header'
+import Card from './components/Card/Card'
+import Header from './components/Header/Header'
 import { clothes } from './coucou.json'
 import styled from 'styled-components/macro'
-import Filter from './components/Filter'
+import Filter from './components/Filter/Filter'
 import { useState } from 'react'
 
 function App() {
