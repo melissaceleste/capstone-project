@@ -1,10 +1,11 @@
 import styled from 'styled-components/macro'
 import React from 'react'
 
-export default function Card({ name, image }) {
+export default function Card({ name, image, store, price }) {
   return (
     <CardContainer>
       <h2>{name}</h2>
+      {store} {price}€
       <img src={image} alt="" width="100" height="100" />
     </CardContainer>
   )
