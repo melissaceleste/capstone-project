@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import Card from './Card'
 
-import imageFile from './Minikleid.png'
+import imageFile from '../../components/minikleid.png'
 
 describe('Card', () => {
   it('renders a card with a name and an image', () => {

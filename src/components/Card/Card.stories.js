@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './Card.js'
 
-import imageFile from './minikleid.png'
+import imageFile from '../../components/minikleid.png'
 
 export default {
   title: 'Card-Component',
