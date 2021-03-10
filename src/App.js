@@ -20,14 +20,6 @@ function App() {
           .map(({ name, image, id }) => (
             <Card key={id} image={image} name={name} />
           ))}
-
-        {/* {clothes.map(({ name, image, id }) => (
-          <Card key={id} image={image} name={name} />
-        ))}
-
-        {clothes.filter(card =>
-          card.name.toLowerCase().includes(userInput.toLowerCase())
-        )} */}
       </Layout>
     </>
   )

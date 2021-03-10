@@ -3,9 +3,9 @@ import styled from 'styled-components/macro'
 export default function Filter({ userInput, setUserInput }) {
   return (
     <FilterContainer>
-      <H1>Such nach deinem Kleidungsstück...</H1>
+      <h1>Such nach deinem Kleidungsstück...</h1>
       <FilterByName>
-        <H2>Name:</H2>
+        <h2>Name:</h2>
         <Input
           placeholder="z.B. Minikleid"
           value={userInput}
@@ -13,7 +13,7 @@ export default function Filter({ userInput, setUserInput }) {
         />
       </FilterByName>
       <br />
-      <Button> zeig her! </Button>
+      {/*  <button> zeig her! </button> */}
     </FilterContainer>
   )
 }
@@ -24,14 +24,26 @@ const FilterContainer = styled.form`
   padding: 10px;
   width: 100%;
   margin: 10px auto;
-`
-const H1 = styled.h1`
-  font-size: 18px;
-  margin: 2px;
-`
-const H2 = styled.h2`
-  font-size: 16px;
-  margin: 0;
+
+  h1 {
+    font-size: 18px;
+    margin: 2px;
+  }
+  h2 {
+    font-size: 16px;
+    margin: 0;
+  }
+  button {
+    background-color: #acb49b;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 3px 3px 3px darkgrey;
+    font-size: 16px;
+    width: 100%;
+    margin: 20px auto auto;
+    padding: 5px;
+  }
 `
 const FilterByName = styled.label`
   padding: 0;
@@ -44,16 +56,4 @@ const Input = styled.input`
   box-shadow: 1px 1px 1px grey;
   padding: 5px;
   width: 100%;
-`
-
-const Button = styled.button`
-  background-color: grey;
-  color: white;
-  border-radius: 20px;
-  border: none;
-  box-shadow: 3px 3px 3px darkgrey;
-  font-size: 16px;
-  width: 100%;
-  margin: 20px auto auto;
-  padding: 5px;
 `

@@ -14,7 +14,7 @@ const HeaderContainer = styled.header`
   text-align: center;
   width: 100%;
   box-shadow: 1px 2px #eee;
-  background-color: #dfcea1;
+  background-color: #e2d5c5;
   color: white;
   border-radius: 20px;
 `
