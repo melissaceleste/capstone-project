@@ -3,16 +3,21 @@ import Header from './components/Header/Header'
 import { clothes } from './coucou.json'
 import styled from 'styled-components/macro'
 import Filter from './components/Filter/Filter'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import AddNew from './components/AddNew/AddNew'
 
 function App() {
   const [userInput, setUserInput] = useState('')
-  const [cards, setCards] = useState([])
+  const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
+
+  useEffect(() => {
+    saveToLocal('cards', cards)
+  }, [cards])
 
   return (
     <>
       <Header />
+
       <AddNew onAddNewCard={addNewCard} />
       {cards.map(card => (
         <Card
@@ -20,6 +25,7 @@ function App() {
           store={card.store}
           price={card.price}
           date={card.date}
+          images={card.images}
           cards={cards}
           setCards={setCards}
         />
@@ -30,7 +36,7 @@ function App() {
           .filter(item =>
             item.name.toLowerCase().includes(userInput.toLowerCase())
           )
-          .map(({ name, image, id, store, price, date }) => (
+          .map(({ name, image, id, store, price, date, images }) => (
             <Card
               key={id}
               image={image}
@@ -38,6 +44,7 @@ function App() {
               store={store}
               price={price}
               date={date}
+              images={images}
             />
           ))}
       </Layout>
@@ -46,6 +53,15 @@ function App() {
 
   function addNewCard(newCard) {
     setCards([newCard, ...cards])
+  }
+  function saveToLocal(key, data) {
+    localStorage.setItem(key, JSON.stringify(data))
+  }
+
+  function loadFromLocal(key) {
+    const jsonString = localStorage.getItem(key)
+    const data = JSON.parse(jsonString)
+    return data
   }
 }
 

@@ -1,13 +1,11 @@
 import styled from 'styled-components/macro'
+import Upload from '../Upload/Upload'
 // import React, { component } from 'react'
 
 export default function AddNew({ onAddNewCard }) {
   return (
     <AddNewContainer onSubmit={handleSubmit}>
-      <label>
-        <h2>Foto</h2>
-        <input type="file" />
-      </label>
+      <Upload />
       <p>
         Umso mehr Infos du speicherst, umso einfacher kannst du deine
         Lieblingsteile später wieder finden:)
@@ -79,7 +77,7 @@ export default function AddNew({ onAddNewCard }) {
         </label>
       </ContainerKleidungsart>
       <br />
-      <button> hinzufügen </button>
+      <SubmitButton> hinzufügen </SubmitButton>
     </AddNewContainer>
   )
   function handleSubmit(event) {
@@ -119,16 +117,6 @@ const AddNewContainer = styled.form`
     width: 100%;
     margin: 0;
   }
-  button {
-    background-color: #acb49b;
-    color: white;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 3px 3px 3px darkgrey;
-    font-size: 16px;
-    width: 100%;
-    padding: 5px;
-  }
 `
 const ContainerKleidungsart = styled.section`
   display: flex;
@@ -138,4 +126,15 @@ const ContainerKleidungsart = styled.section`
   label {
     margin: 10px;
   }
+`
+
+const SubmitButton = styled.button`
+  background-color: #acb49b;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 3px 3px 3px darkgrey;
+  font-size: 16px;
+  width: 100%;
+  padding: 5px;
 `
