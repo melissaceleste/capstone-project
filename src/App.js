@@ -19,6 +19,7 @@ function App() {
           name={card.name}
           store={card.store}
           price={card.price}
+          date={card.date}
           cards={cards}
           setCards={setCards}
         />
@@ -29,13 +30,14 @@ function App() {
           .filter(item =>
             item.name.toLowerCase().includes(userInput.toLowerCase())
           )
-          .map(({ name, image, id, store, price }) => (
+          .map(({ name, image, id, store, price, date }) => (
             <Card
               key={id}
               image={image}
               name={name}
               store={store}
               price={price}
+              date={date}
             />
           ))}
       </Layout>

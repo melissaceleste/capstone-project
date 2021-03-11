@@ -1,13 +1,17 @@
 import styled from 'styled-components/macro'
+// import React, { component } from 'react'
 
 export default function AddNew({ onAddNewCard }) {
   return (
     <AddNewContainer onSubmit={handleSubmit}>
       <label>
         <h2>Foto</h2>
-        <input type="files" value="upload" />
+        <input type="file" />
       </label>
-
+      <p>
+        Umso mehr Infos du speicherst, umso einfacher kannst du deine
+        Lieblingsteile später wieder finden:)
+      </p>
       <label>
         <h2>Name:</h2>
         <input
@@ -15,17 +19,14 @@ export default function AddNew({ onAddNewCard }) {
           name="nameOfClothing"
         />
       </label>
-
       <label>
         <h2>Kaufdatum:</h2>
-        <input placeholder="30.01.2018" name="kaufdatum" />
+        <input type="date" placeholder="30.01.2018" name="date" />
       </label>
-
       <label>
         <h2>Geschäft:</h2>
         <input placeholder="Monki" name="store" />
       </label>
-
       <label>
         <h2>Preis:</h2>
         <input
@@ -36,7 +37,6 @@ export default function AddNew({ onAddNewCard }) {
           min="0"
         />
       </label>
-
       <h2>Kleidungsart:</h2>
       <ContainerKleidungsart>
         <label>
@@ -85,11 +85,12 @@ export default function AddNew({ onAddNewCard }) {
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
-    const { nameOfClothing, store, price } = form.elements
+    const { nameOfClothing, store, price, date } = form.elements
     onAddNewCard({
       name: nameOfClothing.value,
       store: store.value,
       price: price.value,
+      date: date.value,
     })
     form.reset()
   }
