@@ -1,9 +1,7 @@
 import styled from 'styled-components/macro'
-import React from 'react'
 
 export default function Card({
   name,
-  image,
   store,
   price,
   date,
@@ -16,11 +14,18 @@ export default function Card({
       <ul>
         <li> {clothingType}</li>
         <li> {store}</li>
-        <li> {price}€ </li>
+        <li>{price !== '' ? price + '€' : ''}</li>
         <li>{date} </li>
       </ul>
-      {images}
-      <img src={image} alt="" width="100" height="100" />
+      {images.map(image => (
+        <img
+          key={image} /* key={image.data_url} */
+          src={image}
+          alt=""
+          width="100"
+          height="100"
+        />
+      ))}
     </CardContainer>
   )
 }

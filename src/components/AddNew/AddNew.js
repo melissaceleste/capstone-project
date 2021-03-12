@@ -1,11 +1,13 @@
 import styled from 'styled-components/macro'
 import Upload from '../Upload/Upload'
-// import React, { component } from 'react'
+import React, { useState } from 'react'
 
 export default function AddNew({ onAddNewCard }) {
+  const [images, setImages] = useState([])
+
   return (
     <AddNewContainer onSubmit={handleSubmit}>
-      <Upload required="required" />
+      <Upload onImage={setImages} required="required" />
       <p>
         Umso mehr Infos du speicherst, umso einfacher kannst du deine
         Lieblingsteile später wieder finden:)
@@ -28,7 +30,7 @@ export default function AddNew({ onAddNewCard }) {
       <label>
         <h2>Preis:</h2>
         <input
-          placeholder="45"
+          placeholder="35"
           name="price"
           type="number"
           step="0.01"
@@ -86,6 +88,7 @@ export default function AddNew({ onAddNewCard }) {
     const { nameOfClothing, store, price, date, clothingType } = form.elements
     onAddNewCard({
       name: nameOfClothing.value,
+      images: images.map(img => img.data_url),
       store: store.value,
       price: price.value,
       date: date.value,

@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import React, { useState, useEffect } from 'react'
 import ImageUploading from 'react-images-uploading'
 
-export default function Upload() {
+export default function Upload({ onImage }) {
   const [images, setImages] = useState(loadFromLocal('images') ?? [])
   const maxNumber = 69
 
@@ -10,6 +10,7 @@ export default function Upload() {
     // data for submit
     console.log(imageList, addUpdateIndex)
     setImages(imageList)
+    onImage(imageList)
   }
 
   useEffect(() => {
@@ -140,7 +141,4 @@ const RemoveButton = styled.button`
   width: 50%;
   padding: 5px;
   margin-top: 2px;
-`
-const imageItem = styled.div`
-  margin: 200px;
 `

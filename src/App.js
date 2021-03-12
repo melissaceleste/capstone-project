@@ -19,6 +19,7 @@ function App() {
       <Header />
 
       <AddNew onAddNewCard={addNewCard} />
+      {/* ---- cards created by form */}
       {cards.map(card => (
         <Card
           name={card.name}
@@ -33,6 +34,7 @@ function App() {
       ))}
       <Filter userInput={userInput} setUserInput={setUserInput} />
       <Layout>
+        {/*  ------ static cards ---- */}
         {clothes
           .filter(item =>
             item.name.toLowerCase().includes(userInput.toLowerCase())
