@@ -7,7 +7,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "20",
-      "Kleidungsart": "Oberteil"
+      "clothingType": "Oberteil"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "30",
-      "Kleidungsart": "Oberteil"
+      "clothingType": "Oberteil"
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "40",
-      "Kleidungsart": "Oberteil"
+      "clothingType": "Oberteil"
     },
 
     {
@@ -35,7 +35,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "30",
-      "Kleidungsart": "Hose"
+      "clothingType": "Hose"
     },
     {
       "id": 5,
@@ -44,7 +44,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "30",
-      "Kleidungsart": "Hose"
+      "clothingType": "Hose"
     },
 
     {
@@ -54,7 +54,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "30",
-      "Kleidungsart": "Kleid"
+      "clothingType": "Kleid"
     },
     {
       "id": 7,
@@ -63,7 +63,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "30",
-      "Kleidungsart": "Kleid"
+      "clothingType": "Kleid"
     },
     {
       "id": 8,
@@ -72,7 +72,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "30",
-      "Kleidungsart": "Kleid"
+      "clothingType": "Kleid"
     },
     {
       "id": 9,
@@ -81,7 +81,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "30",
-      "Kleidungsart": "Kleid"
+      "clothingType": "Kleid"
     },
 
     {
@@ -91,7 +91,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "30",
-      "Kleidungsart": "Schuhe"
+      "clothingType": "Schuhe"
     },
     {
       "id": 12,
@@ -100,7 +100,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "30",
-      "Kleidungsart": "Schuhe"
+      "clothingType": "Schuhe"
     },
     {
       "id": 13,
@@ -109,7 +109,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "30",
-      "Kleidungsart": "Schuhe"
+      "clothingType": "Schuhe"
     },
 
     {
@@ -119,7 +119,7 @@
       "date": "30.01.2020",
       "store": "Zara",
       "price": "30",
-      "Kleidungsart": "Jacke"
+      "clothingType": "Jacke"
     }
   ]
 }

@@ -5,7 +5,7 @@ import Upload from '../Upload/Upload'
 export default function AddNew({ onAddNewCard }) {
   return (
     <AddNewContainer onSubmit={handleSubmit}>
-      <Upload />
+      <Upload required="required" />
       <p>
         Umso mehr Infos du speicherst, umso einfacher kannst du deine
         Lieblingsteile später wieder finden:)
@@ -19,7 +19,7 @@ export default function AddNew({ onAddNewCard }) {
       </label>
       <label>
         <h2>Kaufdatum:</h2>
-        <input type="date" placeholder="30.01.2018" name="date" />
+        <input type="date" name="date" />
       </label>
       <label>
         <h2>Geschäft:</h2>
@@ -36,46 +36,46 @@ export default function AddNew({ onAddNewCard }) {
         />
       </label>
       <h2>Kleidungsart:</h2>
-      <ContainerKleidungsart>
+      <ContainerClothingType>
         <label>
           <h3> Oberteil </h3>
-          <input type="radio" name="Oberteil" />
+          <input type="radio" name="clothingType" value="Oberteil" required />
         </label>
         <label>
           <h3> Kleid </h3>
-          <input type="radio" name="Kleid" />
+          <input type="radio" name="clothingType" value="Kleid" />
         </label>
 
         <label>
           <h3> Rock </h3>
-          <input type="radio" name="Rock" />
+          <input type="radio" name="clothingType" value="Rock" />
         </label>
 
         <label>
           <h3> Hose </h3>
-          <input type="radio" name="Oberteil" />
+          <input type="radio" name="clothingType" value="Hose" />
         </label>
 
         <label>
           <h3> Jacke </h3>
-          <input type="radio" name="Jacke" />
+          <input type="radio" name="clothingType" value="Jacke" />
         </label>
 
         <label>
           <h3> Schuhe </h3>
-          <input type="radio" name="Schuhe" />
+          <input type="radio" name="clothingType" value="Schuhe" />
         </label>
 
         <label>
           <h3> Accessoire </h3>
-          <input type="radio" name="Accessoire" />
+          <input type="radio" name="clothingType" value="Accessoire" />
         </label>
 
         <label>
           <h3> special stuff💫 </h3>
-          <input type="radio" name="special stuff" />
+          <input type="radio" name="clothingType" value="special" />
         </label>
-      </ContainerKleidungsart>
+      </ContainerClothingType>
       <br />
       <SubmitButton> hinzufügen </SubmitButton>
     </AddNewContainer>
@@ -83,12 +83,13 @@ export default function AddNew({ onAddNewCard }) {
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
-    const { nameOfClothing, store, price, date } = form.elements
+    const { nameOfClothing, store, price, date, clothingType } = form.elements
     onAddNewCard({
       name: nameOfClothing.value,
       store: store.value,
       price: price.value,
       date: date.value,
+      clothingType: clothingType.value,
     })
     form.reset()
   }
@@ -116,12 +117,19 @@ const AddNewContainer = styled.form`
     padding: 5px;
     width: 100%;
     margin: 0;
+    font-family: inherit;
+    color: grey;
   }
 `
-const ContainerKleidungsart = styled.section`
+const ContainerClothingType = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+
+  h3 {
+    font-size: 14px;
+    color: darkgrey;
+  }
 
   label {
     margin: 10px;

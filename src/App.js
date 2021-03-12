@@ -25,6 +25,7 @@ function App() {
           store={card.store}
           price={card.price}
           date={card.date}
+          clothingType={card.clothingType}
           images={card.images}
           cards={cards}
           setCards={setCards}
@@ -36,17 +37,20 @@ function App() {
           .filter(item =>
             item.name.toLowerCase().includes(userInput.toLowerCase())
           )
-          .map(({ name, image, id, store, price, date, images }) => (
-            <Card
-              key={id}
-              image={image}
-              name={name}
-              store={store}
-              price={price}
-              date={date}
-              images={images}
-            />
-          ))}
+          .map(
+            ({ name, image, id, store, price, date, clothingType, images }) => (
+              <Card
+                key={id}
+                image={image}
+                name={name}
+                store={store}
+                price={price}
+                date={date}
+                clothingType={clothingType}
+                images={images}
+              />
+            )
+          )}
       </Layout>
     </>
   )
@@ -56,6 +60,7 @@ function App() {
   }
   function saveToLocal(key, data) {
     localStorage.setItem(key, JSON.stringify(data))
+    localStorage.clear()
   }
 
   function loadFromLocal(key) {

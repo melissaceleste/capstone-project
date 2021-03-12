@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ImageUploading from 'react-images-uploading'
 
 export default function Upload() {
-  const [images, setImages] = React.useState(loadFromLocal('images') ?? [])
+  const [images, setImages] = useState(loadFromLocal('images') ?? [])
   const maxNumber = 69
 
   const onChange = (imageList, addUpdateIndex) => {
@@ -12,7 +12,7 @@ export default function Upload() {
     setImages(imageList)
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     saveToLocal('images', images)
   }, [images])
 
@@ -35,7 +35,7 @@ export default function Upload() {
           dragProps,
         }) => (
           // write your building UI
-          <div className="upload__image-wrapper">
+          <div>
             <UploadLabel
               htmlFor="button"
               style={isDragging ? { color: 'red' } : undefined}
@@ -45,15 +45,25 @@ export default function Upload() {
               Click or Drop here 📷
             </UploadLabel>
             &nbsp;
-            <RemoveButton onClick={onImageRemoveAll}>
+            <RemoveAllButton onClick={onImageRemoveAll}>
               Remove all images
-            </RemoveButton>
+            </RemoveAllButton>
             {imageList.map((image, index) => (
-              <div key={index} className="image-item">
-                <img src={image['data_url']} alt="" width="100" />
-                <div className="image-item__btn-wrapper">
-                  <button onClick={() => onImageUpdate(index)}>Update</button>
-                  <button onClick={() => onImageRemove(index)}>Remove</button>
+              <div key={index}>
+                <img
+                  src={image['data_url']}
+                  alt=""
+                  width="100"
+                  height="auto"
+                  style={{ margin: '10px auto auto ' }}
+                />
+                <div>
+                  <UpdateButton onClick={() => onImageUpdate(index)}>
+                    Update
+                  </UpdateButton>
+                  <RemoveButton onClick={() => onImageRemove(index)}>
+                    Remove
+                  </RemoveButton>
                 </div>
               </div>
             ))}
@@ -94,7 +104,7 @@ const UploadContainer = styled.form`
     margin: 0;
   }
 `
-const RemoveButton = styled.button`
+const RemoveAllButton = styled.button`
   background-color: #eee;
   color: grey;
   border-radius: 20px;
@@ -107,4 +117,30 @@ const RemoveButton = styled.button`
 `
 const UploadLabel = styled.label`
   font-size: 18px;
+`
+
+const UpdateButton = styled.button`
+  background-color: #eee;
+  color: grey;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 3px 3px 3px darkgrey;
+  font-size: 14px;
+  width: 50%;
+  padding: 5px;
+  margin-top: 2px;
+`
+const RemoveButton = styled.button`
+  background-color: #eee;
+  color: grey;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 3px 3px 3px darkgrey;
+  font-size: 14px;
+  width: 50%;
+  padding: 5px;
+  margin-top: 2px;
+`
+const imageItem = styled.div`
+  margin: 200px;
 `
