@@ -5,27 +5,27 @@ export default function Card({
   store,
   price,
   date,
-  images,
+  images = [''],
   clothingType,
 }) {
   return (
     <CardContainer>
       <h2>{name}</h2>
-      <ul>
-        <li> {clothingType}</li>
-        <li> {store}</li>
-        <li>{price !== '' ? price + '€' : ''}</li>
-        <li>{date} </li>
-      </ul>
       {images.map(image => (
         <img
-          key={image} /* key={image.data_url} */
+          key={image} /* ke} */
           src={image}
           alt=""
           width="100"
           height="100"
         />
       ))}
+      <ul>
+        <li> {clothingType}</li>
+        <li> {store}</li>
+        <li>{price !== '' ? price + '€' : ''}</li>
+        <li>{date} </li>
+      </ul>
     </CardContainer>
   )
 }

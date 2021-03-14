@@ -13,18 +13,18 @@ export default function AddNew({ onAddNewCard }) {
         Lieblingsteile später wieder finden:)
       </p>
       <label>
-        <h2>Name:</h2>
+        <h2>Name (optional):</h2>
         <input
           placeholder="z.B. Minikleid oder Lieblingskleid"
           name="nameOfClothing"
         />
       </label>
       <label>
-        <h2>Kaufdatum:</h2>
+        <h2>Kaufdatum (optional):</h2>
         <input type="date" name="date" />
       </label>
       <label>
-        <h2>Geschäft:</h2>
+        <h2>Geschäft (optional):</h2>
         <input placeholder="Monki" name="store" />
       </label>
       <label>
