@@ -12,13 +12,7 @@ export default function Card({
     <CardContainer>
       <h2>{name}</h2>
       {images.map(image => (
-        <img
-          key={image} /* ke} */
-          src={image}
-          alt=""
-          width="100"
-          height="100"
-        />
+        <img key={image} src={image} alt="" width="100" height="auto" />
       ))}
       <ul>
         <li> {clothingType}</li>

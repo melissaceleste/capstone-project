@@ -28,7 +28,7 @@ export default function AddNew({ onAddNewCard }) {
         <input placeholder="Monki" name="store" />
       </label>
       <label>
-        <h2>Preis:</h2>
+        <h2>Preis (optional):</h2>
         <input
           placeholder="35"
           name="price"
@@ -79,7 +79,7 @@ export default function AddNew({ onAddNewCard }) {
         </label>
       </ContainerClothingType>
       <br />
-      <SubmitButton> hinzufügen </SubmitButton>
+      <SubmitButton text="add"> hinzufügen </SubmitButton>
     </AddNewContainer>
   )
   function handleSubmit(event) {

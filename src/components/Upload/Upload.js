@@ -8,7 +8,6 @@ export default function Upload({ onImage }) {
 
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
-    console.log(imageList, addUpdateIndex)
     setImages(imageList)
     onImage(imageList)
   }
@@ -35,10 +34,10 @@ export default function Upload({ onImage }) {
           isDragging,
           dragProps,
         }) => (
-          // write your building UI
           <div>
             <UploadLabel
               htmlFor="button"
+              title="uploadButton"
               style={isDragging ? { color: 'red' } : undefined}
               onClick={onImageUpload}
               {...dragProps}
@@ -46,7 +45,7 @@ export default function Upload({ onImage }) {
               Click or Drop here 📷
             </UploadLabel>
             &nbsp;
-            <RemoveAllButton onClick={onImageRemoveAll}>
+            <RemoveAllButton title="removeButton" onClick={onImageRemoveAll}>
               Remove all images
             </RemoveAllButton>
             {imageList.map((image, index) => (
@@ -84,7 +83,7 @@ export default function Upload({ onImage }) {
   }
 }
 
-const UploadContainer = styled.form`
+const UploadContainer = styled.div`
   text-align: center;
   background-color: #ffffff;
   border-radius: 20px;
