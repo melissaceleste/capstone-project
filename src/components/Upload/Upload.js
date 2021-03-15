@@ -51,7 +51,7 @@ export default function Upload({ onImage }) {
                   alt=""
                   width="100"
                   height="auto"
-                  style={{ margin: '10px auto auto ' }}
+                  style={{ margin: '10px auto auto' }}
                 />
                 <div>
                   <UpdateButton onClick={() => onImageUpdate(index)}>

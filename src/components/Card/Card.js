@@ -15,8 +15,8 @@ export default function Card({
         <img key={image} src={image} alt="" width="100" height="auto" />
       ))}
       <ul>
-        <li> {clothingType}</li>
-        <li> {store}</li>
+        <li>{clothingType}</li>
+        <li>{store}</li>
         <li>{price !== '' ? price + '€' : ''}</li>
         <li>{date} </li>
       </ul>
