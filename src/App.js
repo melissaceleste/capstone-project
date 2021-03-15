@@ -62,7 +62,7 @@ function App() {
   }
   function saveToLocal(key, data) {
     localStorage.setItem(key, JSON.stringify(data))
-    //localStorage.clear()
+    localStorage.clear()
   }
 
   function loadFromLocal(key) {

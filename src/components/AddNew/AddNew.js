@@ -128,12 +128,10 @@ const ContainerClothingType = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-
   h3 {
     font-size: 14px;
     color: darkgrey;
   }
-
   label {
     margin: 10px;
   }
