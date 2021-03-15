@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ImageUploading from 'react-images-uploading'
 
 export default function Upload({ onImage }) {
-  const [images, setImages] = useState(loadFromLocal('images') ?? [])
+  const [images, setImages] = useState([])
   const maxNumber = 69
 
   const onChange = (imageList, addUpdateIndex) => {
@@ -11,10 +11,6 @@ export default function Upload({ onImage }) {
     setImages(imageList)
     onImage(imageList)
   }
-
-  useEffect(() => {
-    saveToLocal('images', images)
-  }, [images])
 
   return (
     <UploadContainer>
@@ -72,15 +68,6 @@ export default function Upload({ onImage }) {
       </ImageUploading>
     </UploadContainer>
   )
-  function saveToLocal(key, data) {
-    localStorage.setItem(key, JSON.stringify(data))
-  }
-
-  function loadFromLocal(key) {
-    const jsonString = localStorage.getItem(key)
-    const data = JSON.parse(jsonString)
-    return data
-  }
 }
 
 const UploadContainer = styled.div`
@@ -94,7 +81,6 @@ const UploadContainer = styled.div`
     margin: 25px 0 0 0;
     color: grey;
   }
-
   input {
     border-radius: 10px;
     border: none;
@@ -118,7 +104,6 @@ const RemoveAllButton = styled.button`
 const UploadLabel = styled.label`
   font-size: 18px;
 `
-
 const UpdateButton = styled.button`
   background-color: #eee;
   color: grey;

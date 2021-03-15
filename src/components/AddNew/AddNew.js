@@ -40,41 +40,41 @@ export default function AddNew({ onAddNewCard }) {
       <h2>Kleidungsart:</h2>
       <ContainerClothingType>
         <label>
-          <h3> Oberteil </h3>
-          <input type="radio" name="clothingType" value="Oberteil" required />
+          Oberteil
+          <input type="radio" name="clothingType" value="Oberteil" />
         </label>
         <label>
-          <h3> Kleid </h3>
+          Kleid
           <input type="radio" name="clothingType" value="Kleid" />
         </label>
 
         <label>
-          <h3> Rock </h3>
+          Rock
           <input type="radio" name="clothingType" value="Rock" />
         </label>
 
         <label>
-          <h3> Hose </h3>
+          Hose
           <input type="radio" name="clothingType" value="Hose" />
         </label>
 
         <label>
-          <h3> Jacke </h3>
+          Jacke
           <input type="radio" name="clothingType" value="Jacke" />
         </label>
 
         <label>
-          <h3> Schuhe </h3>
+          Schuhe
           <input type="radio" name="clothingType" value="Schuhe" />
         </label>
 
         <label>
-          <h3> Accessoire </h3>
+          Accessoire
           <input type="radio" name="clothingType" value="Accessoire" />
         </label>
 
         <label>
-          <h3> special stuff💫 </h3>
+          special stuff💫
           <input type="radio" name="clothingType" value="special" />
         </label>
       </ContainerClothingType>
@@ -138,7 +138,6 @@ const ContainerClothingType = styled.section`
     margin: 10px;
   }
 `
-
 const SubmitButton = styled.button`
   background-color: #acb49b;
   color: white;
