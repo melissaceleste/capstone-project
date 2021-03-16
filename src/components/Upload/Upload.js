@@ -15,7 +15,6 @@ export default function Upload({ onImage }) {
   return (
     <UploadContainer>
       <ImageUploading
-        multiple
         value={images}
         onChange={onChange}
         maxNumber={maxNumber}
