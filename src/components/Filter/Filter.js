@@ -1,18 +1,81 @@
 import styled from 'styled-components/macro'
 
-export default function Filter({ userInput, setUserInput }) {
+export default function Filter({
+  showAllClothingTypes,
+  userInputName,
+  setUserInputName,
+  userInputStore,
+  setUserInputStore,
+  userInputClothingType,
+  setUserInputClothingType,
+}) {
+  const selectOptions = [
+    { label: 'Oberteile', value: 'Oberteil' },
+    { label: 'Kleider', value: 'Kleid' },
+    { label: 'Hosen', value: 'Hose' },
+    { label: 'Jacken', value: 'Jacke' },
+    { label: 'Schuhe', value: 'Schuhe' },
+    { label: 'Accessoires', value: 'Accessoire' },
+    { label: 'special stuff', value: 'special' },
+  ]
   return (
     <FilterContainer>
       <h1>Such nach deinem Kleidungsstück...</h1>
-      <FilterByName>
+      <FilterWrapper>
         <h2>Name:</h2>
         <Input
           placeholder="z.B. Minikleid"
-          value={userInput}
-          onChange={event => setUserInput(event.target.value)}
+          value={userInputName}
+          onChange={event => setUserInputName(event.target.value)}
         />
-      </FilterByName>
+      </FilterWrapper>
       <br />
+      <FilterWrapper>
+        <h2>Geschäft:</h2>
+        <Input
+          placeholder="z.B. Monki"
+          value={userInputStore}
+          onChange={event => setUserInputStore(event.target.value)}
+        />
+      </FilterWrapper>
+      <FilterWrapper>
+        <h2>Preis:</h2>
+      </FilterWrapper>
+      <FilterWrapper>
+        <h2>Datum:</h2>
+      </FilterWrapper>
+      <FilterWrapper>
+        <h2>Kleidungstyp</h2>
+        <select
+          value={userInputClothingType}
+          onChange={event => setUserInputClothingType(event.target.value)}
+        >
+          <option value="" disabled hidden>
+            Wähle ein Kleidungstyp
+          </option>
+          {showAllClothingTypes && (
+            <option key="allClothingTypes" value="all">
+              {' '}
+              alle{' '}
+            </option>
+          )}
+          {selectOptions.map(option => (
+            <option key={option.label} value={option.value}>
+              {' '}
+              {option.label}{' '}
+            </option>
+          ))}
+
+          {/*  <option value="Alles"> Alles</option>
+          <option value="Oberteil"> Oberteile</option>
+          <option value="Kleid"> Kleider</option>
+          <option value="Hose"> Hosen</option>
+          <option value="Jacke"> Jacken</option>
+          <option value="Schuhe"> Schuhe</option>
+          <option value="Accessoire"> Accessoires</option>
+          <option value="special"> special stuff</option> */}
+        </select>
+      </FilterWrapper>
     </FilterContainer>
   )
 }
@@ -43,7 +106,7 @@ const FilterContainer = styled.form`
     padding: 5px;
   }
 `
-const FilterByName = styled.label`
+const FilterWrapper = styled.label`
   padding: 0;
   margin: 10px;
   color: grey;

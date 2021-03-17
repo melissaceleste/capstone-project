@@ -3,19 +3,47 @@ import Card from '../Card/Card'
 import Filter from '../Filter/Filter'
 
 export default function MyClosetPage({
-  userInput,
-  setUserInput,
+  userInputName,
+  setUserInputName,
+  userInputStore,
+  setUserInputStore,
+  userInputClothingType,
+  setUserInputClothingType,
   cards,
   setCards,
 }) {
   return (
     <MyClosetPageLayout>
-      <Filter userInput={userInput} setUserInput={setUserInput} />
+      <Filter
+        userInputName={userInputName}
+        setUserInputName={setUserInputName}
+        userInputStore={userInputStore}
+        setUserInputStore={setUserInputStore}
+        userInputClothingType={setUserInputClothingType}
+        setUserInputClothingType={setUserInputClothingType}
+      />
       <ResultContainer>
         {cards
           .filter(card =>
-            card.name.toLowerCase().includes(userInput.toLowerCase())
+            card.name.toLowerCase().includes(userInputName.toLowerCase())
           )
+          .filter(card =>
+            card.store.toLowerCase().includes(userInputStore.toLowerCase())
+          )
+          .filter(card =>
+            card.clothingType
+              .toLowerCase()
+              .includes(userInputClothingType.toLowerCase())
+          )
+
+          /* function filterMovies(value) {
+            setFilteredMovies(
+              value === 'all'
+                ? movies
+                : movies.filter(movie => movie.foodCategory === value)
+            )
+          } */
+
           .map(
             ({ name, image, id, store, price, date, clothingType, images }) => (
               <Card

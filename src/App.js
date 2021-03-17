@@ -7,7 +7,9 @@ import AddNewPage from './components/AddNewPage/AddNewPage'
 import Navigation from './components/Navigation/Navigation'
 
 function App() {
-  const [userInput, setUserInput] = useState('')
+  const [userInputName, setUserInputName] = useState('')
+  const [userInputStore, setUserInputStore] = useState('')
+  const [userInputClothingType, setUserInputClothingType] = useState('')
   const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
 
   useEffect(() => {
@@ -25,8 +27,12 @@ function App() {
           <MyClosetPage
             cards={cards}
             setCards={setCards}
-            userInput={userInput}
-            setUserInput={setUserInput}
+            userInputName={userInputName}
+            setUserInputName={setUserInputName}
+            userInputStore={userInputStore}
+            setUserInputStore={setUserInputStore}
+            userInputClothingType={userInputClothingType}
+            setUserInputClothingType={setUserInputClothingType}
           />
         </Route>
         <Route path="/addnew">
