@@ -11,6 +11,8 @@ function App() {
   const [userInputStore, setUserInputStore] = useState('')
   const [userInputClothingType, setUserInputClothingType] = useState('')
   const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
+  const [userInputMinPrice, setUserInputMinPrice] = useState(0)
+  const [userInputMaxPrice, setUserInputMaxPrice] = useState(200)
 
   useEffect(() => {
     saveToLocal('cards', cards)
@@ -33,6 +35,10 @@ function App() {
             setUserInputStore={setUserInputStore}
             userInputClothingType={userInputClothingType}
             setUserInputClothingType={setUserInputClothingType}
+            userInputMinPrice={userInputMinPrice}
+            setUserInputMinPrice={setUserInputMinPrice}
+            userInputMaxPrice={userInputMaxPrice}
+            setUserInpuMaxPrice={setUserInputMaxPrice}
           />
         </Route>
         <Route path="/addnew">

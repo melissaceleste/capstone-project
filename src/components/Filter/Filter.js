@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+import { useState } from 'react'
 
 export default function Filter({
   showAllClothingTypes,
@@ -8,6 +9,10 @@ export default function Filter({
   setUserInputStore,
   userInputClothingType,
   setUserInputClothingType,
+  userInputMinPrice,
+  setUserInputMinPrice,
+  userInputMaxPrice,
+  setUserInputMaxPrice,
 }) {
   const selectOptions = [
     { label: 'Oberteile', value: 'Oberteil' },
@@ -18,6 +23,7 @@ export default function Filter({
     { label: 'Accessoires', value: 'Accessoire' },
     { label: 'special stuff', value: 'special' },
   ]
+
   return (
     <FilterContainer>
       <h1>Such nach deinem Kleidungsstück...</h1>
@@ -40,6 +46,30 @@ export default function Filter({
       </FilterWrapper>
       <FilterWrapper>
         <h2>Preis:</h2>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          step="10"
+          value={userInputMinPrice}
+          onChange={event => setUserInputMinPrice(event.target.value)}
+        ></input>
+        <input
+          type="range"
+          min="101"
+          max="200"
+          step="10"
+          value={userInputMaxPrice}
+          onChange={event => setUserInputMaxPrice(event.target.value)}
+        ></input>
+        {/* 
+        <input
+          minValue={minPrice}
+          maxValue={maxPrice}
+          step="10"
+          onChange={onChange}
+          value={value}
+        /> */}
       </FilterWrapper>
       <FilterWrapper>
         <h2>Datum:</h2>
@@ -65,17 +95,9 @@ export default function Filter({
               {option.label}{' '}
             </option>
           ))}
-
-          {/*  <option value="Alles"> Alles</option>
-          <option value="Oberteil"> Oberteile</option>
-          <option value="Kleid"> Kleider</option>
-          <option value="Hose"> Hosen</option>
-          <option value="Jacke"> Jacken</option>
-          <option value="Schuhe"> Schuhe</option>
-          <option value="Accessoire"> Accessoires</option>
-          <option value="special"> special stuff</option> */}
         </select>
       </FilterWrapper>
+      <button> reset </button>
     </FilterContainer>
   )
 }

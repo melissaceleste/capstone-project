@@ -11,6 +11,10 @@ export default function MyClosetPage({
   setUserInputClothingType,
   cards,
   setCards,
+  userInputMaxPrice,
+  userInputMinPrice,
+  setUserInputMaxPrice,
+  setUserInputMinPrice,
 }) {
   return (
     <MyClosetPageLayout>
@@ -21,6 +25,10 @@ export default function MyClosetPage({
         setUserInputStore={setUserInputStore}
         userInputClothingType={setUserInputClothingType}
         setUserInputClothingType={setUserInputClothingType}
+        userInputMinPrice={userInputMinPrice}
+        setUserInputMinPrice={setUserInputMinPrice}
+        userInputMaxPrice={userInputMaxPrice}
+        setUserInpuMaxPrice={setUserInputMaxPrice}
       />
       <ResultContainer>
         {cards
