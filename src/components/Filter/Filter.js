@@ -13,7 +13,6 @@ export default function Filter({ userInput, setUserInput }) {
         />
       </FilterByName>
       <br />
-      {/*  <button> zeig her! </button> */}
     </FilterContainer>
   )
 }
@@ -24,7 +23,6 @@ const FilterContainer = styled.form`
   padding: 10px;
   width: 100%;
   margin: 10px auto;
-
   h1 {
     font-size: 18px;
     margin: 2px;

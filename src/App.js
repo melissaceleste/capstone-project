@@ -1,10 +1,10 @@
-import Card from './components/Card/Card'
 import Header from './components/Header/Header'
-import { clothes } from './coucou.json'
-import styled from 'styled-components/macro'
-import Filter from './components/Filter/Filter'
 import { useState, useEffect } from 'react'
-import AddNew from './components/AddNew/AddNew'
+import { Route, Switch /*  useHistory */ } from 'react-router-dom'
+import HomePage from './components/HomePage/HomePage'
+import MyClosetPage from './components/MyClosetPage/MyClosetPage'
+import AddNewPage from './components/AddNewPage/AddNewPage'
+import Navigation from './components/Navigation/Navigation'
 
 function App() {
   const [userInput, setUserInput] = useState('')
@@ -17,43 +17,29 @@ function App() {
   return (
     <>
       <Header />
-
-      <AddNew onAddNewCard={addNewCard} />
-      {/* ---- cards created by form */}
-      {cards.map(card => (
-        <Card
-          name={card.name}
-          store={card.store}
-          price={card.price}
-          date={card.date}
-          clothingType={card.clothingType}
-          images={card.images}
-          cards={cards}
-          setCards={setCards}
-        />
-      ))}
-      <Filter userInput={userInput} setUserInput={setUserInput} />
-      <Layout>
-        {/*  ------ static cards ---- */}
-        {clothes
-          .filter(item =>
-            item.name.toLowerCase().includes(userInput.toLowerCase())
-          )
-          .map(
-            ({ name, image, id, store, price, date, clothingType, images }) => (
-              <Card
-                key={id}
-                image={image}
-                name={name}
-                store={store}
-                price={price}
-                date={date}
-                clothingType={clothingType}
-                images={images}
-              />
-            )
-          )}
-      </Layout>
+      <Switch>
+        <Route exact path="/">
+          <HomePage cards={cards} setCards={setCards} />
+        </Route>
+        <Route path="/mycloset">
+          <MyClosetPage
+            cards={cards}
+            setCards={setCards}
+            userInput={userInput}
+            setUserInput={setUserInput}
+          />
+        </Route>
+        <Route path="/addnew">
+          <AddNewPage
+            cards={cards}
+            setCards={setCards}
+            addNewCard={addNewCard}
+          />
+        </Route>
+      </Switch>
+      <Route path={['/', '/mycloset', '/addnew']}>
+        <Navigation />
+      </Route>
     </>
   )
 
@@ -62,9 +48,8 @@ function App() {
   }
   function saveToLocal(key, data) {
     localStorage.setItem(key, JSON.stringify(data))
-    localStorage.clear()
+    //localStorage.clear()
   }
-
   function loadFromLocal(key) {
     const jsonString = localStorage.getItem(key)
     const data = JSON.parse(jsonString)
@@ -73,9 +58,3 @@ function App() {
 }
 
 export default App
-
-const Layout = styled.div`
-  display: grid;
-  justify-content: center;
-  gap: 20px;
-`

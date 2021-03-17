@@ -9,6 +9,6 @@ export default createGlobalStyle`
     font-family:  'Helvetica Neue', sans-serif;
     font-size: 112.5%;
     line-height: 1.5;
-    align-items: center;
     font-size:12px;
-  }`
+  }
+  `

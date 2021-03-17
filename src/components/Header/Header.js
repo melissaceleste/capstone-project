@@ -17,4 +17,6 @@ const HeaderContainer = styled.header`
   background-color: #e2d5c5;
   color: white;
   border-radius: 20px;
+  position: fixed;
+  top: 0;
 `
