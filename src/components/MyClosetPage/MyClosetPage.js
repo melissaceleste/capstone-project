@@ -34,7 +34,7 @@ export default function MyClosetPage({
     </MyClosetPageLayout>
   )
 }
-const MyClosetPageLayout = styled.div`
+const MyClosetPageLayout = styled.main`
   overflow: auto;
   width: 100%;
   margin-top: 70px;

@@ -23,7 +23,7 @@ export default function AddNewPage({ addNewCard, cards, setCards }) {
     </AddNewPageLayout>
   )
 }
-const AddNewPageLayout = styled.div`
+const AddNewPageLayout = styled.main`
   display: grid;
   justify-content: center;
   gap: 20px;

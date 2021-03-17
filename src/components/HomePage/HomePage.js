@@ -20,7 +20,7 @@ export default function HomePage({ cards, setCards }) {
     </HomePageLayout>
   )
 }
-const HomePageLayout = styled.div`
+const HomePageLayout = styled.main`
   display: grid;
   justify-content: center;
   gap: 20px;
