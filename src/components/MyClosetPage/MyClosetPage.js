@@ -15,6 +15,11 @@ export default function MyClosetPage({
   userInputMinPrice,
   setUserInputMaxPrice,
   setUserInputMinPrice,
+  userInputFromDate,
+  setUserInputFromDate,
+  userInputToDate,
+  setUserInputToDate,
+  OnResetFilter,
 }) {
   return (
     <MyClosetPageLayout>
@@ -28,8 +33,14 @@ export default function MyClosetPage({
         userInputMinPrice={userInputMinPrice}
         setUserInputMinPrice={setUserInputMinPrice}
         userInputMaxPrice={userInputMaxPrice}
-        setUserInpuMaxPrice={setUserInputMaxPrice}
+        setUserInputMaxPrice={setUserInputMaxPrice}
+        userInputFromDate={userInputFromDate}
+        setUserInputFromDate={setUserInputFromDate}
+        userInputToDate={userInputToDate}
+        setUserInputToDate={setUserInputToDate}
+        handleOnResetFilter={OnResetFilter}
       />
+
       <ResultContainer>
         {cards
           .filter(card =>
@@ -43,14 +54,17 @@ export default function MyClosetPage({
               .toLowerCase()
               .includes(userInputClothingType.toLowerCase())
           )
+          .filter(
+            card =>
+              card.price >= { userInputMinPrice } &&
+              card.price <= { userInputMaxPrice }
+          )
 
-          /* function filterMovies(value) {
-            setFilteredMovies(
-              value === 'all'
-                ? movies
-                : movies.filter(movie => movie.foodCategory === value)
-            )
-          } */
+          .filter(
+            card =>
+              card.date >= { userInputFromDate } &&
+              card.date <= { userInputToDate }
+          )
 
           .map(
             ({ name, image, id, store, price, date, clothingType, images }) => (

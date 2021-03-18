@@ -26,6 +26,6 @@ const HomePageLayout = styled.main`
   gap: 20px;
   overflow: auto;
   width: 100%;
-  margin-top: 80px;
+  margin-top: 100px;
   margin-bottom: 70px;
 `
