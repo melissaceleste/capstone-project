@@ -1,6 +1,9 @@
 import styled from 'styled-components/macro'
 import Card from '../Card/Card'
-import Filter from '../Filter/Filter'
+import ResetButton from '../ResetButton/ResetButton'
+import FilterByName from '../FilterByName/FilterByName'
+import FilterByClothingType from '../FilterByClothingType/FilterByInputClothing'
+import FilterByStore from '../FilterByStore/FilterByStore'
 
 export default function MyClosetPage({
   userInputName,
@@ -11,36 +14,27 @@ export default function MyClosetPage({
   setUserInputClothingType,
   cards,
   setCards,
-  userInputMaxPrice,
-  userInputMinPrice,
-  setUserInputMaxPrice,
-  setUserInputMinPrice,
-  userInputFromDate,
-  setUserInputFromDate,
-  userInputToDate,
-  setUserInputToDate,
   OnResetFilter,
 }) {
   return (
     <MyClosetPageLayout>
-      <Filter
-        userInputName={userInputName}
-        setUserInputName={setUserInputName}
-        userInputStore={userInputStore}
-        setUserInputStore={setUserInputStore}
-        userInputClothingType={setUserInputClothingType}
-        setUserInputClothingType={setUserInputClothingType}
-        userInputMinPrice={userInputMinPrice}
-        setUserInputMinPrice={setUserInputMinPrice}
-        userInputMaxPrice={userInputMaxPrice}
-        setUserInputMaxPrice={setUserInputMaxPrice}
-        userInputFromDate={userInputFromDate}
-        setUserInputFromDate={setUserInputFromDate}
-        userInputToDate={userInputToDate}
-        setUserInputToDate={setUserInputToDate}
-        handleOnResetFilter={OnResetFilter}
-      />
+      <FormContainer>
+        <h1>Such nach deinem Kleidungsstück...</h1>
 
+        <FilterByName
+          userInputName={userInputName}
+          setUserInputName={setUserInputName}
+        />
+        <FilterByStore
+          userInputStore={userInputStore}
+          setUserInputStore={setUserInputStore}
+        />
+        <FilterByClothingType
+          userInputClothingType={setUserInputClothingType}
+          setUserInputClothingType={setUserInputClothingType}
+        />
+        <ResetButton handleOnResetFilter={OnResetFilter}></ResetButton>
+      </FormContainer>
       <ResultContainer>
         {cards
           .filter(card =>
@@ -54,7 +48,7 @@ export default function MyClosetPage({
               .toLowerCase()
               .includes(userInputClothingType.toLowerCase())
           )
-          .filter(
+          /*     .filter(
             card =>
               card.price >= { userInputMinPrice } &&
               card.price <= { userInputMaxPrice }
@@ -64,7 +58,7 @@ export default function MyClosetPage({
             card =>
               card.date >= { userInputFromDate } &&
               card.date <= { userInputToDate }
-          )
+          ) */
 
           .map(
             ({ name, image, id, store, price, date, clothingType, images }) => (
@@ -84,6 +78,18 @@ export default function MyClosetPage({
     </MyClosetPageLayout>
   )
 }
+const FormContainer = styled.form`
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 3px #eee;
+  padding: 10px;
+  width: 100%;
+  margin: 10px auto;
+  h1 {
+    font-size: 18px;
+    margin: 2px;
+  }
+`
+
 const MyClosetPageLayout = styled.main`
   overflow: auto;
   width: 100%;

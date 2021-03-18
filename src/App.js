@@ -11,11 +11,11 @@ function App() {
   const [userInputStore, setUserInputStore] = useState('')
   const [userInputClothingType, setUserInputClothingType] = useState('')
   const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
-  const [userInputMinPrice, setUserInputMinPrice] = useState(0)
+  /*   const [userInputMinPrice, setUserInputMinPrice] = useState(0)
   const [userInputMaxPrice, setUserInputMaxPrice] = useState(200)
   const [userInputFromDate, setUserInputFromDate] = useState()
   const [userInputToDate, setUserInputToDate] = useState()
-
+ */
   useEffect(() => {
     saveToLocal('cards', cards)
   }, [cards])
@@ -37,14 +37,14 @@ function App() {
             setUserInputStore={setUserInputStore}
             userInputClothingType={userInputClothingType}
             setUserInputClothingType={setUserInputClothingType}
-            userInputMinPrice={userInputMinPrice}
+            /*     userInputMinPrice={userInputMinPrice}
             setUserInputMinPrice={setUserInputMinPrice}
             userInputMaxPrice={userInputMaxPrice}
             setUserInputMaxPrice={setUserInputMaxPrice}
             userInputFromDate={userInputFromDate}
             setUserInputFromDate={setUserInputFromDate}
             userInputToDate={userInputToDate}
-            setUserInputToDate={setUserInputToDate}
+            setUserInputToDate={setUserInputToDate} */
             OnResetFilter={resetFilter}
           />
         </Route>
