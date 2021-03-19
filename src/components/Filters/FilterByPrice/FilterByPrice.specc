@@ -1,0 +1,10 @@
+import { render, screen } from '@testing-library/react'
+
+import FilterByPrice from './FilterByPrice'
+
+describe('FilterByPrice', () => {
+  it('renders two input-slider', () => {
+    render(<FilterByPrice />)
+    expect(screen.getByPlaceholderText('z.B. Minikleid')).toBeInTheDocument()
+  })
+})

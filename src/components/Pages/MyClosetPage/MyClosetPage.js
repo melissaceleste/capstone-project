@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
-import Card from '../Card/Card'
-import ResetButton from '../ResetButton/ResetButton'
-import FilterByName from '../FilterByName/FilterByName'
-import FilterByClothingType from '../FilterByClothingType/FilterByInputClothing'
-import FilterByStore from '../FilterByStore/FilterByStore'
+import Card from '../../Card/Card'
+import ResetButton from '../../ResetButton/ResetButton'
+import FilterByName from '../../Filters/FilterByName/FilterByName'
+import FilterByClothingType from '../../Filters/FilterByClothingType/FilterByInputClothing'
+import FilterByStore from '../../Filters/FilterByStore/FilterByStore'
 
 export default function MyClosetPage({
   userInputName,

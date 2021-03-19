@@ -4,11 +4,13 @@ export default function FilterByStore({ userInputStore, setUserInputStore }) {
   return (
     <FilterLabel>
       <h2>Geschäft:</h2>
+      Zeig mir alle Kleidungsstücke die ich von
       <input
         placeholder="z.B. Monki"
         value={userInputStore}
         onChange={event => setUserInputStore(event.target.value)}
       />
+      habe!
     </FilterLabel>
   )
 }
@@ -29,6 +31,7 @@ const FilterLabel = styled.label`
     border: none;
     box-shadow: 1px 1px 1px grey;
     padding: 5px;
-    width: 100%;
+    width: 20%;
+    margin: auto 2px;
   }
 `

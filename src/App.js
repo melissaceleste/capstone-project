@@ -1,9 +1,9 @@
 import Header from './components/Header/Header'
 import { useState, useEffect } from 'react'
 import { Route, Switch /*  useHistory */ } from 'react-router-dom'
-import HomePage from './components/HomePage/HomePage'
-import MyClosetPage from './components/MyClosetPage/MyClosetPage'
-import AddNewPage from './components/AddNewPage/AddNewPage'
+import HomePage from './components/Pages/HomePage/HomePage'
+import MyClosetPage from './components/Pages/MyClosetPage/MyClosetPage'
+import AddNewPage from './components/Pages/AddNewPage/AddNewPage'
 import Navigation from './components/Navigation/Navigation'
 
 function App() {

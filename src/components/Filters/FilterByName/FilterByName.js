@@ -1,10 +1,8 @@
 import styled from 'styled-components/macro'
 
-export default function Filter({ userInputName, setUserInputName }) {
+export default function FilterByName({ userInputName, setUserInputName }) {
   return (
     <FilterLabel>
-      <h1>Such nach deinem Kleidungsstück...</h1>
-
       <h2>Name:</h2>
       <input
         placeholder="z.B. Minikleid"

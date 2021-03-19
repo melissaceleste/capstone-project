@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import React from 'react'
-import SmallCard from '../SmallCard/SmallCard'
+import SmallCard from '../../SmallCard/SmallCard'
 
 export default function HomePage({ cards, setCards }) {
   return (

@@ -11,7 +11,7 @@ export default function Filter({
       <h2>Preis:</h2>
       <input
         name="minPrice"
-        type="number"
+        type="range"
         min="0"
         max="100"
         step="10"
@@ -20,7 +20,7 @@ export default function Filter({
       ></input>
       <input
         name="maxPrice"
-        type="number"
+        type="range"
         step="10"
         value={userInputMaxPrice}
         onChange={event => setUserInputMaxPrice(event.target.value)}
