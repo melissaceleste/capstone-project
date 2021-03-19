@@ -1,7 +1,8 @@
 import styled from 'styled-components/macro'
+export default function SubmitButton() {
+  return <Button onclick={handleSubmitFilter}> Submit </Button>
 
-export default function ResetButton({ handleResetFilter }) {
-  return <Button onclick={handleResetFilter}> reset </Button>
+  function handleSubmitFilter() {}
 }
 
 const Button = styled.button`

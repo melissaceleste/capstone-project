@@ -8,10 +8,10 @@ export default function Filter({
 }) {
   return (
     <FilterLabel>
-      <h2>Preis:</h2>
+      <h2>Kaufpreis:</h2>
       <input
         name="minPrice"
-        type="range"
+        type="number"
         min="0"
         max="100"
         step="10"
@@ -20,7 +20,7 @@ export default function Filter({
       ></input>
       <input
         name="maxPrice"
-        type="range"
+        type="number"
         step="10"
         value={userInputMaxPrice}
         onChange={event => setUserInputMaxPrice(event.target.value)}
@@ -45,6 +45,7 @@ const FilterLabel = styled.label`
     border: none;
     box-shadow: 1px 1px 1px grey;
     padding: 5px;
-    width: 100%;
+    width: 50%;
+    margin: 0;
   }
 `

@@ -1,9 +1,12 @@
 import styled from 'styled-components/macro'
 import Card from '../../Card/Card'
 import ResetButton from '../../ResetButton/ResetButton'
+import SubmitButton from '../../SubmitButton/SubmitButton'
 import FilterByName from '../../Filters/FilterByName/FilterByName'
 import FilterByClothingType from '../../Filters/FilterByClothingType/FilterByInputClothing'
 import FilterByStore from '../../Filters/FilterByStore/FilterByStore'
+import FilterByPrice from '../../Filters/FilterByPrice/FilterByPrice'
+import FilterByDate from '../../Filters/FilterByDate/FilterByDate'
 
 export default function MyClosetPage({
   userInputName,
@@ -12,9 +15,17 @@ export default function MyClosetPage({
   setUserInputStore,
   userInputClothingType,
   setUserInputClothingType,
+  userInputMinPrice,
+  setUserInputMinPrice,
+  userInputMaxPrice,
+  setUserInputMaxPrice,
+  userInputFromDate,
+  setUserInputFromDate,
+  userInputToDate,
+  setUserInputToDate,
   cards,
   setCards,
-  OnResetFilter,
+  OnSubmitFilter,
 }) {
   return (
     <MyClosetPageLayout>
@@ -33,7 +44,20 @@ export default function MyClosetPage({
           userInputClothingType={setUserInputClothingType}
           setUserInputClothingType={setUserInputClothingType}
         />
-        <ResetButton handleOnResetFilter={OnResetFilter}></ResetButton>
+        <FilterByPrice
+          userInputMinPrice={userInputMinPrice}
+          setUserInputMinPrice={setUserInputMinPrice}
+          userInputMaxPrice={userInputMaxPrice}
+          setUserInputMaxPrice={setUserInputMaxPrice}
+        />
+        <FilterByDate
+          userInputFromDate={userInputFromDate}
+          setUserInputFromDate={setUserInputFromDate}
+          userInputToDate={userInputToDate}
+          setUserInputToDate={setUserInputToDate}
+        />
+        <SubmitButton handleSubmitFilter={submitFilter}></SubmitButton>
+        <ResetButton handleResetFilter={resetFilter}></ResetButton>
       </FormContainer>
       <ResultContainer>
         {cards
@@ -48,17 +72,15 @@ export default function MyClosetPage({
               .toLowerCase()
               .includes(userInputClothingType.toLowerCase())
           )
-          /*     .filter(
+          .filter(
             card =>
-              card.price >= { userInputMinPrice } &&
-              card.price <= { userInputMaxPrice }
+              card.price >= userInputMinPrice && card.price <= userInputMaxPrice
           )
 
           .filter(
             card =>
-              card.date >= { userInputFromDate } &&
-              card.date <= { userInputToDate }
-          ) */
+              card.date >= userInputFromDate && card.date <= userInputToDate
+          )
 
           .map(
             ({ name, image, id, store, price, date, clothingType, images }) => (
@@ -77,6 +99,17 @@ export default function MyClosetPage({
       </ResultContainer>
     </MyClosetPageLayout>
   )
+  function resetFilter() {
+    setUserInputName('')
+    setUserInputStore('')
+    setUserInputClothingType('')
+  }
+
+  function submitFilter() {
+    setUserInputName()
+    setUserInputStore('')
+    setUserInputClothingType('')
+  }
 }
 const FormContainer = styled.form`
   background-color: whitesmoke;
@@ -89,12 +122,11 @@ const FormContainer = styled.form`
     margin: 2px;
   }
 `
-
 const MyClosetPageLayout = styled.main`
   overflow: auto;
   width: 100%;
   margin-top: 70px;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
 `
 const ResultContainer = styled.section`
   display: grid;

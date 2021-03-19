@@ -8,7 +8,7 @@ export default function FilterByDate({
 }) {
   return (
     <FilterLabel>
-      <h2>Datum:</h2>
+      <h2>Kaufdatum:</h2>
       from
       <input
         type="date"
@@ -43,6 +43,7 @@ const FilterLabel = styled.label`
     border: none;
     box-shadow: 1px 1px 1px grey;
     padding: 5px;
-    width: 100%;
+    width: 42%;
+    margin: 4px;
   }
 `

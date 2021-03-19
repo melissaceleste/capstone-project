@@ -11,11 +11,11 @@ function App() {
   const [userInputStore, setUserInputStore] = useState('')
   const [userInputClothingType, setUserInputClothingType] = useState('')
   const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
-  /*   const [userInputMinPrice, setUserInputMinPrice] = useState(0)
+  const [userInputMinPrice, setUserInputMinPrice] = useState(0)
   const [userInputMaxPrice, setUserInputMaxPrice] = useState(200)
-  const [userInputFromDate, setUserInputFromDate] = useState()
-  const [userInputToDate, setUserInputToDate] = useState()
- */
+  const [userInputFromDate, setUserInputFromDate] = useState('2019-02-01')
+  const [userInputToDate, setUserInputToDate] = useState('2021-04-01')
+
   useEffect(() => {
     saveToLocal('cards', cards)
   }, [cards])
@@ -37,15 +37,14 @@ function App() {
             setUserInputStore={setUserInputStore}
             userInputClothingType={userInputClothingType}
             setUserInputClothingType={setUserInputClothingType}
-            /*     userInputMinPrice={userInputMinPrice}
+            userInputMinPrice={userInputMinPrice}
             setUserInputMinPrice={setUserInputMinPrice}
             userInputMaxPrice={userInputMaxPrice}
             setUserInputMaxPrice={setUserInputMaxPrice}
             userInputFromDate={userInputFromDate}
             setUserInputFromDate={setUserInputFromDate}
             userInputToDate={userInputToDate}
-            setUserInputToDate={setUserInputToDate} */
-            OnResetFilter={resetFilter}
+            setUserInputToDate={setUserInputToDate}
           />
         </Route>
         <Route path="/addnew">
@@ -65,11 +64,6 @@ function App() {
   function addNewCard(newCard) {
     setCards([newCard, ...cards])
   }
-  function resetFilter() {
-    setUserInputName('')
-    setUserInputStore('')
-    setUserInputClothingType('')
-  }
   function saveToLocal(key, data) {
     localStorage.setItem(key, JSON.stringify(data))
     //localStorage.clear()
@@ -80,5 +74,4 @@ function App() {
     return data
   }
 }
-
 export default App
