@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
-
 import FilterByDate from './FilterByDate'
 
 describe('FilterByDate', () => {
-  it('renders an input with the placeholder "z.B. Minikleid"', () => {
+  it('renders two input fields', () => {
     render(<FilterByDate />)
-    expect(screen.getByPlaceholderText('z.B. Minikleid')).toBeInTheDocument()
+    expect(screen.getByTestId('fromDate')).toBeInTheDocument()
+    expect(screen.getByTestId('toDate')).toBeInTheDocument()
   })
 })

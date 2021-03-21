@@ -11,6 +11,7 @@ export default function FilterByDate({
       <h2>Kaufdatum:</h2>
       <FlexContainer>
         <input
+          data-testid="fromDate"
           type="date"
           max={userInputToDate}
           defaultValue={userInputFromDate}
@@ -18,6 +19,7 @@ export default function FilterByDate({
         />
 
         <input
+          data-testid="toDate"
           type="date"
           min={userInputFromDate}
           defaultValue={userInputToDate}
