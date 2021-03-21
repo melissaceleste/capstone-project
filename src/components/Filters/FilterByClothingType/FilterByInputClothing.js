@@ -19,6 +19,7 @@ export default function FilterByClothingType({
     <FilterLabel>
       <h2>Kleidungstyp</h2>
       <select
+        data-testid="select"
         value={userInputClothingType}
         onChange={event => setUserInputClothingType(event.target.value)}
       >
@@ -27,14 +28,16 @@ export default function FilterByClothingType({
         </option>
         {showAllClothingTypes && (
           <option key="allClothingTypes" value="all">
-            {' '}
-            alle{' '}
+            alle
           </option>
         )}
         {selectOptions.map(option => (
-          <option key={option.label} value={option.value}>
-            {' '}
-            {option.label}{' '}
+          <option
+            key={option.label}
+            value={option.value}
+            data-testid={option.label}
+          >
+            {option.label}
           </option>
         ))}
       </select>
@@ -49,15 +52,18 @@ const FilterLabel = styled.label`
   padding: 0;
   margin: 10px;
   color: grey;
+
   h2 {
     font-size: 16px;
     margin: 0;
   }
   select {
     border-radius: 10px;
-    border: none;
     box-shadow: 1px 1px 1px grey;
     padding: 5px;
     width: 100%;
+    border: none;
+    appearance: none;
+    color: grey;
   }
 `

@@ -9,20 +9,21 @@ export default function FilterByDate({
   return (
     <FilterLabel>
       <h2>Kaufdatum:</h2>
-      from
-      <input
-        type="date"
-        max={userInputToDate}
-        defaultValue={userInputFromDate}
-        onChange={event => setUserInputFromDate(event.target.value)}
-      />
-      to
-      <input
-        type="date"
-        min={userInputFromDate}
-        defaultValue={userInputToDate}
-        onChange={event => setUserInputToDate(event.target.value)}
-      />
+      <FlexContainer>
+        <input
+          type="date"
+          max={userInputToDate}
+          defaultValue={userInputFromDate}
+          onChange={event => setUserInputFromDate(event.target.value)}
+        />
+
+        <input
+          type="date"
+          min={userInputFromDate}
+          defaultValue={userInputToDate}
+          onChange={event => setUserInputToDate(event.target.value)}
+        />
+      </FlexContainer>
     </FilterLabel>
   )
 }
@@ -43,7 +44,12 @@ const FilterLabel = styled.label`
     border: none;
     box-shadow: 1px 1px 1px grey;
     padding: 5px;
-    width: 42%;
+    width: 100%;
     margin: 4px;
+    font-family: inherit;
+    color: grey;
   }
+`
+const FlexContainer = styled.section`
+  display: flex;
 `

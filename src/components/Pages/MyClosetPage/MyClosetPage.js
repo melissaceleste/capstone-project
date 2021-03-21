@@ -1,12 +1,12 @@
 import styled from 'styled-components/macro'
 import Card from '../../Card/Card'
-import ResetButton from '../../ResetButton/ResetButton'
-import SubmitButton from '../../SubmitButton/SubmitButton'
-import FilterByName from '../../Filters/FilterByName/FilterByName'
 import FilterByClothingType from '../../Filters/FilterByClothingType/FilterByInputClothing'
-import FilterByStore from '../../Filters/FilterByStore/FilterByStore'
-import FilterByPrice from '../../Filters/FilterByPrice/FilterByPrice'
 import FilterByDate from '../../Filters/FilterByDate/FilterByDate'
+// import SubmitButton from '../../SubmitButton/SubmitButton'
+import FilterByName from '../../Filters/FilterByName/FilterByName'
+import FilterByPrice from '../../Filters/FilterByPrice/FilterByPrice'
+import FilterByStore from '../../Filters/FilterByStore/FilterByStore'
+import ResetButton from '../../ResetButton/ResetButton'
 
 export default function MyClosetPage({
   userInputName,
@@ -56,7 +56,7 @@ export default function MyClosetPage({
           userInputToDate={userInputToDate}
           setUserInputToDate={setUserInputToDate}
         />
-        <SubmitButton handleSubmitFilter={submitFilter}></SubmitButton>
+
         <ResetButton handleResetFilter={resetFilter}></ResetButton>
       </FormContainer>
       <ResultContainer>
@@ -67,19 +67,25 @@ export default function MyClosetPage({
           .filter(card =>
             card.store.toLowerCase().includes(userInputStore.toLowerCase())
           )
-          .filter(card =>
-            card.clothingType
-              .toLowerCase()
-              .includes(userInputClothingType.toLowerCase())
+          .filter(
+            card =>
+              card.clothingType
+                .toLowerCase()
+                .includes(userInputClothingType.toLowerCase()) ||
+              card.clothingType === ''
           )
           .filter(
             card =>
-              card.price >= userInputMinPrice && card.price <= userInputMaxPrice
+              (card.price >= userInputMinPrice &&
+                card.price <= userInputMaxPrice) ||
+              card.price === ''
           )
 
           .filter(
             card =>
-              card.date >= userInputFromDate && card.date <= userInputToDate
+              (card.date >= userInputFromDate &&
+                card.date <= userInputToDate) ||
+              card.date === ''
           )
 
           .map(
@@ -96,6 +102,7 @@ export default function MyClosetPage({
               />
             )
           )}
+        {console.log(userInputFromDate)}
       </ResultContainer>
     </MyClosetPageLayout>
   )
@@ -104,18 +111,12 @@ export default function MyClosetPage({
     setUserInputStore('')
     setUserInputClothingType('')
   }
-
-  function submitFilter() {
-    setUserInputName()
-    setUserInputStore('')
-    setUserInputClothingType('')
-  }
 }
 const FormContainer = styled.form`
   background-color: whitesmoke;
   box-shadow: 3px 3px 3px #eee;
   padding: 10px;
-  width: 100%;
+  width: 90%;
   margin: 10px auto;
   h1 {
     font-size: 18px;

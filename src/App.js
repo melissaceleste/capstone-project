@@ -1,10 +1,10 @@
-import Header from './components/Header/Header'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Route, Switch /*  useHistory */ } from 'react-router-dom'
+import Header from './components/Header/Header'
+import Navigation from './components/Navigation/Navigation'
+import AddNewPage from './components/Pages/AddNewPage/AddNewPage'
 import HomePage from './components/Pages/HomePage/HomePage'
 import MyClosetPage from './components/Pages/MyClosetPage/MyClosetPage'
-import AddNewPage from './components/Pages/AddNewPage/AddNewPage'
-import Navigation from './components/Navigation/Navigation'
 
 function App() {
   const [userInputName, setUserInputName] = useState('')
@@ -12,7 +12,7 @@ function App() {
   const [userInputClothingType, setUserInputClothingType] = useState('')
   const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
   const [userInputMinPrice, setUserInputMinPrice] = useState(0)
-  const [userInputMaxPrice, setUserInputMaxPrice] = useState(200)
+  const [userInputMaxPrice, setUserInputMaxPrice] = useState(500)
   const [userInputFromDate, setUserInputFromDate] = useState('2019-02-01')
   const [userInputToDate, setUserInputToDate] = useState('2021-04-01')
 

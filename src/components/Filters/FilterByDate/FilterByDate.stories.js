@@ -1,4 +1,4 @@
-import FilterByDate from './FilterByDate.js.js.js'
+import FilterByDate from './FilterByDate.js'
 import { action } from '@storybook/addon-actions'
 
 export default {
@@ -11,8 +11,8 @@ const DefaultFilterByDate = args => <FilterByDate {...args} />
 export const PimaryFilterByDate = DefaultFilterByDate.bind({})
 
 PimaryFilterByDate.args = {
-  setUserInputFromDate: action('onClick'),
+  setUserInputFromDate: action('onChange'),
   userInputFromDate: '',
-  setUserInputToDate: action('onClick'),
+  setUserInputToDate: action('onChange'),
   userInputToDate: '',
 }

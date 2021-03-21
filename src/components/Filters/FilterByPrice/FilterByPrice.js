@@ -9,22 +9,34 @@ export default function Filter({
   return (
     <FilterLabel>
       <h2>Kaufpreis:</h2>
-      <input
-        name="minPrice"
-        type="number"
-        min="0"
-        max="100"
-        step="10"
-        value={userInputMinPrice}
-        onChange={event => setUserInputMinPrice(event.target.value)}
-      ></input>
-      <input
-        name="maxPrice"
-        type="number"
-        step="10"
-        value={userInputMaxPrice}
-        onChange={event => setUserInputMaxPrice(event.target.value)}
-      ></input>
+      <FlexContainer>
+        <InputIconWrapper>
+          <input
+            data-testid="minPrice"
+            name="minPrice"
+            type="number"
+            min="0"
+            max="100"
+            step="10"
+            value={userInputMinPrice}
+            onChange={event => setUserInputMinPrice(event.target.value)}
+          ></input>
+          <InputIcon> €</InputIcon>
+        </InputIconWrapper>
+
+        <strong> - </strong>
+        <InputIconWrapper>
+          <input
+            data-testid="maxPrice"
+            name="maxPrice"
+            type="number"
+            step="10"
+            value={userInputMaxPrice}
+            onChange={event => setUserInputMaxPrice(event.target.value)}
+          ></input>
+          <InputIcon> €</InputIcon>
+        </InputIconWrapper>
+      </FlexContainer>
     </FilterLabel>
   )
 }
@@ -45,7 +57,30 @@ const FilterLabel = styled.label`
     border: none;
     box-shadow: 1px 1px 1px grey;
     padding: 5px;
-    width: 50%;
+    width: 99%;
+    margin: 0;
+    color: grey;
+  }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
     margin: 0;
   }
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+`
+const InputIcon = styled.div`
+  position: absolute;
+  left: 138px;
+  top: 3px;
+`
+const InputIconWrapper = styled.div`
+  position: relative;
+`
+const FlexContainer = styled.section`
+  display: flex;
+  justify-content: space-around;
 `

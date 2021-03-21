@@ -30,30 +30,22 @@ describe('AddNew', () => {
   it('calls onSubmit with form data', () => {
     const callback = jest.fn()
     render(<AddNew onAddNewCard={callback} />)
-    userEvent.type(screen.getByLabelText(/name/i), 'Minikleid')
+    userEvent.type(screen.getByLabelText(/name/i), 'Top')
     userEvent.type(screen.getByLabelText(/Kaufdatum/i), '2020-04-01')
     userEvent.type(screen.getByPlaceholderText(/Monki/i), 'Zara')
     userEvent.type(screen.getByPlaceholderText(/35/i), '40')
-    fireEvent.change(screen.getByLabelText('Kleid'), {
-      target: { value: 'Kleid' },
+    fireEvent.change(screen.getByLabelText('Oberteil'), {
+      target: { value: 'Oberteil' },
     })
-    fireEvent.click(screen.getByLabelText('Kleid'))
-    screen.debug()
-    /* userEvent.click('input', { name: /Rock/i }).checked = false
-    userEvent.click('input', { name: /Oberteil/i }).checked = false
-    userEvent.click('input', { name: /Hose/i }).checked = false
-    userEvent.click('input', { name: /Jacke/i }).checked = false
-    userEvent.click('input', { name: /Schuhe/i }).checked = false
-    userEvent.click('input', { name: /Accessoire/i }).checked = false
-    userEvent.click('input', { name: /special/i }).checked = false */
+    fireEvent.click(screen.getByLabelText('Oberteil'))
     userEvent.click(screen.getByText('hinzufügen'))
     expect(callback).toHaveBeenCalledTimes(1)
     expect(callback).toHaveBeenCalledWith({
-      name: 'Minikleid',
+      name: 'Top',
       date: '2020-04-01',
       store: 'Zara',
       price: '40',
-      clothingType: 'Kleid',
+      clothingType: 'Oberteil',
       images: [],
     })
   })
