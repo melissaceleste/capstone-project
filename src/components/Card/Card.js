@@ -2,11 +2,13 @@ import styled from 'styled-components/macro'
 
 export default function Card({
   name,
+  id,
   store,
   price,
   date,
   images = [''],
   clothingType,
+  onHandleDeleteCard,
 }) {
   return (
     <CardContainer>
@@ -20,16 +22,17 @@ export default function Card({
         <li>{price !== '' ? price + '€' : ''}</li>
         <li>{date} </li>
       </ul>
+      <DeleteButton onClick={() => onHandleDeleteCard(id)}> ✕ </DeleteButton>
     </CardContainer>
   )
 }
-
 const CardContainer = styled.section`
   background-color: #ffffff;
   text-align: center;
   border-radius: 20px;
   width: 200px;
   box-shadow: 1px 6px 11px 9px #eee;
+  position: relative;
 
   h2 {
     font-size: 18px;
@@ -45,4 +48,15 @@ const CardContainer = styled.section`
     list-style-type: none;
     margin-top: 0;
   }
+`
+const DeleteButton = styled.button`
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  // color: tomato;
+  // border-radius: 100%;
+  // border: 1px solid;
 `

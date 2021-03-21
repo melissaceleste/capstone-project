@@ -2,13 +2,20 @@ import styled from 'styled-components/macro'
 import Card from '../Card/Card'
 import AddNew from '../AddNew/AddNew'
 
-export default function AddNewPage({ addNewCard, cards, setCards }) {
+export default function AddNewPage({
+  addNewCard,
+  cards,
+  setCards,
+  handleDeleteCard,
+}) {
   return (
     <AddNewPageLayout>
       <AddNew onAddNewCard={addNewCard} />
       <ResultContainer>
         {cards.map(card => (
           <Card
+            key={card.id}
+            id={card.id}
             name={card.name}
             store={card.store}
             price={card.price}
@@ -17,6 +24,7 @@ export default function AddNewPage({ addNewCard, cards, setCards }) {
             images={card.images}
             cards={cards}
             setCards={() => setCards()}
+            onHandleDeleteCard={handleDeleteCard}
           />
         ))}
       </ResultContainer>
