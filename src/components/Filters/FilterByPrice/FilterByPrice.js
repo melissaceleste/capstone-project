@@ -16,7 +16,7 @@ export default function Filter({
             name="minPrice"
             type="number"
             min="0"
-            max="100"
+            max=""
             step="10"
             value={userInputMinPrice}
             onChange={event => setUserInputMinPrice(event.target.value)}
