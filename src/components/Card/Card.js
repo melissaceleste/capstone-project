@@ -22,7 +22,7 @@ export default function Card({
         <li>{price !== '' ? price + '€' : ''}</li>
         <li>{date} </li>
       </ul>
-      <DeleteButton onClick={() => onHandleDeleteCard(id)}> ✕ </DeleteButton>
+      <DeleteButton onClick={() => onDeleteCard(id)}> ✕ </DeleteButton>
     </CardContainer>
   )
 }
