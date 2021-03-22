@@ -7,14 +7,7 @@ import HomePage from './components/Pages/HomePage/HomePage'
 import MyClosetPage from './components/Pages/MyClosetPage/MyClosetPage'
 
 function App() {
-  const [userInputName, setUserInputName] = useState('')
-  const [userInputStore, setUserInputStore] = useState('')
-  const [userInputClothingType, setUserInputClothingType] = useState('')
   const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
-  const [userInputMinPrice, setUserInputMinPrice] = useState(0)
-  const [userInputMaxPrice, setUserInputMaxPrice] = useState(500)
-  const [userInputFromDate, setUserInputFromDate] = useState('2019-02-01')
-  const [userInputToDate, setUserInputToDate] = useState('2021-04-01')
 
   useEffect(() => {
     saveToLocal('cards', cards)
@@ -28,24 +21,7 @@ function App() {
           <HomePage cards={cards} setCards={setCards} />
         </Route>
         <Route path="/mycloset">
-          <MyClosetPage
-            cards={cards}
-            setCards={setCards}
-            userInputName={userInputName}
-            setUserInputName={setUserInputName}
-            userInputStore={userInputStore}
-            setUserInputStore={setUserInputStore}
-            userInputClothingType={userInputClothingType}
-            setUserInputClothingType={setUserInputClothingType}
-            userInputMinPrice={userInputMinPrice}
-            setUserInputMinPrice={setUserInputMinPrice}
-            userInputMaxPrice={userInputMaxPrice}
-            setUserInputMaxPrice={setUserInputMaxPrice}
-            userInputFromDate={userInputFromDate}
-            setUserInputFromDate={setUserInputFromDate}
-            userInputToDate={userInputToDate}
-            setUserInputToDate={setUserInputToDate}
-          />
+          <MyClosetPage cards={cards} setCards={setCards} />
         </Route>
         <Route path="/addnew">
           <AddNewPage

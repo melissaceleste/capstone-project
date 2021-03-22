@@ -1,37 +1,29 @@
 import styled from 'styled-components/macro'
+import { useState } from 'react'
 import Card from '../../Card/Card'
 import FilterByClothingType from '../../Filters/FilterByClothingType/FilterByInputClothing'
 import FilterByDate from '../../Filters/FilterByDate/FilterByDate'
-// import SubmitButton from '../../SubmitButton/SubmitButton'
 import FilterByName from '../../Filters/FilterByName/FilterByName'
 import FilterByPrice from '../../Filters/FilterByPrice/FilterByPrice'
 import FilterByStore from '../../Filters/FilterByStore/FilterByStore'
 import ResetButton from '../../ResetButton/ResetButton'
+export default function MyClosetPage({ cards, setCards }) {
+  const [userInputName, setUserInputName] = useState('')
+  const [userInputStore, setUserInputStore] = useState('')
+  const [userInputClothingType, setUserInputClothingType] = useState('')
+  const [userInputMinPrice, setUserInputMinPrice] = useState(0)
+  const [userInputMaxPrice, setUserInputMaxPrice] = useState(10000)
+  console.log(userInputMaxPrice)
+  const [userInputFromDate, setUserInputFromDate] = useState('2000-01-01')
+  const todaysDate = new Date()
+  const todaysDateWithoutDays = todaysDate.toISOString().split('T')[0]
+  const [userInputToDate, setUserInputToDate] = useState(todaysDateWithoutDays)
 
-export default function MyClosetPage({
-  userInputName,
-  setUserInputName,
-  userInputStore,
-  setUserInputStore,
-  userInputClothingType,
-  setUserInputClothingType,
-  userInputMinPrice,
-  setUserInputMinPrice,
-  userInputMaxPrice,
-  setUserInputMaxPrice,
-  userInputFromDate,
-  setUserInputFromDate,
-  userInputToDate,
-  setUserInputToDate,
-  cards,
-  setCards,
-  OnSubmitFilter,
-}) {
+  const filteredCards = filterCards(cards)
   return (
     <MyClosetPageLayout>
       <FormContainer>
         <h1>Such nach deinem Kleidungsstück...</h1>
-
         <FilterByName
           userInputName={userInputName}
           setUserInputName={setUserInputName}
@@ -56,53 +48,23 @@ export default function MyClosetPage({
           userInputToDate={userInputToDate}
           setUserInputToDate={setUserInputToDate}
         />
-
         <ResetButton handleResetFilter={resetFilter}></ResetButton>
       </FormContainer>
       <ResultContainer>
-        {cards
-          .filter(card =>
-            card.name.toLowerCase().includes(userInputName.toLowerCase())
+        {filteredCards.map(
+          ({ name, image, id, store, price, date, clothingType, images }) => (
+            <Card
+              key={id}
+              image={image}
+              name={name}
+              store={store}
+              price={price}
+              date={date}
+              clothingType={clothingType}
+              images={images}
+            />
           )
-          .filter(card =>
-            card.store.toLowerCase().includes(userInputStore.toLowerCase())
-          )
-          .filter(
-            card =>
-              card.clothingType
-                .toLowerCase()
-                .includes(userInputClothingType.toLowerCase()) ||
-              card.clothingType === ''
-          )
-          .filter(
-            card =>
-              (card.price >= userInputMinPrice &&
-                card.price <= userInputMaxPrice) ||
-              card.price === ''
-          )
-
-          .filter(
-            card =>
-              (card.date >= userInputFromDate &&
-                card.date <= userInputToDate) ||
-              card.date === ''
-          )
-
-          .map(
-            ({ name, image, id, store, price, date, clothingType, images }) => (
-              <Card
-                key={id}
-                image={image}
-                name={name}
-                store={store}
-                price={price}
-                date={date}
-                clothingType={clothingType}
-                images={images}
-              />
-            )
-          )}
-        {console.log(userInputFromDate)}
+        )}
       </ResultContainer>
     </MyClosetPageLayout>
   )
@@ -111,7 +73,67 @@ export default function MyClosetPage({
     setUserInputStore('')
     setUserInputClothingType('')
   }
+  function filterCards(cards) {
+    return cards.filter(
+      card =>
+        card.name.toLowerCase().includes(userInputName.toLowerCase()) &&
+        card.store.toLowerCase().includes(userInputStore.toLowerCase()) &&
+        (card.clothingType
+          .toLowerCase()
+          .includes(userInputClothingType.toLowerCase()) ||
+          card.clothingType === '') &&
+        ((card.price >= userInputMinPrice && card.price <= userInputMaxPrice) ||
+          card.price === '') &&
+        ((card.date >= userInputFromDate && card.date <= userInputToDate) ||
+          card.date === '')
+    )
+  }
 }
+
+/*     return cards.filter(
+      card =>
+        card.name.toLowerCase().includes(userInputName.toLowerCase()) &&
+        card.store.toLowerCase().includes(userInputStore.toLowerCase()) &&
+        (card.clothingType
+          .toLowerCase()
+          .includes(userInputClothingType.toLowerCase()) ||
+          card.clothingType === '') &&
+        ((card.price >= userInputMinPrice && card.price <= userInputMaxPrice) ||
+          card.price === '') &&
+        ((card.date >= userInputFromDate && card.date <= userInputToDate) ||
+          card.date === '')
+    )
+  }
+} */
+
+/*   function filterCards(cards) {
+    return cards
+      .filter(card =>
+        card.name.toLowerCase().includes(userInputName.toLowerCase())
+      )
+      .filter(card =>
+        card.store.toLowerCase().includes(userInputStore.toLowerCase())
+      )
+      .filter(
+        card =>
+          card.clothingType
+            .toLowerCase()
+            .includes(userInputClothingType.toLowerCase()) ||
+          card.clothingType === ''
+      )
+      .filter(
+        card =>
+          (card.price >= userInputMinPrice &&
+            card.price <= userInputMaxPrice) ||
+          card.price === ''
+      )
+      .filter(
+        card =>
+          (card.date >= userInputFromDate && card.date <= userInputToDate) ||
+          card.date === ''
+      )
+  }
+} */
 const FormContainer = styled.form`
   background-color: whitesmoke;
   box-shadow: 3px 3px 3px #eee;

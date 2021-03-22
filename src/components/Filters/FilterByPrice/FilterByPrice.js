@@ -16,8 +16,6 @@ export default function Filter({
             name="minPrice"
             type="number"
             min="0"
-            max=""
-            step="10"
             value={userInputMinPrice}
             onChange={event => setUserInputMinPrice(event.target.value)}
           ></input>
@@ -30,7 +28,6 @@ export default function Filter({
             data-testid="maxPrice"
             name="maxPrice"
             type="number"
-            step="10"
             value={userInputMaxPrice}
             onChange={event => setUserInputMaxPrice(event.target.value)}
           ></input>
