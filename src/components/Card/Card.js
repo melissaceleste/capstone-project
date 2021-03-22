@@ -8,7 +8,7 @@ export default function Card({
   date,
   images = [''],
   clothingType,
-  onHandleDeleteCard,
+  onDeleteCard,
 }) {
   return (
     <CardContainer>
