@@ -34,7 +34,7 @@ function App() {
           <AddNewPage
             cards={cards}
             setCards={setCards}
-            addNewCard={addNewCard}
+            onAddNewCard={addNewCard}
             onDeleteCard={deleteCard}
           />
         </Route>
