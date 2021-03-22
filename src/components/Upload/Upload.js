@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import ImageUploading from 'react-images-uploading'
 
 export default function Upload({ onImage }) {

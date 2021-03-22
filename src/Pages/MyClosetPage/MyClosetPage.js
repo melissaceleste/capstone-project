@@ -1,5 +1,5 @@
-import styled from 'styled-components/macro'
 import { useState } from 'react'
+import styled from 'styled-components/macro'
 import Card from '../../Card/Card'
 import FilterByClothingType from '../../Filters/FilterByClothingType/FilterByInputClothing'
 import FilterByDate from '../../Filters/FilterByDate/FilterByDate'
@@ -7,19 +7,19 @@ import FilterByName from '../../Filters/FilterByName/FilterByName'
 import FilterByPrice from '../../Filters/FilterByPrice/FilterByPrice'
 import FilterByStore from '../../Filters/FilterByStore/FilterByStore'
 import ResetButton from '../../ResetButton/ResetButton'
+
 export default function MyClosetPage({ cards, setCards }) {
   const [userInputName, setUserInputName] = useState('')
   const [userInputStore, setUserInputStore] = useState('')
   const [userInputClothingType, setUserInputClothingType] = useState('')
   const [userInputMinPrice, setUserInputMinPrice] = useState(0)
   const [userInputMaxPrice, setUserInputMaxPrice] = useState(10000)
-  console.log(userInputMaxPrice)
   const [userInputFromDate, setUserInputFromDate] = useState('2000-01-01')
   const todaysDate = new Date()
   const todaysDateWithoutDays = todaysDate.toISOString().split('T')[0]
   const [userInputToDate, setUserInputToDate] = useState(todaysDateWithoutDays)
-
   const filteredCards = filterCards(cards)
+
   return (
     <MyClosetPageLayout>
       <FormContainer>
@@ -90,50 +90,12 @@ export default function MyClosetPage({ cards, setCards }) {
   }
 }
 
-/*     return cards.filter(
-      card =>
-        card.name.toLowerCase().includes(userInputName.toLowerCase()) &&
-        card.store.toLowerCase().includes(userInputStore.toLowerCase()) &&
-        (card.clothingType
-          .toLowerCase()
-          .includes(userInputClothingType.toLowerCase()) ||
-          card.clothingType === '') &&
-        ((card.price >= userInputMinPrice && card.price <= userInputMaxPrice) ||
-          card.price === '') &&
-        ((card.date >= userInputFromDate && card.date <= userInputToDate) ||
-          card.date === '')
-    )
-  }
-} */
-
-/*   function filterCards(cards) {
-    return cards
-      .filter(card =>
-        card.name.toLowerCase().includes(userInputName.toLowerCase())
-      )
-      .filter(card =>
-        card.store.toLowerCase().includes(userInputStore.toLowerCase())
-      )
-      .filter(
-        card =>
-          card.clothingType
-            .toLowerCase()
-            .includes(userInputClothingType.toLowerCase()) ||
-          card.clothingType === ''
-      )
-      .filter(
-        card =>
-          (card.price >= userInputMinPrice &&
-            card.price <= userInputMaxPrice) ||
-          card.price === ''
-      )
-      .filter(
-        card =>
-          (card.date >= userInputFromDate && card.date <= userInputToDate) ||
-          card.date === ''
-      )
-  }
-} */
+const MyClosetPageLayout = styled.main`
+  width: 100%;
+  margin-top: 70px;
+  margin-bottom: 80px;
+  z-index: auto;
+`
 const FormContainer = styled.form`
   background-color: whitesmoke;
   box-shadow: 3px 3px 3px #eee;
@@ -144,12 +106,6 @@ const FormContainer = styled.form`
     font-size: 18px;
     margin: 2px;
   }
-`
-const MyClosetPageLayout = styled.main`
-  overflow: auto;
-  width: 100%;
-  margin-top: 70px;
-  margin-bottom: 80px;
 `
 const ResultContainer = styled.section`
   display: grid;

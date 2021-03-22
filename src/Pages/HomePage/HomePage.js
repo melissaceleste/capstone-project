@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro'
-import React from 'react'
 import SmallCard from '../../SmallCard/SmallCard'
 
 export default function HomePage({ cards, setCards }) {
@@ -24,7 +23,6 @@ const HomePageLayout = styled.main`
   display: grid;
   justify-content: center;
   gap: 20px;
-  overflow: auto;
   width: 100%;
   margin-top: 100px;
   margin-bottom: 70px;

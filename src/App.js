@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Route, Switch /*  useHistory */ } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Navigation from './components/Navigation/Navigation'
 import AddNewPage from './components/Pages/AddNewPage/AddNewPage'
@@ -42,7 +42,6 @@ function App() {
   }
   function saveToLocal(key, data) {
     localStorage.setItem(key, JSON.stringify(data))
-    //localStorage.clear()
   }
   function loadFromLocal(key) {
     const jsonString = localStorage.getItem(key)

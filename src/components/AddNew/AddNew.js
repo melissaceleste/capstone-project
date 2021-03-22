@@ -1,6 +1,6 @@
+import { useState } from 'react'
 import styled from 'styled-components/macro'
 import Upload from '../Upload/Upload'
-import React, { useState } from 'react'
 
 export default function AddNew({ onAddNewCard }) {
   const [images, setImages] = useState([])
