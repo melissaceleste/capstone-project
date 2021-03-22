@@ -7,7 +7,7 @@ export default function MyClosetPage({
   setUserInput,
   cards,
   setCards,
-  handleDeleteCard,
+  onDeleteCard,
 }) {
   return (
     <MyClosetPageLayout>
@@ -29,7 +29,7 @@ export default function MyClosetPage({
                 date={date}
                 clothingType={clothingType}
                 images={images}
-                onHandleDeleteCard={handleDeleteCard}
+                onDeleteCard={onDeleteCard}
               />
             )
           )}

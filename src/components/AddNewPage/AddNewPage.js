@@ -24,7 +24,7 @@ export default function AddNewPage({
             images={card.images}
             cards={cards}
             setCards={() => setCards()}
-            onHandleDeleteCard={handleDeleteCard}
+            onDeleteCard={onDeleteCard}
           />
         ))}
       </ResultContainer>
