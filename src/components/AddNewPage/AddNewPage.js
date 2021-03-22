@@ -10,7 +10,7 @@ export default function AddNewPage({
 }) {
   return (
     <AddNewPageLayout>
-      <AddNew onAddNewCard={addNewCard} />
+      <AddNew onAddNewCard={onAddNewCard} />
       <ResultContainer>
         {cards.map(card => (
           <Card
