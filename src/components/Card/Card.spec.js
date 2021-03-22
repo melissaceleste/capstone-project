@@ -15,12 +15,7 @@ describe('Card', () => {
   it('Button calls Callback onClick when clicked', () => {
     const callback = jest.fn()
     render(
-      <Card
-        name="Minikleid"
-        image={imageFile}
-        onClick={callback}
-        onHandleDeleteCard={callback}
-      />
+      <Card name="Minikleid" image={imageFile} onHandleDeleteCard={callback} />
     )
     userEvent.click(screen.getByRole('button'))
     expect(callback).toHaveBeenCalledTimes(1)
