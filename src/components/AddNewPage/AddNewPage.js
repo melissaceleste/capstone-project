@@ -6,7 +6,7 @@ export default function AddNewPage({
   onAddNewCard,
   cards,
   setCards,
-  handleDeleteCard,
+  onDeleteCard,
 }) {
   return (
     <AddNewPageLayout>
