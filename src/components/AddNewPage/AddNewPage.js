@@ -3,7 +3,7 @@ import Card from '../Card/Card'
 import AddNew from '../AddNew/AddNew'
 
 export default function AddNewPage({
-  addNewCard,
+  onAddNewCard,
   cards,
   setCards,
   handleDeleteCard,
