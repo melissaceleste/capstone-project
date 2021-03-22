@@ -35,7 +35,7 @@ function App() {
             cards={cards}
             setCards={setCards}
             addNewCard={addNewCard}
-            handleDeleteCard={deleteCard}
+            onDeleteCard={deleteCard}
           />
         </Route>
       </Switch>
