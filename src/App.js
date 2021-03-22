@@ -27,7 +27,7 @@ function App() {
             setCards={setCards}
             userInput={userInput}
             setUserInput={setUserInput}
-            handleDeleteCard={deleteCard}
+            onDeleteCard={deleteCard}
           />
         </Route>
         <Route path="/addnew">
