@@ -1,7 +1,7 @@
 import React from 'react'
 import SmallCard from './SmallCard.js'
 
-import imageFile from '../../components/minikleid.png'
+import imageFile from './minikleid.png'
 
 export default {
   title: 'SmallCard-Component',

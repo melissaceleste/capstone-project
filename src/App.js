@@ -27,13 +27,15 @@ function App() {
             setCards={setCards}
             userInput={userInput}
             setUserInput={setUserInput}
+            onDeleteCard={deleteCard}
           />
         </Route>
         <Route path="/addnew">
           <AddNewPage
             cards={cards}
             setCards={setCards}
-            addNewCard={addNewCard}
+            onAddNewCard={addNewCard}
+            onDeleteCard={deleteCard}
           />
         </Route>
       </Switch>
@@ -48,12 +50,17 @@ function App() {
   }
   function saveToLocal(key, data) {
     localStorage.setItem(key, JSON.stringify(data))
-    //localStorage.clear()
+    // localStorage.clear()
   }
   function loadFromLocal(key) {
     const jsonString = localStorage.getItem(key)
     const data = JSON.parse(jsonString)
     return data
+  }
+
+  function deleteCard(currentId) {
+    const newCardList = cards.filter(card => card.id !== currentId)
+    setCards(newCardList)
   }
 }
 
