@@ -14,7 +14,7 @@ export default function MyClosetPage({ cards, setCards }) {
   const [userInputClothingType, setUserInputClothingType] = useState('')
   const [userInputMinPrice, setUserInputMinPrice] = useState(0)
   const [userInputMaxPrice, setUserInputMaxPrice] = useState(10000)
-  const [userInputFromDate, setUserInputFromDate] = useState('2000-01-01')
+  const [userInputFromDate, setUserInputFromDate] = useState('0000-00-00')
   const todaysDate = new Date()
   const todaysDateWithoutDays = todaysDate.toISOString().split('T')[0]
   const [userInputToDate, setUserInputToDate] = useState(todaysDateWithoutDays)
