@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import Upload from '../Upload/Upload'
-import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 export default function AddNew({ onAddNewCard }) {
