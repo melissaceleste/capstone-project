@@ -18,7 +18,11 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/">
-          <HomePage cards={cards} setCards={setCards} />
+          <HomePage
+            cards={cards}
+            setCards={setCards}
+            // handleCardsRandomizer={cardsRandomizer}
+          />
         </Route>
         <Route path="/mycloset">
           <MyClosetPage
@@ -58,5 +62,11 @@ function App() {
     const newCardList = cards.filter(card => card.id !== currentId)
     setCards(newCardList)
   }
+  //function cardsRandomizer() {
+  /* const allRandomCards = cards.sort(() => 0.5 - Math.random())
+    const randomCards = allRandomCards.slice(0, 3)
+    return randomCards */
+  // randomCards = cards[Math.floor(Math.random() * cards.length)]
+  // }
 }
 export default App
