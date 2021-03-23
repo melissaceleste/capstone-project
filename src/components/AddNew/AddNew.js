@@ -8,10 +8,10 @@ export default function AddNew({ onAddNewCard }) {
   return (
     <AddNewContainer onSubmit={handleSubmit}>
       <Upload onImage={setImages} required="required" />
-      <p>
+      <Comment>
         Umso mehr Infos du speicherst, umso einfacher kannst du deine
         Lieblingsteile später wieder finden:)
-      </p>
+      </Comment>
       <label>
         <h2>Name (optional):</h2>
         <input
@@ -169,4 +169,8 @@ const InputIcon = styled.div`
 `
 const InputIconWrapper = styled.div`
   position: relative;
+`
+const Comment = styled.p`
+  color: grey;
+  text-align: center;
 `

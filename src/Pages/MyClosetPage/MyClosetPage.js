@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
-import Card from '../../Card/Card'
-import FilterByClothingType from '../../Filters/FilterByClothingType/FilterByInputClothing'
-import FilterByDate from '../../Filters/FilterByDate/FilterByDate'
-import FilterByName from '../../Filters/FilterByName/FilterByName'
-import FilterByPrice from '../../Filters/FilterByPrice/FilterByPrice'
-import FilterByStore from '../../Filters/FilterByStore/FilterByStore'
-import ResetButton from '../../ResetButton/ResetButton'
+import Card from '../../components/Card/Card'
+import FilterByClothingType from '../../components/Filters/FilterByClothingType/FilterByInputClothing'
+import FilterByDate from '../../components/Filters/FilterByDate/FilterByDate'
+import FilterByName from '../../components/Filters/FilterByName/FilterByName'
+import FilterByPrice from '../../components/Filters/FilterByPrice/FilterByPrice'
+import FilterByStore from '../../components/Filters/FilterByStore/FilterByStore'
+import ResetButton from '../../components/ResetButton/ResetButton'
 
 export default function MyClosetPage({ cards, setCards }) {
   const [userInputName, setUserInputName] = useState('')
@@ -48,7 +48,7 @@ export default function MyClosetPage({ cards, setCards }) {
           userInputToDate={userInputToDate}
           setUserInputToDate={setUserInputToDate}
         />
-        <ResetButton handleResetFilter={resetFilter}></ResetButton>
+        <ResetButton handleResetFilter={resetFilter} />
       </FormContainer>
       <ResultContainer>
         {filteredCards.map(
@@ -72,6 +72,7 @@ export default function MyClosetPage({ cards, setCards }) {
     setUserInputName('')
     setUserInputStore('')
     setUserInputClothingType('')
+    // setUserInputFromDate('')
   }
   function filterCards(cards) {
     return cards.filter(

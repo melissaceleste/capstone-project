@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Navigation from './components/Navigation/Navigation'
-import AddNewPage from './components/Pages/AddNewPage/AddNewPage'
-import HomePage from './components/Pages/HomePage/HomePage'
-import MyClosetPage from './components/Pages/MyClosetPage/MyClosetPage'
+import AddNewPage from './Pages/AddNewPage/AddNewPage'
+import HomePage from './Pages/HomePage/HomePage'
+import MyClosetPage from './Pages/MyClosetPage/MyClosetPage'
 
 function App() {
   const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
