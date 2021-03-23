@@ -1,7 +1,7 @@
 import Card from './Card.js'
 import { action } from '@storybook/addon-actions'
 
-import imageFile from './test.png'
+import imageFile from '../Card/minikleid.png'
 
 export default {
   title: 'Card-Component',

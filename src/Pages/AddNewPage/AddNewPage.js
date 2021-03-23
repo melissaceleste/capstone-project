@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
-import Card from '../Card/Card'
-import AddNew from '../AddNew/AddNew'
+import Card from '../../components/Card/Card'
+import AddNew from '../../components/AddNew/AddNew'
 
 export default function AddNewPage({
   onAddNewCard,
@@ -35,7 +35,6 @@ const AddNewPageLayout = styled.main`
   display: grid;
   justify-content: center;
   gap: 20px;
-  overflow: auto;
   width: 100%;
   margin-top: 60px;
   margin-bottom: 50px;

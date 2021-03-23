@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components/macro'
 import Upload from '../Upload/Upload'
 import { useState } from 'react'
@@ -9,10 +10,10 @@ export default function AddNew({ onAddNewCard }) {
   return (
     <AddNewContainer onSubmit={handleSubmit}>
       <Upload onImage={setImages} required="required" />
-      <p>
+      <Comment>
         Umso mehr Infos du speicherst, umso einfacher kannst du deine
         Lieblingsteile später wieder finden:)
-      </p>
+      </Comment>
       <label>
         <h2>Name (optional):</h2>
         <input
@@ -22,6 +23,7 @@ export default function AddNew({ onAddNewCard }) {
       </label>
       <label>
         <h2>Kaufdatum (optional):</h2>
+
         <input type="date" name="date" />
       </label>
       <label>
@@ -30,14 +32,18 @@ export default function AddNew({ onAddNewCard }) {
       </label>
       <label>
         <h2>Preis (optional):</h2>
-        <input
-          placeholder="35"
-          name="price"
-          type="number"
-          step="0.01"
-          min="0"
-        />
+        <InputIconWrapper>
+          <input
+            placeholder="35"
+            name="price"
+            type="number"
+            step="0.01"
+            min="0"
+          />
+          <InputIcon> €</InputIcon>
+        </InputIconWrapper>
       </label>
+
       <h2>Kleidungsart:</h2>
       <ContainerClothingType>
         <label>
@@ -101,11 +107,11 @@ export default function AddNew({ onAddNewCard }) {
 }
 
 const AddNewContainer = styled.form`
-  text-align: center;
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 1px 6px 11px 9px #eee;
-  padding: 30px;
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 3px #eee;
+  padding: 10px;
+  width: 90%;
+  margin: 10px auto;
   h2 {
     font-size: 16px;
     margin: 25px 0 0 0;
@@ -124,6 +130,16 @@ const AddNewContainer = styled.form`
     margin: 0;
     font-family: inherit;
     color: grey;
+  }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
   }
 `
 const ContainerClothingType = styled.section`
@@ -147,4 +163,17 @@ const SubmitButton = styled.button`
   font-size: 16px;
   width: 100%;
   padding: 5px;
+`
+const InputIcon = styled.div`
+  position: absolute;
+  left: 96%;
+  top: 3px;
+  color: grey;
+`
+const InputIconWrapper = styled.div`
+  position: relative;
+`
+const Comment = styled.p`
+  color: grey;
+  text-align: center;
 `

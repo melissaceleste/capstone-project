@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
 
-import Filter from './Filter'
+import FilterByName from './FilterByName'
 
-describe('Filter', () => {
+describe('FilterByName', () => {
   it('renders an input with the placeholder "z.B. Minikleid"', () => {
-    render(<Filter />)
+    render(<FilterByName />)
     expect(screen.getByPlaceholderText('z.B. Minikleid')).toBeInTheDocument()
   })
 })

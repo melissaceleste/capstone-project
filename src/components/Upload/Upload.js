@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import ImageUploading from 'react-images-uploading'
+import camerasrc from './camera.png'
 
 export default function Upload({ onImage }) {
   const [images, setImages] = useState([])
@@ -37,11 +38,16 @@ export default function Upload({ onImage }) {
               onClick={onImageUpload}
               {...dragProps}
             >
-              Click or Drop here 📷
+              <img
+                src={camerasrc}
+                alt="Foto aufnehmen"
+                width="150"
+                height="auto"
+              />
             </UploadLabel>
             &nbsp;
             <RemoveAllButton title="removeButton" onClick={onImageRemoveAll}>
-              Remove all images
+              lösche alle Bilder
             </RemoveAllButton>
             {imageList.map((image, index) => (
               <div key={index}>
@@ -54,10 +60,10 @@ export default function Upload({ onImage }) {
                 />
                 <div>
                   <UpdateButton onClick={() => onImageUpdate(index)}>
-                    Update
+                    nochmal
                   </UpdateButton>
                   <RemoveButton onClick={() => onImageRemove(index)}>
-                    Remove
+                    löschen
                   </RemoveButton>
                 </div>
               </div>
@@ -71,7 +77,7 @@ export default function Upload({ onImage }) {
 
 const UploadContainer = styled.div`
   text-align: center;
-  background-color: #ffffff;
+  background-color: #f6f5f5;
   border-radius: 20px;
   box-shadow: 1px 6px 11px 9px #eee;
   padding: 30px;

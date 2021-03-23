@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro'
-import React from 'react'
 
 export default function Header() {
   return (
@@ -19,4 +18,5 @@ const HeaderContainer = styled.header`
   border-radius: 20px;
   position: fixed;
   top: 0;
+  z-index: 1;
 `

@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro'
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 export default function Navigation() {
@@ -20,6 +19,7 @@ export default function Navigation() {
 
 const Nav = styled.nav`
   position: fixed;
+  z-index: 1;
   bottom: 0;
   width: 100%;
   display: grid;

@@ -1,13 +1,12 @@
+import { useEffect, useState } from 'react'
+import { Route, Switch } from 'react-router-dom'
 import Header from './components/Header/Header'
-import { useState, useEffect } from 'react'
-import { Route, Switch /*  useHistory */ } from 'react-router-dom'
-import HomePage from './components/HomePage/HomePage'
-import MyClosetPage from './components/MyClosetPage/MyClosetPage'
-import AddNewPage from './components/AddNewPage/AddNewPage'
 import Navigation from './components/Navigation/Navigation'
+import AddNewPage from './Pages/AddNewPage/AddNewPage'
+import HomePage from './Pages/HomePage/HomePage'
+import MyClosetPage from './Pages/MyClosetPage/MyClosetPage'
 
 function App() {
-  const [userInput, setUserInput] = useState('')
   const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
 
   useEffect(() => {
@@ -25,8 +24,6 @@ function App() {
           <MyClosetPage
             cards={cards}
             setCards={setCards}
-            userInput={userInput}
-            setUserInput={setUserInput}
             onDeleteCard={deleteCard}
           />
         </Route>
@@ -50,7 +47,6 @@ function App() {
   }
   function saveToLocal(key, data) {
     localStorage.setItem(key, JSON.stringify(data))
-    // localStorage.clear()
   }
   function loadFromLocal(key) {
     const jsonString = localStorage.getItem(key)
@@ -63,5 +59,4 @@ function App() {
     setCards(newCardList)
   }
 }
-
 export default App
