@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import Upload from '../Upload/Upload'
+import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function AddNew({ onAddNewCard }) {
   const [images, setImages] = useState([])
@@ -92,6 +94,7 @@ export default function AddNew({ onAddNewCard }) {
     const form = event.target
     const { nameOfClothing, store, price, date, clothingType } = form.elements
     onAddNewCard({
+      id: uuidv4(),
       name: nameOfClothing.value,
       images: images.map(img => img.data_url),
       store: store.value,

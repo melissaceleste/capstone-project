@@ -21,13 +21,18 @@ function App() {
           <HomePage cards={cards} setCards={setCards} />
         </Route>
         <Route path="/mycloset">
-          <MyClosetPage cards={cards} setCards={setCards} />
+          <MyClosetPage
+            cards={cards}
+            setCards={setCards}
+            onDeleteCard={deleteCard}
+          />
         </Route>
         <Route path="/addnew">
           <AddNewPage
             cards={cards}
             setCards={setCards}
-            addNewCard={addNewCard}
+            onAddNewCard={addNewCard}
+            onDeleteCard={deleteCard}
           />
         </Route>
       </Switch>
@@ -47,6 +52,11 @@ function App() {
     const jsonString = localStorage.getItem(key)
     const data = JSON.parse(jsonString)
     return data
+  }
+
+  function deleteCard(currentId) {
+    const newCardList = cards.filter(card => card.id !== currentId)
+    setCards(newCardList)
   }
 }
 export default App

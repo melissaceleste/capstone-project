@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import SmallCard from '../../components/SmallCard/SmallCard'
 
-export default function HomePage({ cards, setCards }) {
+export default function HomePage({ cards, setCards, handleDeleteCard }) {
   return (
     <HomePageLayout>
       {cards.map(card => (
@@ -14,6 +14,7 @@ export default function HomePage({ cards, setCards }) {
           images={card.images}
           cards={cards}
           setCards={() => setCards()}
+          onHandleDeleteCard={handleDeleteCard}
         />
       ))}
     </HomePageLayout>
