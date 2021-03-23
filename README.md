@@ -1,5 +1,3 @@
-[view current version! ](https://coucou-by-melissa.herokuapp.com/)
-
 ## Coucou!👋🏽
 
 coucou! is your partner in crime when struggeling with questions and thoughts like:
@@ -11,6 +9,8 @@ coucou! is your partner in crime when struggeling with questions and thoughts li
 💫 You can carry your whole closet in your pocket by saving all your clothings in this app. 📷
 💫 Coucou! shows your long forgotten pieces randomly.
 💫 You can swipe through your closet, add new pieces and plan your outfit.
+
+[view current version](https://coucou-by-melissa.herokuapp.com/)
 
 ## Installation and usage
 
