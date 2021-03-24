@@ -50,25 +50,33 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
         />
         <ResetButton handleResetFilter={resetFilter} />
       </FormContainer>
-      <ResultContainer>
-        {filteredCards.map(
-          ({ name, image, id, store, price, date, clothingType, images }) => (
-            <Card
-              key={id}
-              id={id}
-              image={image}
-              name={name}
-              store={store}
-              price={price}
-              date={date}
-              clothingType={clothingType}
-              images={images}
-              setCards={setCards}
-              onDeleteCard={onDeleteCard}
-            />
-          )
-        )}
-      </ResultContainer>
+      {cards.length !== 0 ? (
+        <ResultContainer>
+          {filteredCards.map(
+            ({ name, image, id, store, price, date, clothingType, images }) => (
+              <Card
+                key={id}
+                id={id}
+                image={image}
+                name={name}
+                store={store}
+                price={price}
+                date={date}
+                clothingType={clothingType}
+                images={images}
+                setCards={setCards}
+                onDeleteCard={onDeleteCard}
+              />
+            )
+          )}
+        </ResultContainer>
+      ) : (
+        <p>
+          {' '}
+          Upsala. Hier hast du wohl noch keine Fotos hochgeladen. Gehe zu...
+          (link folgt noch){' '}
+        </p>
+      )}
     </MyClosetPageLayout>
   )
   function resetFilter() {
@@ -99,6 +107,10 @@ const MyClosetPageLayout = styled.main`
   margin-top: 70px;
   margin-bottom: 80px;
   z-index: auto;
+  p {
+    text-align: center;
+    margin: 50px;
+  }
 `
 const FormContainer = styled.form`
   background-color: whitesmoke;
