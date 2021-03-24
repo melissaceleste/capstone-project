@@ -46,9 +46,6 @@ export default function Upload({ onImage }) {
               />
             </UploadLabel>
             &nbsp;
-            <RemoveAllButton title="removeButton" onClick={onImageRemoveAll}>
-              lösche alle Bilder
-            </RemoveAllButton>
             {imageList.map((image, index) => (
               <div key={index}>
                 <img
@@ -94,17 +91,6 @@ const UploadContainer = styled.div`
     width: 100%;
     margin: 0;
   }
-`
-const RemoveAllButton = styled.button`
-  background-color: #eee;
-  color: grey;
-  border-radius: 20px;
-  border: none;
-  box-shadow: 3px 3px 3px darkgrey;
-  font-size: 16px;
-  width: 100%;
-  padding: 5px;
-  margin-top: 15px;
 `
 const UploadLabel = styled.label`
   font-size: 18px;
