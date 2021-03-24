@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
-
 import SmallCard from '../../components/SmallCard/SmallCard'
+import plussrc from './plus.svg'
 
 export default function HomePage({ cards, setCards }) {
   const [randomCard, setRandomCard] = useState(cardsRandomizer())
@@ -9,7 +10,6 @@ export default function HomePage({ cards, setCards }) {
     <HomePageLayout>
       {randomCard.length !== 0 ? (
         <div>
-          {' '}
           <SmallCard
             name={randomCard[0].name}
             store={randomCard[0].store}
@@ -25,11 +25,10 @@ export default function HomePage({ cards, setCards }) {
           </RandomizerButton>
         </div>
       ) : (
-        <p>
-          {' '}
-          Upsala. Hier hast du wohl noch keine Fotos hochgeladen. Gehe zu...
-          (link folgt noch){' '}
-        </p>
+        <Link to="/addnew" style={{ textDecoration: 'none', color: 'black' }}>
+          <p>Upsala. Schnell lade deine Fotos hoch!</p>
+          <img src={plussrc} alt="Foto aufnehmen" width="30" height="auto" />
+        </Link>
       )}
     </HomePageLayout>
   )
@@ -45,6 +44,13 @@ const HomePageLayout = styled.main`
   margin-top: 100px;
   margin-bottom: 70px;
   padding-top: 30px;
+  p {
+    text-align: center;
+    margin: 50px 50px 20px;
+  }
+  img {
+    margin-left: 45%;
+  }
 `
 const RandomizerButton = styled.button`
   background-color: transparent;

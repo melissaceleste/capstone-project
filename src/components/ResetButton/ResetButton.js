@@ -5,11 +5,11 @@ export default function ResetButton({ handleResetFilter }) {
 }
 
 const Button = styled.button`
-  background-color: #acb49b;
-  color: white;
-  border-radius: 20px;
-  border: none;
-  box-shadow: 3px 3px 3px darkgrey;
+  background-color: transparent;
+  color: black;
+  border-radius: 5px;
+  border: 2px solid black;
+  box-shadow: 1px 1px 1px darkgrey;
   font-size: 16px;
   width: 100%;
   margin: 20px auto auto;

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Card from '../../components/Card/Card'
 import FilterByClothingType from '../../components/Filters/FilterByClothingType/FilterByInputClothing'
@@ -7,6 +8,7 @@ import FilterByName from '../../components/Filters/FilterByName/FilterByName'
 import FilterByPrice from '../../components/Filters/FilterByPrice/FilterByPrice'
 import FilterByStore from '../../components/Filters/FilterByStore/FilterByStore'
 import ResetButton from '../../components/ResetButton/ResetButton'
+import plussrc from './plus.svg'
 
 export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
   const [userInputName, setUserInputName] = useState('')
@@ -71,11 +73,10 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
           )}
         </ResultContainer>
       ) : (
-        <p>
-          {' '}
-          Upsala. Hier hast du wohl noch keine Fotos hochgeladen. Gehe zu...
-          (link folgt noch){' '}
-        </p>
+        <Link to="/addnew" style={{ textDecoration: 'none', color: 'black' }}>
+          <p>Upsala. Schnell lade deine Fotos hoch!</p>
+          <img src={plussrc} alt="Foto aufnehmen" width="30" height="auto" />
+        </Link>
       )}
     </MyClosetPageLayout>
   )
@@ -109,7 +110,10 @@ const MyClosetPageLayout = styled.main`
   z-index: auto;
   p {
     text-align: center;
-    margin: 50px;
+    margin: 50px 50px 20px;
+  }
+  img {
+    margin-left: 45%;
   }
 `
 const FormContainer = styled.form`
