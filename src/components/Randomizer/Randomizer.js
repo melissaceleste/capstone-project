@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 
-export default function Randomizer(handleRandomizeCards) {
-  return <Button onClick={handleRandomizeCards}> RaNdOm </Button>
+export default function Randomizer() {
+  return <Button> RaNdOm </Button>
 }
 
 const Button = styled.button`

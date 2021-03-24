@@ -1,14 +1,12 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
-// import Randomizer from '../../components/Randomizer/Randomizer'
+
 import SmallCard from '../../components/SmallCard/SmallCard'
 
-export default function HomePage({ cards, setCards, handleDeleteCard }) {
+export default function HomePage({ cards, setCards }) {
   const [randomCard, setRandomCard] = useState(cardsRandomizer())
   return (
     <HomePageLayout>
-      <button onClick={() => setRandomCard(cardsRandomizer())} />
-
       <SmallCard
         name={randomCard[0].name}
         store={randomCard[0].store}
@@ -18,8 +16,10 @@ export default function HomePage({ cards, setCards, handleDeleteCard }) {
         images={randomCard[0].images}
         cards={cards}
         setCards={() => setCards()}
-        onHandleDeleteCard={handleDeleteCard}
       />
+      <RandomizerButton onClick={() => setRandomCard(cardsRandomizer())}>
+        nochmal
+      </RandomizerButton>
     </HomePageLayout>
   )
   function cardsRandomizer() {
@@ -33,78 +33,16 @@ const HomePageLayout = styled.main`
   width: 100%;
   margin-top: 100px;
   margin-bottom: 70px;
+  padding-top: 30px;
 `
-
-/* export default function HomePage({ cards, setCards, handleDeleteCard }) {
-  const [randomCards, setRandomCards] = useState()
-  const allCards = cards.map(card => (
-    <SmallCard
-      name={card.name}
-      store={card.store}
-      price={card.price}
-      date={card.date}
-      clothingType={card.clothingType}
-      images={card.images}
-      cards={cards}
-      setCards={() => setCards()}
-      onHandleDeleteCard={handleDeleteCard}
-    />
-  ))
-  return (
-    <HomePageLayout>
-      {/*   {cards.map(card => (
-        <SmallCard
-          name={card.name}
-          store={card.store}
-          price={card.price}
-          date={card.date}
-          clothingType={card.clothingType}
-          images={card.images}
-          cards={cards}
-          setCards={() => setCards()}
-          onHandleDeleteCard={handleDeleteCard}
-        />
-      ))} 
-      <Randomizer handleRandomizeCards={setRandomCards} />
-      randomCards.map(card => (
-      <SmallCard
-        name={card.name}
-        store={card.store}
-        price={card.price}
-        date={card.date}
-        clothingType={card.clothingType}
-        images={card.images}
-        cards={cards}
-        setCards={() => setCards()}
-        onHandleDeleteCard={handleDeleteCard}
-      />
-      ) )
-    </HomePageLayout>
-  )
-   function showAllCards(cards) {
-    return cards.map(card => (
-      <SmallCard
-        name={card.name}
-        store={card.store}
-        price={card.price}
-        date={card.date}
-        clothingType={card.clothingType}
-        images={card.images}
-        cards={cards}
-        setCards={() => setCards()}
-        onHandleDeleteCard={handleDeleteCard}
-      />
-    ))
-  } 
-  function setRandomCards() {
-    const allCardsRandom = allCards.sort(() => 0.5 - Math.random())
-    const randomCards = allCardsRandom.slice(0, 1)
-    return randomCards
-    // const randomCards = Math.floor(Math.random())
-    // return setCards([cards[randomCards - 1]])
-    //const randomCards = cards.sort(() => 0.5 - Math.random())
-    //const randomSights = allSightsRandom.slice(0, 5)
-    //return randomCards
-    //return cards.sort(() => 0.5 - Math.random())
-  }
-} */
+const RandomizerButton = styled.button`
+  background-color: transparent;
+  color: black;
+  border-radius: 5px;
+  border: 2px solid black;
+  box-shadow: 1px 1px 1px darkgrey;
+  font-size: 16px;
+  width: 100%;
+  margin: 20px auto auto;
+  padding: 5px;
+`
