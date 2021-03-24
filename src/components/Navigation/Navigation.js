@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
 
-export default function Navigation() {
+export default function Navigation({ toggleNav, setToggleNav }) {
   return (
-    <Nav>
+    <Nav position={setToggleNav}>
       <NavButton as={NavLink} exact to="/">
         home
       </NavButton>
@@ -24,7 +24,14 @@ const Nav = styled.nav`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  top: 0;
+  left: ${props => (props.position ? '-300px' : '0px')};
+  width: 300px;
+  height: 100%;
+  background-color: peru;
+  transition: left 300ms ease-out;
 `
+
 const NavButton = styled.button`
   background-color: ${props => (props.isActive ? 'tomato' : 'lightgray')};
   ${props => props.isActive && 'color: white;'}

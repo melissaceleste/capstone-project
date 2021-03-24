@@ -12,9 +12,8 @@ const HeaderContainer = styled.header`
   text-transform: uppercase;
   text-align: center;
   width: 100%;
-  box-shadow: 1px 2px #eee;
-  background-color: #e2d5c5;
-  color: white;
+  // box-shadow: 1px 2px #eee;
+  background-color: transparent;
   border-radius: 20px;
   position: fixed;
   top: 0;
