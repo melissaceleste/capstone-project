@@ -8,7 +8,7 @@ import FilterByPrice from '../../components/Filters/FilterByPrice/FilterByPrice'
 import FilterByStore from '../../components/Filters/FilterByStore/FilterByStore'
 import ResetButton from '../../components/ResetButton/ResetButton'
 
-export default function MyClosetPage({ cards, setCards }) {
+export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
   const [userInputName, setUserInputName] = useState('')
   const [userInputStore, setUserInputStore] = useState('')
   const [userInputClothingType, setUserInputClothingType] = useState('')
@@ -55,6 +55,7 @@ export default function MyClosetPage({ cards, setCards }) {
           ({ name, image, id, store, price, date, clothingType, images }) => (
             <Card
               key={id}
+              id={id}
               image={image}
               name={name}
               store={store}
@@ -62,6 +63,8 @@ export default function MyClosetPage({ cards, setCards }) {
               date={date}
               clothingType={clothingType}
               images={images}
+              setCards={setCards}
+              onDeleteCard={onDeleteCard}
             />
           )
         )}
