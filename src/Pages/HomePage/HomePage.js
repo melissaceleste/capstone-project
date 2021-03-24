@@ -7,16 +7,19 @@ export default function HomePage({ cards, setCards }) {
   const [randomCard, setRandomCard] = useState(cardsRandomizer())
   return (
     <HomePageLayout>
-      <SmallCard
-        name={randomCard[0].name}
-        store={randomCard[0].store}
-        price={randomCard[0].price}
-        date={randomCard[0].date}
-        clothingType={randomCard[0].clothingType}
-        images={randomCard[0].images}
-        cards={cards}
-        setCards={() => setCards()}
-      />
+      if ( {cards} === "") {''} else
+      {
+        <SmallCard
+          name={randomCard[0].name}
+          store={randomCard[0].store}
+          price={randomCard[0].price}
+          date={randomCard[0].date}
+          clothingType={randomCard[0].clothingType}
+          images={randomCard[0].images}
+          cards={cards}
+          setCards={() => setCards()}
+        />
+      }
       <RandomizerButton onClick={() => setRandomCard(cardsRandomizer())}>
         nochmal
       </RandomizerButton>
