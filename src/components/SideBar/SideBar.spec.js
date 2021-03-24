@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react'
-import Navigation from './Navigation'
+import SideBar from './SideBar'
 import { BrowserRouter } from 'react-router-dom'
 
-describe('Navigation', () => {
+describe('SideBar', () => {
   it('renders links to "MyCloset" and "New"', () => {
     render(
       <BrowserRouter>
-        <Navigation />
+        <SideBar />
       </BrowserRouter>
     )
     expect(screen.getByText(/mycloset/i)).toBeInTheDocument()
