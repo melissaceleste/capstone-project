@@ -14,7 +14,7 @@ export default function AddNewPage({
       <ResultContainer>
         {cards.map(card => (
           <Card
-            key={card.id}
+            key={card._id}
             id={card.id}
             name={card.name}
             store={card.store}

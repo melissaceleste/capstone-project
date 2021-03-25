@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 
 export default function Card({
   name,
-  id,
+  _id,
   store,
   price,
   date,
@@ -22,7 +22,7 @@ export default function Card({
         <li>{price !== '' ? price + '€' : ''}</li>
         <li>{date} </li>
       </ul>
-      <DeleteButton onClick={() => onDeleteCard(id)}> ✕ </DeleteButton>
+      <DeleteButton onClick={() => onDeleteCard(_id)}> ✕ </DeleteButton>
     </CardContainer>
   )
 }

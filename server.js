@@ -2,6 +2,8 @@ const express = require('express') // Import express (Framework für node)
 const { v4: uuidv4 } = require('uuid') // Import UUID, nachdem wir npm install uuid gemacht haben
 const setupMongo = require('./setupMongo')
 
+require('dotenv').config()
+const { PORT = 4000 } = process.env
 // const mongoose = require('mongoose') // Import mongoose
 
 setupMongo()
@@ -13,10 +15,10 @@ app.use(express.json()) //erste middleware-Funktion, müssen wir aufrufen, damit
 // -----import der User:----
 // app.use('/api/users', require('./routes/users'))
 // -----import der Card:----
-app.use('/api/cards', require('./routes/cards'))
+app.use('/api/capstone_cards', require('./routes/cards'))
 
 app.use(require('./routes/error'))
 
-app.listen(4000, () => {
-  console.log('Server started at http://localhost:4000')
+app.listen(PORT, () => {
+  console.log(`Server listen at http://localhost:${PORT}`)
 })

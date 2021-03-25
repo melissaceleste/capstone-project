@@ -4,6 +4,10 @@ import Header from './components/Header/Header'
 import AddNewPage from './Pages/AddNewPage/AddNewPage'
 import HomePage from './Pages/HomePage/HomePage'
 import MyClosetPage from './Pages/MyClosetPage/MyClosetPage'
+import createCard from './services/createCard'
+import getCards from './services/getCards'
+import deleteCards from './services/deleteCard'
+// import createCard from './services/getCards'
 
 function App() {
   /*  const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
@@ -13,11 +17,35 @@ function App() {
   }, [cards])
  */
   const [cards, setCards] = useState([])
-  useEffect(() => {
+  /*   useEffect(() => {
     fetch('/api/cards')
       .then(res => res.json())
       .then(data => setCards([...data]))
+  }, []) */
+  // ----- get -------
+  useEffect(() => {
+    getCards().then(data => setCards([...data]))
   }, [])
+
+  // ---- post/create ----
+
+  function addNewCard(id, name, store, price, date, clothingType, images) {
+    createCard(id, name, store, price, date, clothingType, images).then(data =>
+      setCards([data, ...cards])
+    )
+  }
+
+  /*   function addNewCard(newCard) {
+    createCard(newCard).then(data => setCards([data, ...cards]))
+  } */
+
+  // ----- delete----
+  function deleteCard(id) {
+    deleteCards(id).then(() => {
+      const newCardList = cards.filter(card => card._id !== id)
+      setCards(...newCardList)
+    })
+  }
 
   return (
     <>
@@ -46,21 +74,21 @@ function App() {
     </>
   )
 
-  function addNewCard(newCard) {
+  /* function addNewCard(newCard) {
     setCards([newCard, ...cards])
-  }
-  function saveToLocal(key, data) {
+  } */
+  /*   function saveToLocal(key, data) {
     localStorage.setItem(key, JSON.stringify(data))
   }
   function loadFromLocal(key) {
     const jsonString = localStorage.getItem(key)
     const data = JSON.parse(jsonString)
     return data
-  }
+  } */
 
-  function deleteCard(currentId) {
+  /*  function deleteCard(currentId) {
     const newCardList = cards.filter(card => card.id !== currentId)
     setCards(newCardList)
-  }
+  } */
 }
 export default App
