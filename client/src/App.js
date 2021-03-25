@@ -6,11 +6,18 @@ import HomePage from './Pages/HomePage/HomePage'
 import MyClosetPage from './Pages/MyClosetPage/MyClosetPage'
 
 function App() {
-  const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
+  /*  const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
 
   useEffect(() => {
     saveToLocal('cards', cards)
   }, [cards])
+ */
+  const [cards, setCards] = useState([])
+  useEffect(() => {
+    fetch('/api/cards')
+      .then(res => res.json())
+      .then(data => setCards([...data]))
+  }, [])
 
   return (
     <>
