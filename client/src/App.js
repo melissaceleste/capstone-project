@@ -17,6 +17,7 @@ function App() {
   }, [cards])
  */
   const [cards, setCards] = useState([])
+
   /*   useEffect(() => {
     fetch('/api/cards')
       .then(res => res.json())
@@ -40,13 +41,18 @@ function App() {
   } */
 
   // ----- delete----
-  function deleteCard(id) {
-    deleteCards(id).then(() => {
-      const newCardList = cards.filter(card => card._id !== id)
-      setCards(...newCardList)
+  function deleteCard(currentId) {
+    deleteCards(currentId).then(() => {
+      const newCardList = cards.filter(card => card._id !== currentId)
+      setCards(newCardList)
     })
   }
-
+  /*  function deleteCard(currentId) {
+    deleteCards(currentId).then(() => {
+      const newCardList = cards.filter(card => card._id !== currentId)
+      setCards(newCardList)
+    })
+  } */
   return (
     <>
       <Header />
@@ -91,4 +97,5 @@ function App() {
     setCards(newCardList)
   } */
 }
+
 export default App

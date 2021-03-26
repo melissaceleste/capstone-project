@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 
 export default function Card({
   name,
-  _id,
+  id,
   store,
   price,
   date,
@@ -13,16 +13,18 @@ export default function Card({
   return (
     <CardContainer>
       <h2>{name}</h2>
-      {images.map(image => (
+      {/*   {images.map(image => (
         <img key={image} src={image} alt="" width="100" height="auto" />
-      ))}
+        <img src="data:image/<%=image.img.contentType%>;base64,
+        <%=image.img.data.toString('base64')%>"> 
+      ))} */}
       <ul>
         <li>{clothingType}</li>
         <li>{store}</li>
         <li>{price !== '' ? price + '€' : ''}</li>
         <li>{date} </li>
       </ul>
-      <DeleteButton onClick={() => onDeleteCard(_id)}> ✕ </DeleteButton>
+      <DeleteButton onClick={() => onDeleteCard(id)}> ✕ </DeleteButton>
     </CardContainer>
   )
 }

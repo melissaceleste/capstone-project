@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require('uuid') // Import UUID, nachdem wir npm install u
 const setupMongo = require('./setupMongo')
 
 require('dotenv').config()
-const { PORT = 4000 } = process.env
+const { PORT = 4000 } = process.env // .env
 // const mongoose = require('mongoose') // Import mongoose
 
 setupMongo()
@@ -15,7 +15,7 @@ app.use(express.json()) //erste middleware-Funktion, müssen wir aufrufen, damit
 // -----import der User:----
 // app.use('/api/users', require('./routes/users'))
 // -----import der Card:----
-app.use('/api/capstone_cards', require('./routes/cards'))
+app.use('/api/cards', require('./routes/cards'))
 
 app.use(require('./routes/error'))
 

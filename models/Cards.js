@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
-  // id?
+  // id: { type: uuid },
   name: {
     type: String,
   },
@@ -18,7 +18,8 @@ const schema = new mongoose.Schema({
     type: String,
   },
   images: {
-    type: String,
+    data: Buffer, //  allows us to store our image as data in the form of arrays.
+    contentType: String,
   },
 })
 
