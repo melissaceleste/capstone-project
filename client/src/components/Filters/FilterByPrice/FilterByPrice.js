@@ -8,7 +8,7 @@ export default function Filter({
 }) {
   return (
     <FilterLabel>
-      <h2>Kaufpreis:</h2>
+      <div>Kaufpreis:</div>
       <FlexContainer>
         <InputIconWrapper>
           <input
@@ -43,11 +43,15 @@ const FilterLabel = styled.label`
   box-shadow: 3px 3px 3px #eee;
   width: 100%;
   padding: 0;
-  margin: 10px;
   color: grey;
-  h2 {
+  div {
     font-size: 16px;
     margin: 0;
+    text-align: center;
+    color: grey;
+    opacity: 1;
+    letter-spacing: 0.2em;
+    font-weight: 300;
   }
   input {
     border-radius: 10px;
@@ -57,6 +61,10 @@ const FilterLabel = styled.label`
     width: 99%;
     margin: 0;
     color: grey;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    font-weight: 300;
   }
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
@@ -72,9 +80,9 @@ const FilterLabel = styled.label`
 const InputIcon = styled.div`
   position: absolute;
   left: 138px;
-  top: 3px;
+  top: 0px;
 `
-const InputIconWrapper = styled.div`
+const InputIconWrapper = styled.section`
   position: relative;
 `
 const FlexContainer = styled.section`

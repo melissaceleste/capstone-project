@@ -127,6 +127,8 @@ const MyClosetPageLayout = styled.main`
   }
 `
 const FormContainer = styled.form`
+  display: grid;
+  gap: 10px;
   background-color: whitesmoke;
   box-shadow: 3px 3px 3px #eee;
   padding: 10px;

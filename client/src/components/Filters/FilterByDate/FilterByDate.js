@@ -8,7 +8,7 @@ export default function FilterByDate({
 }) {
   return (
     <FilterLabel>
-      <h2>Kaufdatum:</h2>
+      <div>Kaufdatum:</div>
       <FlexContainer>
         <input
           data-testid="fromDate"
@@ -35,11 +35,15 @@ const FilterLabel = styled.label`
   box-shadow: 3px 3px 3px #eee;
   width: 100%;
   padding: 0;
-  margin: 10px;
   color: grey;
-  h2 {
+  div {
     font-size: 16px;
     margin: 0;
+    text-align: center;
+    color: grey;
+    opacity: 1;
+    letter-spacing: 0.2em;
+    font-weight: 300;
   }
   input {
     border-radius: 10px;
@@ -47,9 +51,15 @@ const FilterLabel = styled.label`
     box-shadow: 1px 1px 1px grey;
     padding: 5px;
     width: 100%;
-    margin: 4px;
+    margin: 0 4px;
     font-family: inherit;
     color: grey;
+    font-size: 12px;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-weight: 300;
+    -webkit-appearance: none;
   }
 `
 const FlexContainer = styled.section`

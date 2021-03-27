@@ -17,7 +17,6 @@ export default function FilterByClothingType({
 
   return (
     <FilterLabel>
-      <h2>Kleidungstyp</h2>
       <select
         data-testid="select"
         value={userInputClothingType}
@@ -50,13 +49,9 @@ const FilterLabel = styled.label`
   box-shadow: 3px 3px 3px #eee;
   width: 100%;
   padding: 0;
-  margin: 10px;
+  margin-left: 15px;
   color: grey;
 
-  h2 {
-    font-size: 16px;
-    margin: 0;
-  }
   select {
     border-radius: 10px;
     box-shadow: 1px 1px 1px grey;
@@ -65,5 +60,10 @@ const FilterLabel = styled.label`
     border: none;
     appearance: none;
     color: grey;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-size: 15px;
+    font-weight: 300;
+    width: 90%;
   }
 `
