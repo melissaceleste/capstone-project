@@ -1,17 +1,26 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components/macro'
-// import Upload from '../Upload/Upload'
 import { v4 as uuidv4 } from 'uuid'
 // import sendImageData from '../../services/sendImageData'
-import CloudinaryUpload from '../CloudinaryUpload/CloudinaryUpload'
+// import Upload from '../Upload/Upload'
+import axios from 'axios'
 
-export default function AddNew({ onAddNewCard, image, setImage }) {
+const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
+const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
+
+export default function AddNew({ onAddNewCard }) {
   // const [images, setImages] = useState([])
-  //const [images, setImages] = useState('')
+  // const [images, setImages] = useState('')
   // const [imageURLs, setImageURLs] = useState([])
+  const [image, setImage] = useState('')
   return (
     <>
-      <CloudinaryUpload> </CloudinaryUpload>
+      {/*  <CloudinaryUpload> </CloudinaryUpload> */}
+      {image ? (
+        <img src={image} alt="" style={{ width: '100%' }} />
+      ) : (
+        <input type="file" name="file" onChange={upload} />
+      )}
       <AddNewContainer
         onSubmit={handleSubmit}
         action="/profile"
@@ -23,12 +32,6 @@ export default function AddNew({ onAddNewCard, image, setImage }) {
           Umso mehr Infos du speicherst, umso einfacher kannst du deine
           Lieblingsteile später wieder finden:)
         </Comment>
-
-        {/*   {images ? (
-        <img src={images} alt="" style={{ width: '100%' }} />
-      ) : (
-        <input type="file" name="file" onChange={upload} />
-      )} */}
 
         <label>
           <h2>Name (optional):</h2>
@@ -134,7 +137,7 @@ export default function AddNew({ onAddNewCard, image, setImage }) {
     form.reset()
     console.log()
   }
-  /*   function upload(event) {
+  function upload(event) {
     const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`
 
     const formData = new FormData()
@@ -149,11 +152,11 @@ export default function AddNew({ onAddNewCard, image, setImage }) {
       })
       .then(onImageSave)
       .catch(err => console.error(err))
-  } */
+  }
 
-  /* function onImageSave(response) {
-    setImages(response.data.url)
-  } */
+  function onImageSave(response) {
+    setImage(response.data.url)
+  }
 }
 
 const AddNewContainer = styled.form`

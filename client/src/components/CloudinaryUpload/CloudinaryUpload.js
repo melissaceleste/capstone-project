@@ -15,17 +15,13 @@ export default function CloudinaryUpload() {
   const [image, setImage] = useState('')
   return (
     <>
-      {image ? (
-        <img src={image} alt="" style={{ width: '100%' }} />
-      ) : (
-        <input
-          type="file"
-          name="file"
-          onChange={handleFileInputChange}
-          //       value={fileInputState}
-        />
-      )}
-      <button onClick={upload}> upload </button>
+      <input
+        type="file"
+        name="image"
+        onChange={handleFileInputChange}
+        //       value={fileInputState}
+      />
+      <button onClick={upload}> hinzufügen </button>
       {previewSource && (
         <img src={previewSource} alt="" style={{ height: '300px' }} />
       )}{' '}
