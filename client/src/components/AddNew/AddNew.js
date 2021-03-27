@@ -11,16 +11,10 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 export default function AddNew({ onAddNewCard }) {
   // const [images, setImages] = useState([])
   // const [images, setImages] = useState('')
-  // const [imageURLs, setImageURLs] = useState([])
+  const [imageURLs, setImageURLs] = useState([])
   const [image, setImage] = useState('')
   return (
     <>
-      {/*  <CloudinaryUpload> </CloudinaryUpload> */}
-      {image ? (
-        <img src={image} alt="" style={{ width: '100%' }} />
-      ) : (
-        <input type="file" name="file" onChange={upload} />
-      )}
       <AddNewContainer
         onSubmit={handleSubmit}
         action="/profile"
@@ -32,7 +26,11 @@ export default function AddNew({ onAddNewCard }) {
           Umso mehr Infos du speicherst, umso einfacher kannst du deine
           Lieblingsteile später wieder finden:)
         </Comment>
-
+        {image ? (
+          <img src={image} alt="" style={{ width: '100%' }} />
+        ) : (
+          <input type="file" name="file" onChange={upload} />
+        )}
         <label>
           <h2>Name (optional):</h2>
           <input
@@ -110,33 +108,6 @@ export default function AddNew({ onAddNewCard }) {
     </>
   )
 
-  /* function upload(event) {
-    sendImageData(onImageSave, event)
-  }
-
-  function onImageSave(response) {
-    const url = { url: response.data.url }
-    setImageURLs([...imageURLs, url])
-  }
- */
-  function handleSubmit(event) {
-    event.preventDefault()
-    const form = event.target
-    const { nameOfClothing, store, price, date, clothingType } = form.elements
-    onAddNewCard({
-      id: uuidv4(),
-      name: nameOfClothing.value,
-      // images: images.map(img => img.data_url),
-      // images: images.value,
-      // urls: imageURLs,
-      store: store.value,
-      price: price.value,
-      date: date.value,
-      clothingType: clothingType.value,
-    })
-    form.reset()
-    console.log()
-  }
   function upload(event) {
     const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`
 
@@ -155,7 +126,28 @@ export default function AddNew({ onAddNewCard }) {
   }
 
   function onImageSave(response) {
+    const url = { url: response.data.url }
+    setImageURLs([...imageURLs, url])
+    console.log(imageURLs)
     setImage(response.data.url)
+  }
+  function handleSubmit(event) {
+    event.preventDefault()
+    const form = event.target
+    const { nameOfClothing, store, price, date, clothingType } = form.elements
+    onAddNewCard({
+      id: uuidv4(),
+      name: nameOfClothing.value,
+      // images: images.map(img => img.data_url),
+      //image: image.value,
+      urls: imageURLs.value,
+      file: imageURLs,
+      store: store.value,
+      price: price.value,
+      date: date.value,
+      clothingType: clothingType.value,
+    })
+    form.reset()
   }
 }
 

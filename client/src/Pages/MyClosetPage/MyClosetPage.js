@@ -54,23 +54,33 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
       </FormContainer>
       {cards.length !== 0 ? (
         <ResultContainer>
-          {filteredCards.map(({ name, // image,
-            url, _id, store, price, date, clothingType, images }) => (
-            <Card
-              key={_id}
-              id={_id}
-              url={url}
-              //image={image}
-              name={name}
-              store={store}
-              price={price}
-              date={date}
-              clothingType={clothingType}
-              images={images}
-              setCards={setCards}
-              onDeleteCard={onDeleteCard}
-            />
-          ))}
+          {filteredCards.map(
+            ({
+              name, // image,
+              urls,
+              _id,
+              store,
+              price,
+              date,
+              clothingType,
+              //images,
+            }) => (
+              <Card
+                key={_id}
+                id={_id}
+                urls={urls}
+                //image={image}
+                name={name}
+                store={store}
+                price={price}
+                date={date}
+                clothingType={clothingType}
+                //images={images}
+                setCards={setCards}
+                onDeleteCard={onDeleteCard}
+              />
+            )
+          )}
         </ResultContainer>
       ) : (
         <Link to="/addnew" style={{ textDecoration: 'none', color: 'black' }}>

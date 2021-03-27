@@ -8,14 +8,15 @@ export default function Card({
   date,
   //image,
   //images = [''],
-  url,
+  imageUrls,
   clothingType,
   onDeleteCard,
+  url,
 }) {
   return (
     <CardContainer>
       <h2>{name}</h2>
-      {url}
+
       <img src={url} alt="" width="100" height="auto" />
       {/*    {images.map(image => (
         <img key={image} src={image} alt="" width="100" height="auto" /> 
