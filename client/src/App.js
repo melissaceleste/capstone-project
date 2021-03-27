@@ -7,15 +7,11 @@ import MyClosetPage from './Pages/MyClosetPage/MyClosetPage'
 import createCard from './services/createCard'
 import getCards from './services/getCards'
 import deleteCards from './services/deleteCard'
-// import createCard from './services/getCards'
 
 function App() {
-  /*  const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
+  const [image, setImage] = useState('')
 
-  useEffect(() => {
-    saveToLocal('cards', cards)
-  }, [cards])
- */
+  // --------------------------------------------------------
   const [cards, setCards] = useState([])
 
   /*   useEffect(() => {
@@ -23,6 +19,7 @@ function App() {
       .then(res => res.json())
       .then(data => setCards([...data]))
   }, []) */
+
   // ----- get -------
   useEffect(() => {
     getCards().then(data => setCards([...data]))
@@ -47,12 +44,7 @@ function App() {
       setCards(newCardList)
     })
   }
-  /*  function deleteCard(currentId) {
-    deleteCards(currentId).then(() => {
-      const newCardList = cards.filter(card => card._id !== currentId)
-      setCards(newCardList)
-    })
-  } */
+
   return (
     <>
       <Header />
@@ -73,29 +65,14 @@ function App() {
             setCards={setCards}
             onAddNewCard={addNewCard}
             onDeleteCard={deleteCard}
+            image={image}
+            setImage={setImage}
           />
         </Route>
       </Switch>
       <Route path={['/', '/mycloset', '/addnew']}></Route>
     </>
   )
-
-  /* function addNewCard(newCard) {
-    setCards([newCard, ...cards])
-  } */
-  /*   function saveToLocal(key, data) {
-    localStorage.setItem(key, JSON.stringify(data))
-  }
-  function loadFromLocal(key) {
-    const jsonString = localStorage.getItem(key)
-    const data = JSON.parse(jsonString)
-    return data
-  } */
-
-  /*  function deleteCard(currentId) {
-    const newCardList = cards.filter(card => card.id !== currentId)
-    setCards(newCardList)
-  } */
 }
 
 export default App

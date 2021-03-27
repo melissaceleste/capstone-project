@@ -6,18 +6,24 @@ export default function Card({
   store,
   price,
   date,
-  images = [''],
+  //image,
+  //images = [''],
+  url,
   clothingType,
   onDeleteCard,
 }) {
   return (
     <CardContainer>
       <h2>{name}</h2>
-      {/*   {images.map(image => (
-        <img key={image} src={image} alt="" width="100" height="auto" />
+      {url}
+      <img src={url} alt="" width="100" height="auto" />
+      {/*    {images.map(image => (
+        <img key={image} src={image} alt="" width="100" height="auto" /> 
         <img src="data:image/<%=image.img.contentType%>;base64,
-        <%=image.img.data.toString('base64')%>"> 
-      ))} */}
+        <%=image.img.data.toString('base64')%>">   
+      ))}
+       <img key={images} src={images} alt="" width="100" height="auto" /> 
+ */}
       <ul>
         <li>{clothingType}</li>
         <li>{store}</li>

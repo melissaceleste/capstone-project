@@ -1,93 +1,121 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import styled from 'styled-components/macro'
-import Upload from '../Upload/Upload'
+// import Upload from '../Upload/Upload'
 import { v4 as uuidv4 } from 'uuid'
+// import sendImageData from '../../services/sendImageData'
+import CloudinaryUpload from '../CloudinaryUpload/CloudinaryUpload'
 
-export default function AddNew({ onAddNewCard }) {
-  const [images, setImages] = useState([])
-
+export default function AddNew({ onAddNewCard, image, setImage }) {
+  // const [images, setImages] = useState([])
+  //const [images, setImages] = useState('')
+  // const [imageURLs, setImageURLs] = useState([])
   return (
-    <AddNewContainer onSubmit={handleSubmit}>
-      <Upload onImage={setImages} required="required" />
-      <Comment>
-        Umso mehr Infos du speicherst, umso einfacher kannst du deine
-        Lieblingsteile später wieder finden:)
-      </Comment>
-      <label>
-        <h2>Name (optional):</h2>
-        <input
-          placeholder="z.B. Minikleid oder Lieblingskleid"
-          name="nameOfClothing"
-        />
-      </label>
-      <label>
-        <h2>Kaufdatum (optional):</h2>
+    <>
+      <CloudinaryUpload> </CloudinaryUpload>
+      <AddNewContainer
+        onSubmit={handleSubmit}
+        action="/profile"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        {/* <Upload onImage={setImages} required="required" /> */}
+        <Comment>
+          Umso mehr Infos du speicherst, umso einfacher kannst du deine
+          Lieblingsteile später wieder finden:)
+        </Comment>
 
-        <input type="date" name="date" />
-      </label>
-      <label>
-        <h2>Geschäft (optional):</h2>
-        <input placeholder="Monki" name="store" />
-      </label>
-      <label>
-        <h2>Preis (optional):</h2>
-        <InputIconWrapper>
+        {/*   {images ? (
+        <img src={images} alt="" style={{ width: '100%' }} />
+      ) : (
+        <input type="file" name="file" onChange={upload} />
+      )} */}
+
+        <label>
+          <h2>Name (optional):</h2>
           <input
-            placeholder="35"
-            name="price"
-            type="number"
-            step="0.01"
-            min="0"
+            placeholder="z.B. Minikleid oder Lieblingskleid"
+            name="nameOfClothing"
           />
-          <InputIcon> €</InputIcon>
-        </InputIconWrapper>
-      </label>
-
-      <h2>Kleidungsart:</h2>
-      <ContainerClothingType>
-        <label>
-          Oberteil
-          <input type="radio" name="clothingType" value="Oberteil" />
         </label>
         <label>
-          Kleid
-          <input type="radio" name="clothingType" value="Kleid" />
-        </label>
+          <h2>Kaufdatum (optional):</h2>
 
-        <label>
-          Rock
-          <input type="radio" name="clothingType" value="Rock" />
+          <input type="date" name="date" />
         </label>
-
         <label>
-          Hose
-          <input type="radio" name="clothingType" value="Hose" />
+          <h2>Geschäft (optional):</h2>
+          <input placeholder="Monki" name="store" />
         </label>
-
         <label>
-          Jacke
-          <input type="radio" name="clothingType" value="Jacke" />
+          <h2>Preis (optional):</h2>
+          <InputIconWrapper>
+            <input
+              placeholder="35"
+              name="price"
+              type="number"
+              step="0.01"
+              min="0"
+            />
+            <InputIcon> €</InputIcon>
+          </InputIconWrapper>
         </label>
 
-        <label>
-          Schuhe
-          <input type="radio" name="clothingType" value="Schuhe" />
-        </label>
+        <h2>Kleidungsart:</h2>
+        <ContainerClothingType>
+          <label>
+            Oberteil
+            <input type="radio" name="clothingType" value="Oberteil" />
+          </label>
+          <label>
+            Kleid
+            <input type="radio" name="clothingType" value="Kleid" />
+          </label>
 
-        <label>
-          Accessoire
-          <input type="radio" name="clothingType" value="Accessoire" />
-        </label>
+          <label>
+            Rock
+            <input type="radio" name="clothingType" value="Rock" />
+          </label>
 
-        <label>
-          special stuff💫
-          <input type="radio" name="clothingType" value="special" />
-        </label>
-      </ContainerClothingType>
-      <br />
-      <SubmitButton text="add"> hinzufügen </SubmitButton>
-    </AddNewContainer>
+          <label>
+            Hose
+            <input type="radio" name="clothingType" value="Hose" />
+          </label>
+
+          <label>
+            Jacke
+            <input type="radio" name="clothingType" value="Jacke" />
+          </label>
+
+          <label>
+            Schuhe
+            <input type="radio" name="clothingType" value="Schuhe" />
+          </label>
+
+          <label>
+            Accessoire
+            <input type="radio" name="clothingType" value="Accessoire" />
+          </label>
+
+          <label>
+            special stuff💫
+            <input type="radio" name="clothingType" value="special" />
+          </label>
+        </ContainerClothingType>
+        <br />
+        <SubmitButton text="add"> hinzufügen </SubmitButton>
+      </AddNewContainer>
+    </>
   )
+
+  /* function upload(event) {
+    sendImageData(onImageSave, event)
+  }
+
+  function onImageSave(response) {
+    const url = { url: response.data.url }
+    setImageURLs([...imageURLs, url])
+  }
+ */
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
@@ -95,14 +123,37 @@ export default function AddNew({ onAddNewCard }) {
     onAddNewCard({
       id: uuidv4(),
       name: nameOfClothing.value,
-      images: images.map(img => img.data_url),
+      // images: images.map(img => img.data_url),
+      // images: images.value,
+      // urls: imageURLs,
       store: store.value,
       price: price.value,
       date: date.value,
       clothingType: clothingType.value,
     })
     form.reset()
+    console.log()
   }
+  /*   function upload(event) {
+    const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`
+
+    const formData = new FormData()
+    formData.append('file', event.target.files[0])
+    formData.append('upload_preset', PRESET)
+
+    axios
+      .post(url, formData, {
+        headers: {
+          'Content-type': 'multipart/form-data',
+        },
+      })
+      .then(onImageSave)
+      .catch(err => console.error(err))
+  } */
+
+  /* function onImageSave(response) {
+    setImages(response.data.url)
+  } */
 }
 
 const AddNewContainer = styled.form`

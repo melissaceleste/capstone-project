@@ -1,12 +1,14 @@
 import styled from 'styled-components/macro'
 
-export default function SmallCard({ name, images = [''] }) {
+export default function SmallCard({ name, url, images = [''] }) {
   return (
     <CardContainer>
       <h2>{name}</h2>
-      {images.map(image => (
+      {url}
+      <img src={url} alt="" width="100" height="auto" />
+      {/*  {images.map(image => (
         <img key={image} src={image} alt="" width="200" max-height="300px" />
-      ))}
+      ))} */}
     </CardContainer>
   )
 }
