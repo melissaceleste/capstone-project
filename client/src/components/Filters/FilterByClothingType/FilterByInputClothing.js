@@ -46,17 +46,15 @@ export default function FilterByClothingType({
 }
 
 const FilterLabel = styled.label`
-  background-color: whitesmoke;
-  box-shadow: 3px 3px 3px #eee;
+  background-color: transparent;
   width: 100%;
   padding: 0;
-  color: grey;
   select {
     border: none;
-    font-size: 16px;
-    background-color: whitesmoke;
+    font-size: 12px;
+    background-color: transparent;
     appearance: none;
-    color: grey;
+    opacity: 1;
     padding: 5px;
     width: 90%;
     outline: 0 none;
@@ -64,11 +62,9 @@ const FilterLabel = styled.label`
     text-align: center;
     letter-spacing: 0.2em;
     font-weight: 300;
-    width: 90%;
     margin-left: 10px;
     text-transform: uppercase;
   }
-
   hr {
     width: 90%;
     margin-top: 0;

@@ -16,7 +16,7 @@ export default function HomePage({ cards, setCards }) {
             price={randomCard[0].price}
             date={randomCard[0].date}
             clothingType={randomCard[0].clothingType}
-            images={randomCard[0].images}
+            urls={randomCard[0].urls}
             cards={cards}
             setCards={() => setCards()}
           />

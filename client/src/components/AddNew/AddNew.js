@@ -26,6 +26,7 @@ export default function AddNew({ onAddNewCard }) {
         ) : (
           <input type="file" name="file" onChange={upload} />
         )}
+
         <label>
           <input placeholder="Name" name="nameOfClothing" />
           <hr />
@@ -157,7 +158,19 @@ export default function AddNew({ onAddNewCard }) {
 }
 
 const AddNewContainer = styled.form`
-  background-color: whitesmoke;
+  /*   background-color: #abbaab; 
+  background: -webkit-linear-gradient(
+    to bottom,
+    #ffffff,
+    #abbaab
+  ); 
+  background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #abbaab
+  );  */
+  background-color: black;
+  color: white;
   box-shadow: 3px 3px 3px #eee;
   padding: 10px;
   width: 90%;
@@ -165,35 +178,39 @@ const AddNewContainer = styled.form`
   display: grid;
   gap: 15px;
   div {
-    font-size: 16px;
+    font-size: 12px;
     margin-left: 6px;
     text-align: center;
-    color: black;
+    color: white;
     opacity: 1;
     letter-spacing: 0.2em;
     font-weight: 300;
     text-transform: uppercase;
   }
-  h3 {
-    font-size: 14px;
-    margin: 0;
+  hr {
+    width: 90%;
+    margin-top: 0;
+    color: white;
+  }
+  label {
+    text-transform: uppercase;
   }
   input {
     border: none;
-    font-size: 16px;
-    background-color: whitesmoke;
+    font-size: 12px;
+    background-color: transparent;
     padding: 5px;
     width: 90%;
     outline: 0 none;
     caret-color: transparent;
     appearance: none;
     text-align: center;
-    color: black;
+    color: white;
     margin-left: 18px;
     ::placeholder {
       letter-spacing: 0.2em;
       text-align: center;
-      color: black;
+      color: white;
       opacity: 1;
       text-transform: uppercase;
     }
@@ -208,34 +225,20 @@ const AddNewContainer = styled.form`
   input[type='number'] {
     -moz-appearance: textfield;
   }
-  hr {
-    width: 90%;
-    margin-top: 0;
-    color: black;
-  }
-  label {
-    text-transform: uppercase;
-  }
 `
-const ContainerClothingType = styled.section`
+const Comment = styled.p`
+  color: grey;
   text-align: center;
-  h3 {
-    font-size: 14px;
-    color: darkgrey;
-  }
-  label {
-    margin: 10px;
-  }
+  color: white;
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: white;
+  opacity: 1;
+  text-transform: uppercase;
+  font-size: 10px;
 `
-const SubmitButton = styled.button`
-  background-color: transparent;
-  color: black;
-  border-radius: 5px;
-  border: 2px solid black;
-  box-shadow: 1px 1px 1px darkgrey;
-  font-size: 16px;
-  width: 100%;
-  padding: 5px;
+const InputIconWrapper = styled.div`
+  position: relative;
 `
 const InputIcon = styled.div`
   position: absolute;
@@ -243,19 +246,33 @@ const InputIcon = styled.div`
   top: 3px;
   color: grey;
 `
-const InputIconWrapper = styled.div`
-  position: relative;
-`
-const Comment = styled.p`
-  color: grey;
+const ContainerClothingType = styled.section`
   text-align: center;
+  label {
+    margin: 10px;
+    font-size: 12px;
+    padding: 10px;
+  }
 `
 const ClothingTypeInput = styled.input`
   :checked {
-    background-color: black;
+    background-color: white;
     width: 40%;
     margin: 0 50px;
-    margin-left: 100px;
+    margin-left: 105px;
     display: block;
   }
+`
+const SubmitButton = styled.button`
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+  border: 2px solid white;
+  font-size: 16px;
+  width: 100%;
+  padding: 5px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  opacity: 1;
+  text-transform: uppercase;
 `

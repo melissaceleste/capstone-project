@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 
 export default function ResetButton({ handleResetFilter }) {
-  return <Button onclick={handleResetFilter}> reset </Button>
+  return <Button onclick={handleResetFilter}> Filter zurücksetzen </Button>
 }
 
 const Button = styled.button`
@@ -14,4 +14,8 @@ const Button = styled.button`
   width: 100%;
   margin: 20px auto auto;
   padding: 5px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  opacity: 1;
+  text-transform: uppercase;
 `

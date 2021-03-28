@@ -14,15 +14,13 @@ export default function FilterByStore({ userInputStore, setUserInputStore }) {
 }
 
 const FilterLabel = styled.label`
-  background-color: whitesmoke;
+  background-color: transparent;
   width: 100%;
   padding: 0;
-  color: grey;
-
   input {
     border: none;
-    font-size: 16px;
-    background-color: whitesmoke;
+    font-size: 12px;
+    background-color: transparent;
     padding: 5px;
     width: 90%;
     outline: 0 none;
@@ -31,6 +29,8 @@ const FilterLabel = styled.label`
       letter-spacing: 0.2em;
       text-align: center;
       text-transform: uppercase;
+      color: black;
+      opacity: 1;
     }
   }
   hr {

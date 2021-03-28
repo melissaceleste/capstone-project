@@ -34,34 +34,28 @@ export default function FilterByDate({
 }
 
 const FilterLabel = styled.label`
-  background-color: whitesmoke;
-  box-shadow: 3px 3px 3px #eee;
+  background-color: transparent;
   width: 100%;
   padding: 0;
-  color: grey;
   div {
-    font-size: 16px;
+    font-size: 12px;
     margin: 0;
     text-align: center;
-    color: grey;
-    opacity: 1;
     letter-spacing: 0.2em;
     font-weight: 300;
+    color: black;
+    opacity: 1;
   }
   input {
-    background-color: whitesmoke;
+    background-color: transparent;
     appearance: none;
-    color: grey;
     padding: 5px;
     border: none;
-    padding: 5px;
     width: 99%;
     margin: 0;
-    color: grey;
     text-align: center;
     letter-spacing: 0.2em;
     font-size: 10px;
-    font-weight: 300;
     font-family: inherit;
     outline: 0 none;
   }

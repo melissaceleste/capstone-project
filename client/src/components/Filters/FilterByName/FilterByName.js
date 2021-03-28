@@ -17,16 +17,14 @@ export default function FilterByName({ userInputName, setUserInputName }) {
 }
 
 const FilterLabel = styled.label`
-  background-color: whitesmoke;
+  background-color: transparent;
   width: 100%;
   padding: 0;
   margin: 5px;
-  color: grey;
-
   input {
     border: none;
-    font-size: 16px;
-    background-color: whitesmoke;
+    font-size: 12px;
+    background-color: transparent;
     padding: 5px;
     width: 90%;
     outline: 0 none;
@@ -35,6 +33,8 @@ const FilterLabel = styled.label`
       text-align: center;
       letter-spacing: 0.2em;
       text-transform: uppercase;
+      color: black;
+      opacity: 1;
     }
   }
   hr {

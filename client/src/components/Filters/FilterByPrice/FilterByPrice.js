@@ -40,34 +40,28 @@ export default function Filter({
 }
 
 const FilterLabel = styled.label`
-  background-color: whitesmoke;
-  box-shadow: 3px 3px 3px #eee;
+  background-color: transparent;
   width: 100%;
   padding: 0;
-  color: grey;
+  color: black;
   div {
-    font-size: 16px;
+    font-size: 12px;
     margin: 0;
     text-align: center;
-    color: grey;
-    opacity: 1;
     letter-spacing: 0.2em;
     font-weight: 300;
+    opacity: 1;
   }
   input {
-    background-color: whitesmoke;
+    background-color: transparent;
     appearance: none;
-    color: grey;
     padding: 5px;
     border: none;
-    padding: 5px;
     width: 99%;
     margin: 0;
-    color: grey;
     text-align: center;
     letter-spacing: 0.2em;
     font-size: 10px;
-    font-weight: 300;
     outline: 0 none;
   }
   /* Chrome, Safari, Edge, Opera */
@@ -86,17 +80,17 @@ const FilterLabel = styled.label`
     color: grey;
   }
 `
+const FlexContainer = styled.section`
+  display: flex;
+  justify-content: space-around;
+`
+const InputIconWrapper = styled.section`
+  position: relative;
+`
 const InputIcon = styled.section`
   position: absolute;
   left: 132px;
   top: 2px;
   font-size: 12px;
   display: none;
-`
-const InputIconWrapper = styled.section`
-  position: relative;
-`
-const FlexContainer = styled.section`
-  display: flex;
-  justify-content: space-around;
 `

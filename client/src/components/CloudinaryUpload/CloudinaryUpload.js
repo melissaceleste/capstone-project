@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import axios from 'axios'
-
+import camerasrc from './camera_retro.svg'
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 
@@ -21,7 +21,9 @@ export default function CloudinaryUpload() {
         onChange={handleFileInputChange}
         //       value={fileInputState}
       />
-      <button onClick={upload}> hinzufügen </button>
+      <button onClick={upload}>
+        <img src={camerasrc} alt="Foto aufnehmen" width="150" height="auto" />
+      </button>
       {previewSource && (
         <img src={previewSource} alt="" style={{ height: '300px' }} />
       )}{' '}
@@ -87,67 +89,3 @@ export default function CloudinaryUpload() {
     }
   } */
 }
-
-const AddNewContainer = styled.form`
-  background-color: whitesmoke;
-  box-shadow: 3px 3px 3px #eee;
-  padding: 10px;
-  width: 90%;
-  margin: 10px auto;
-  h2 {
-    font-size: 16px;
-    margin: 25px 0 0 0;
-    color: grey;
-  }
-  h3 {
-    font-size: 14px;
-    margin: 0;
-  }
-  input {
-    border-radius: 10px;
-    border: none;
-    box-shadow: 1px 1px 1px grey;
-    padding: 5px;
-    width: 100%;
-    margin: 0;
-    font-family: inherit;
-    color: grey;
-  }
-  /* Chrome, Safari, Edge, Opera */
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  /* Firefox */
-  input[type='number'] {
-    -moz-appearance: textfield;
-  }
-`
-
-const SubmitButton = styled.button`
-  background-color: transparent;
-  color: black;
-  border-radius: 5px;
-  border: 2px solid black;
-  box-shadow: 1px 1px 1px darkgrey;
-  font-size: 16px;
-  width: 100%;
-  margin: 20px auto auto;
-  padding: 5px;
-`
-/* 
-const InputIcon = styled.div`
-  position: absolute;
-  left: 96%;
-  top: 3px;
-  color: grey;
-`
-const InputIconWrapper = styled.div`
-  position: relative;
-`
-const Comment = styled.p`
-  color: grey;
-  text-align: center;
-`
- */

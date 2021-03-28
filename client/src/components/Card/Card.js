@@ -27,7 +27,7 @@ export default function Card({
         <li>{price !== '' ? price + '€' : ''}</li>
         <li>{date} </li>
       </ul>
-      <DeleteButton onClick={() => onDeleteCard(id)}> ✕ </DeleteButton>
+      <button onClick={() => onDeleteCard(id)}> ✕ </button>
     </CardContainer>
   )
 }
@@ -38,13 +38,15 @@ const CardContainer = styled.section`
   width: 200px;
   box-shadow: 1px 6px 11px 9px #eee;
   position: relative;
-
   h2 {
-    font-size: 18px;
+    font-size: 15px;
     margin-top: 10px;
     margin-bottom: 0;
+    letter-spacing: 0.2em;
+    text-align: center;
+    opacity: 1;
+    text-transform: uppercase;
   }
-
   img {
     border-radius: 20px;
   }
@@ -52,13 +54,18 @@ const CardContainer = styled.section`
     text-align: left;
     list-style-type: none;
     margin-top: 0;
+    letter-spacing: 0.1em;
+    text-align: center;
+    opacity: 1;
+    text-transform: uppercase;
+    font-size: 10px;
   }
-`
-const DeleteButton = styled.button`
-  border: none;
-  background-color: transparent;
-  font-size: 16px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
 `

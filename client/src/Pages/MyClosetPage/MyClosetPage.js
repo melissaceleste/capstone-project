@@ -9,6 +9,7 @@ import FilterByPrice from '../../components/Filters/FilterByPrice/FilterByPrice'
 import FilterByStore from '../../components/Filters/FilterByStore/FilterByStore'
 import ResetButton from '../../components/ResetButton/ResetButton'
 import plussrc from './plus.svg'
+import filtersrc from './filter1.png'
 
 export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
   const [userInputName, setUserInputName] = useState('')
@@ -21,37 +22,44 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
   const todaysDateWithoutDays = todaysDate.toISOString().split('T')[0]
   const [userInputToDate, setUserInputToDate] = useState(todaysDateWithoutDays)
   const filteredCards = filterCards(cards)
-
+  const [filterContainerVisible, setFilterContainerVisible] = useState(false)
   return (
     <MyClosetPageLayout>
-      <FormContainer>
-        <h1>Such nach deinem Kleidungsstück...</h1>
-        <FilterByName
-          userInputName={userInputName}
-          setUserInputName={setUserInputName}
-        />
-        <FilterByStore
-          userInputStore={userInputStore}
-          setUserInputStore={setUserInputStore}
-        />
-        <FilterByClothingType
-          userInputClothingType={setUserInputClothingType}
-          setUserInputClothingType={setUserInputClothingType}
-        />
-        <FilterByPrice
-          userInputMinPrice={userInputMinPrice}
-          setUserInputMinPrice={setUserInputMinPrice}
-          userInputMaxPrice={userInputMaxPrice}
-          setUserInputMaxPrice={setUserInputMaxPrice}
-        />
-        <FilterByDate
-          userInputFromDate={userInputFromDate}
-          setUserInputFromDate={setUserInputFromDate}
-          userInputToDate={userInputToDate}
-          setUserInputToDate={setUserInputToDate}
-        />
-        <ResetButton handleResetFilter={resetFilter} />
-      </FormContainer>
+      <FilterShowButton
+        onClick={() => setFilterContainerVisible(!filterContainerVisible)}
+      >
+        <img src={filtersrc} alt="Filter öffnen" width="40" height="auto" />
+      </FilterShowButton>
+      <section hidden={!filterContainerVisible}>
+        <FormContainer>
+          <h1>Such nach deinem Kleidungsstück...</h1>
+          <FilterByName
+            userInputName={userInputName}
+            setUserInputName={setUserInputName}
+          />
+          <FilterByStore
+            userInputStore={userInputStore}
+            setUserInputStore={setUserInputStore}
+          />
+          <FilterByClothingType
+            userInputClothingType={setUserInputClothingType}
+            setUserInputClothingType={setUserInputClothingType}
+          />
+          <FilterByPrice
+            userInputMinPrice={userInputMinPrice}
+            setUserInputMinPrice={setUserInputMinPrice}
+            userInputMaxPrice={userInputMaxPrice}
+            setUserInputMaxPrice={setUserInputMaxPrice}
+          />
+          <FilterByDate
+            userInputFromDate={userInputFromDate}
+            setUserInputFromDate={setUserInputFromDate}
+            userInputToDate={userInputToDate}
+            setUserInputToDate={setUserInputToDate}
+          />
+          <ResetButton handleResetFilter={resetFilter} />
+        </FormContainer>
+      </section>
       {cards.length !== 0 ? (
         <ResultContainer>
           {filteredCards.map(
@@ -118,6 +126,8 @@ const MyClosetPageLayout = styled.main`
   margin-top: 70px;
   margin-bottom: 80px;
   z-index: auto;
+  display: grid;
+  color: black;
   p {
     text-align: center;
     margin: 50px 50px 20px;
@@ -126,18 +136,30 @@ const MyClosetPageLayout = styled.main`
     margin-left: 45%;
   }
 `
+const FilterShowButton = styled.button`
+  border: none;
+  background-color: transparent;
+  margin-left: 70%;
+`
+
 const FormContainer = styled.form`
   display: grid;
   gap: 10px;
-  background-color: whitesmoke;
+  background-color: transparent;
+  border: 2px solid black;
   box-shadow: 3px 3px 3px #eee;
   padding: 10px;
   width: 90%;
-  margin: 10px auto;
+  margin: 10px auto 15px;
   text-transform: uppercase;
   h1 {
-    font-size: 18px;
+    font-size: 13px;
     margin: 2px;
+
+    letter-spacing: 0.2em;
+    font-weight: 300;
+    color: black;
+    opacity: 1;
   }
 `
 const ResultContainer = styled.section`

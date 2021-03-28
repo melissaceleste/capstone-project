@@ -9,13 +9,13 @@ import getCards from './services/getCards'
 import deleteCards from './services/deleteCard'
 
 function App() {
-  const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
+  /*  const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
 
   useEffect(() => {
     saveToLocal('cards', cards)
   }, [cards])
-
-  /* const [cards, setCards] = useState([])
+ */
+  const [cards, setCards] = useState([])
   // ----- get -------
   useEffect(() => {
     getCards().then(data => setCards([...data]))
@@ -42,7 +42,7 @@ function App() {
       const newCardList = cards.filter(card => card._id !== currentId)
       setCards(newCardList)
     })
-  } */
+  }
 
   return (
     <>
@@ -70,7 +70,7 @@ function App() {
       <Route path={['/', '/mycloset', '/addnew']}></Route>
     </>
   )
-  function addNewCard(newCard) {
+  /*   function addNewCard(newCard) {
     setCards([newCard, ...cards])
   }
   function saveToLocal(key, data) {
@@ -85,7 +85,7 @@ function App() {
   function deleteCard(currentId) {
     const newCardList = cards.filter(card => card.id !== currentId)
     setCards(newCardList)
-  }
+  } */
 }
 
 export default App
