@@ -8,7 +8,7 @@ export default function Filter({
 }) {
   return (
     <FilterLabel>
-      <div>Kaufpreis:</div>
+      <div>Kaufpreis</div>
       <FlexContainer>
         <InputIconWrapper>
           <input
@@ -18,11 +18,11 @@ export default function Filter({
             min="0"
             value={userInputMinPrice}
             onChange={event => setUserInputMinPrice(event.target.value)}
-          ></input>
+          />
+          <hr />
           <InputIcon> €</InputIcon>
         </InputIconWrapper>
-
-        <strong> - </strong>
+        -
         <InputIconWrapper>
           <input
             data-testid="maxPrice"
@@ -30,7 +30,8 @@ export default function Filter({
             type="number"
             value={userInputMaxPrice}
             onChange={event => setUserInputMaxPrice(event.target.value)}
-          ></input>
+          />
+          <hr />
           <InputIcon> €</InputIcon>
         </InputIconWrapper>
       </FlexContainer>
@@ -54,17 +55,20 @@ const FilterLabel = styled.label`
     font-weight: 300;
   }
   input {
-    border-radius: 10px;
+    background-color: whitesmoke;
+    appearance: none;
+    color: grey;
+    padding: 5px;
     border: none;
-    box-shadow: 1px 1px 1px grey;
     padding: 5px;
     width: 99%;
     margin: 0;
     color: grey;
     text-align: center;
     letter-spacing: 0.2em;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 300;
+    outline: 0 none;
   }
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
@@ -76,11 +80,18 @@ const FilterLabel = styled.label`
   input[type='number'] {
     -moz-appearance: textfield;
   }
+  hr {
+    width: 80%;
+    margin-top: 0;
+    color: grey;
+  }
 `
-const InputIcon = styled.div`
+const InputIcon = styled.section`
   position: absolute;
-  left: 138px;
-  top: 0px;
+  left: 132px;
+  top: 2px;
+  font-size: 12px;
+  display: none;
 `
 const InputIconWrapper = styled.section`
   position: relative;

@@ -8,7 +8,7 @@ export default function FilterByDate({
 }) {
   return (
     <FilterLabel>
-      <div>Kaufdatum:</div>
+      <div>Kaufdatum</div>
       <FlexContainer>
         <input
           data-testid="fromDate"
@@ -17,7 +17,7 @@ export default function FilterByDate({
           defaultValue={userInputFromDate}
           onChange={event => setUserInputFromDate(event.target.value)}
         />
-
+        -
         <input
           data-testid="toDate"
           type="date"
@@ -26,6 +26,9 @@ export default function FilterByDate({
           onChange={event => setUserInputToDate(event.target.value)}
         />
       </FlexContainer>
+      <ContainerHR>
+        <hr /> <hr />
+      </ContainerHR>
     </FilterLabel>
   )
 }
@@ -46,22 +49,32 @@ const FilterLabel = styled.label`
     font-weight: 300;
   }
   input {
-    border-radius: 10px;
-    border: none;
-    box-shadow: 1px 1px 1px grey;
-    padding: 5px;
-    width: 100%;
-    margin: 0 4px;
-    font-family: inherit;
+    background-color: whitesmoke;
+    appearance: none;
     color: grey;
-    font-size: 12px;
+    padding: 5px;
+    border: none;
+    padding: 5px;
+    width: 99%;
     margin: 0;
+    color: grey;
     text-align: center;
     letter-spacing: 0.2em;
+    font-size: 10px;
     font-weight: 300;
-    -webkit-appearance: none;
+    font-family: inherit;
+    outline: 0 none;
   }
 `
 const FlexContainer = styled.section`
   display: flex;
+`
+const ContainerHR = styled.section`
+  display: flex;
+  justify-content: space-between;
+  hr {
+    width: 80%;
+    margin: 0 15px;
+    color: grey;
+  }
 `

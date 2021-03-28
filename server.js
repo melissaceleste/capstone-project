@@ -12,8 +12,6 @@ const app = express() // damit bekommen wir eine Express-app - App ist hier eine
 
 app.use(express.json()) //erste middleware-Funktion, müssen wir aufrufen, damit wir danach klassische Middlewares mit den HTTP-Methods schreiben können
 
-// -----import der User:----
-// app.use('/api/users', require('./routes/users'))
 // -----import der Card:----
 app.use('/api/cards', require('./routes/cards'))
 

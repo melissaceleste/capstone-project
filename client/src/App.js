@@ -9,17 +9,13 @@ import getCards from './services/getCards'
 import deleteCards from './services/deleteCard'
 
 function App() {
-  const [image, setImage] = useState('')
+  const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
 
-  // --------------------------------------------------------
-  const [cards, setCards] = useState([])
+  useEffect(() => {
+    saveToLocal('cards', cards)
+  }, [cards])
 
-  /*   useEffect(() => {
-    fetch('/api/cards')
-      .then(res => res.json())
-      .then(data => setCards([...data]))
-  }, []) */
-
+  /* const [cards, setCards] = useState([])
   // ----- get -------
   useEffect(() => {
     getCards().then(data => setCards([...data]))
@@ -28,14 +24,17 @@ function App() {
   // ---- post/create ----
 
   function addNewCard(id, name, store, price, date, clothingType, urls) {
-    createCard(id, name, store, price, date, clothingType, urls).then(data =>
-      setCards([data, ...cards])
-    )
+    createCard(
+      id,
+      name,
+      store,
+      price,
+      date,
+      clothingType,
+      urls
+      // JSON.stringify(urls)
+    ).then(data => setCards([data, ...cards]))
   }
-
-  /*   function addNewCard(newCard) {
-    createCard(newCard).then(data => setCards([data, ...cards]))
-  } */
 
   // ----- delete----
   function deleteCard(currentId) {
@@ -43,7 +42,7 @@ function App() {
       const newCardList = cards.filter(card => card._id !== currentId)
       setCards(newCardList)
     })
-  }
+  } */
 
   return (
     <>
@@ -65,14 +64,28 @@ function App() {
             setCards={setCards}
             onAddNewCard={addNewCard}
             onDeleteCard={deleteCard}
-            image={image}
-            setImage={setImage}
           />
         </Route>
       </Switch>
       <Route path={['/', '/mycloset', '/addnew']}></Route>
     </>
   )
+  function addNewCard(newCard) {
+    setCards([newCard, ...cards])
+  }
+  function saveToLocal(key, data) {
+    localStorage.setItem(key, JSON.stringify(data))
+  }
+  function loadFromLocal(key) {
+    const jsonString = localStorage.getItem(key)
+    const data = JSON.parse(jsonString)
+    return data
+  }
+
+  function deleteCard(currentId) {
+    const newCardList = cards.filter(card => card.id !== currentId)
+    setCards(newCardList)
+  }
 }
 
 export default App

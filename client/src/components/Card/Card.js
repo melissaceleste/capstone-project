@@ -6,24 +6,20 @@ export default function Card({
   store,
   price,
   date,
-  //image,
-  //images = [''],
-  imageUrls,
   clothingType,
   onDeleteCard,
-  url,
+  urls = [''],
 }) {
   return (
     <CardContainer>
       <h2>{name}</h2>
-
-      <img src={url} alt="" width="100" height="auto" />
-      {/*    {images.map(image => (
-        <img key={image} src={image} alt="" width="100" height="auto" /> 
-        <img src="data:image/<%=image.img.contentType%>;base64,
-        <%=image.img.data.toString('base64')%>">   
+      {urls.map(({ url }) => (
+        <img key={url} src={url} alt="" width="100" height="auto" />
       ))}
-       <img key={images} src={images} alt="" width="100" height="auto" /> 
+
+      {/*   {urls.map(url => (
+        <img src={url} alt="" width="100" height="auto" />
+      ))}
  */}
       <ul>
         <li>{clothingType}</li>
@@ -65,7 +61,4 @@ const DeleteButton = styled.button`
   position: absolute;
   right: 10px;
   top: 10px;
-  // color: tomato;
-  // border-radius: 100%;
-  // border: 1px solid;
 `

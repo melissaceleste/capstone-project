@@ -30,6 +30,7 @@ const FilterLabel = styled.label`
     ::placeholder {
       letter-spacing: 0.2em;
       text-align: center;
+      text-transform: uppercase;
     }
   }
   hr {

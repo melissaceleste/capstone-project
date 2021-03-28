@@ -21,14 +21,13 @@ export default function AddNewPage({
             price={card.price}
             date={card.date}
             clothingType={card.clothingType}
-            //images={card.images}
-            urls={card.url}
+            urls={card.urls}
             cards={cards}
             setCards={() => setCards()}
             onDeleteCard={onDeleteCard}
           />
         ))}
-        {/*  {console.log(cards)} */}
+        {console.log(cards)}
       </ResultContainer>
     </AddNewPageLayout>
   )

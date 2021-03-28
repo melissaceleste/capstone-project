@@ -134,6 +134,7 @@ const FormContainer = styled.form`
   padding: 10px;
   width: 90%;
   margin: 10px auto;
+  text-transform: uppercase;
   h1 {
     font-size: 18px;
     margin: 2px;

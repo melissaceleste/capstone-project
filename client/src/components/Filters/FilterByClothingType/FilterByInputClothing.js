@@ -23,7 +23,7 @@ export default function FilterByClothingType({
         onChange={event => setUserInputClothingType(event.target.value)}
       >
         <option value="" disabled hidden>
-          Wähle ein Kleidungstyp
+          Kleidungstyp
         </option>
         {showAllClothingTypes && (
           <option key="allClothingTypes" value="all">
@@ -40,6 +40,7 @@ export default function FilterByClothingType({
           </option>
         ))}
       </select>
+      <hr />
     </FilterLabel>
   )
 }
@@ -49,21 +50,28 @@ const FilterLabel = styled.label`
   box-shadow: 3px 3px 3px #eee;
   width: 100%;
   padding: 0;
-  margin-left: 15px;
   color: grey;
-
   select {
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px grey;
-    padding: 5px;
-    width: 100%;
     border: none;
+    font-size: 16px;
+    background-color: whitesmoke;
     appearance: none;
     color: grey;
+    padding: 5px;
+    width: 90%;
+    outline: 0 none;
+    caret-color: transparent;
     text-align: center;
     letter-spacing: 0.2em;
-    font-size: 15px;
     font-weight: 300;
     width: 90%;
+    margin-left: 10px;
+    text-transform: uppercase;
+  }
+
+  hr {
+    width: 90%;
+    margin-top: 0;
+    color: grey;
   }
 `
