@@ -8,7 +8,6 @@ export default function FilterByStore({ userInputStore, setUserInputStore }) {
         value={userInputStore}
         onChange={event => setUserInputStore(event.target.value)}
       />
-      <hr />
     </FilterLabel>
   )
 }
@@ -16,7 +15,6 @@ export default function FilterByStore({ userInputStore, setUserInputStore }) {
 const FilterLabel = styled.label`
   background-color: transparent;
   width: 100%;
-  padding: 0;
   input {
     border: none;
     font-size: 12px;
@@ -25,6 +23,8 @@ const FilterLabel = styled.label`
     width: 90%;
     outline: 0 none;
     caret-color: transparent;
+    border-bottom: 1px solid black;
+    text-align: center;
     ::placeholder {
       letter-spacing: 0.2em;
       text-align: center;
@@ -32,10 +32,5 @@ const FilterLabel = styled.label`
       color: black;
       opacity: 1;
     }
-  }
-  hr {
-    width: 90%;
-    margin-top: 0;
-    color: grey;
   }
 `

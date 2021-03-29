@@ -5,7 +5,7 @@ export default function SmallCard({ name, urls = [''] }) {
     <CardContainer>
       <h2>{name}</h2>
       {urls.map(({ url }) => (
-        <img key={url} src={url} alt="" width="100" height="auto" />
+        <img key={url} src={url} alt="" width="200" height="auto" />
       ))}
     </CardContainer>
   )
@@ -29,5 +29,6 @@ const CardContainer = styled.section`
   }
   img {
     border-radius: 20px;
+    max-height: 300px;
   }
 `

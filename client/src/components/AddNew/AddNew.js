@@ -9,6 +9,7 @@ const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
 export default function AddNew({ onAddNewCard }) {
   const [imageURLs, setImageURLs] = useState([])
   const [image, setImage] = useState('')
+
   return (
     <>
       <AddNewContainer
@@ -21,37 +22,37 @@ export default function AddNew({ onAddNewCard }) {
           Umso mehr Infos du speicherst, umso einfacher kannst du deine
           Lieblingsteile später wieder finden:)
         </Comment>
-        {image ? (
-          <img src={image} alt="" style={{ width: '100%' }} />
-        ) : (
-          <input type="file" name="file" onChange={upload} />
-        )}
+        <UploadLabel>
+          {image ? (
+            <img src={image} alt="" style={{ width: '100%' }} />
+          ) : (
+            <Upload type="file" name="file" onChange={upload} />
+          )}
+        </UploadLabel>
+        <label>
+          <InputTypeNormal placeholder="Name" name="nameOfClothing" />
+        </label>
 
         <label>
-          <input placeholder="Name" name="nameOfClothing" />
-        </label>
-        <label>
-          <div>Kaufdatum</div>
-
-          <input type="date" name="date" placeholder="Kaufdatum" />
-        </label>
-        <label>
-          <input placeholder="Geschäft" name="store" />
+          <InputTypeNormal placeholder="Geschäft" name="store" />
         </label>
         <label>
           <InputIconWrapper>
-            <input
-              placeholder="Preis  "
+            <InputTypeNormal
+              placeholder="Preis"
               name="price"
               type="number"
               step="0.01"
               min="0"
             />
-
             <InputIcon> €</InputIcon>
           </InputIconWrapper>
         </label>
+        <label>
+          <div>Kaufdatum</div>
 
+          <InputTypeNormal type="date" name="date" placeholder="Kaufdatum" />
+        </label>
         <div>Kleidungsart</div>
         <ContainerClothingType>
           <label>
@@ -109,7 +110,6 @@ export default function AddNew({ onAddNewCard }) {
             />
           </label>
         </ContainerClothingType>
-        <br />
         <SubmitButton text="add"> hinzufügen </SubmitButton>
       </AddNewContainer>
     </>
@@ -174,6 +174,7 @@ const AddNewContainer = styled.form`
   margin: 10px auto;
   display: grid;
   gap: 15px;
+  text-align: center;
   div {
     font-size: 12px;
     margin-left: 6px;
@@ -184,12 +185,10 @@ const AddNewContainer = styled.form`
     font-weight: 300;
     text-transform: uppercase;
   }
-
   label {
     text-transform: uppercase;
   }
   input {
-    border: none;
     font-size: 12px;
     background-color: transparent;
     padding: 5px;
@@ -199,8 +198,7 @@ const AddNewContainer = styled.form`
     appearance: none;
     text-align: center;
     color: white;
-    margin-left: 18px;
-    border-bottom: 1px solid white;
+    //margin-left: 18px;
     ::placeholder {
       letter-spacing: 0.2em;
       text-align: center;
@@ -231,6 +229,21 @@ const Comment = styled.p`
   text-transform: uppercase;
   font-size: 10px;
 `
+const Upload = styled.input`
+  display: none;
+`
+const UploadLabel = styled.label`
+  color: white;
+  font-size: 17px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 15px;
+  outline: none;
+  letter-spacing: 0.2em;
+  :before {
+    content: 'Foto hochladen';
+  }
+`
 const InputIconWrapper = styled.div`
   position: relative;
 `
@@ -243,22 +256,20 @@ const InputIcon = styled.div`
 const ContainerClothingType = styled.section`
   text-align: center;
   label {
-    margin: 10px;
+    // margin: 10px;
     font-size: 12px;
     padding: 10px;
   }
 `
 const ClothingTypeInput = styled.input`
+  border-bottom: 1px solid transparent;
   :checked {
-    background-color: white;
-    width: 40%;
-    margin: 0 50px;
-    margin-left: 105px;
-    display: block;
-    :label {
-      color: red;
-    }
+    border-bottom: 1px solid teal;
   }
+`
+const InputTypeNormal = styled.input`
+  border: none;
+  border-bottom: 1px solid white;
 `
 const SubmitButton = styled.button`
   background-color: transparent;

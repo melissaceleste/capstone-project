@@ -16,15 +16,10 @@ export default function Card({
       {urls.map(({ url }) => (
         <img key={url} src={url} alt="" width="100" height="auto" />
       ))}
-
-      {/*   {urls.map(url => (
-        <img src={url} alt="" width="100" height="auto" />
-      ))}
- */}
       <ul>
         <li>{clothingType}</li>
         <li>{store}</li>
-        <li>{price !== '' ? price + '€' : ''}</li>
+        <li>{price !== null ? price + '€' : ''} </li>
         <li>{date} </li>
       </ul>
       <button onClick={() => onDeleteCard(id)}> ✕ </button>
@@ -49,13 +44,14 @@ const CardContainer = styled.section`
   }
   img {
     border-radius: 20px;
+    align-items: center;
   }
   ul {
-    text-align: left;
+    text-align: center;
     list-style-type: none;
     margin-top: 0;
+    padding: 0;
     letter-spacing: 0.1em;
-    text-align: center;
     opacity: 1;
     text-transform: uppercase;
     font-size: 10px;

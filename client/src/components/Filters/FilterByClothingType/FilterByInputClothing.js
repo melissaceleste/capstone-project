@@ -40,7 +40,6 @@ export default function FilterByClothingType({
           </option>
         ))}
       </select>
-      <hr />
     </FilterLabel>
   )
 }
@@ -62,12 +61,7 @@ const FilterLabel = styled.label`
     text-align: center;
     letter-spacing: 0.2em;
     font-weight: 300;
-    margin-left: 10px;
     text-transform: uppercase;
-  }
-  hr {
-    width: 90%;
-    margin-top: 0;
-    color: grey;
+    border-bottom: 1px solid black;
   }
 `

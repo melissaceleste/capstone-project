@@ -7,11 +7,11 @@ export default function FilterByName({ userInputName, setUserInputName }) {
   return (
     <FilterLabel onClick={handleClick}>
       <input
+        clicked={click}
         placeholder="  Name "
         value={userInputName}
         onChange={event => setUserInputName(event.target.value)}
       />
-      <hr clicked={click} />
     </FilterLabel>
   )
 }
@@ -20,8 +20,8 @@ const FilterLabel = styled.label`
   background-color: transparent;
   width: 100%;
   padding: 0;
-  margin: 5px;
   input {
+    text-align: center;
     border: none;
     font-size: 12px;
     background-color: transparent;
@@ -29,6 +29,7 @@ const FilterLabel = styled.label`
     width: 90%;
     outline: 0 none;
     caret-color: transparent;
+    border-bottom: 1px solid black;
     ::placeholder {
       text-align: center;
       letter-spacing: 0.2em;

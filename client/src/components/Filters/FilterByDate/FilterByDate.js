@@ -26,9 +26,7 @@ export default function FilterByDate({
           onChange={event => setUserInputToDate(event.target.value)}
         />
       </FlexContainer>
-      <ContainerHR>
-        <hr /> <hr />
-      </ContainerHR>
+      <ContainerHR></ContainerHR>
     </FilterLabel>
   )
 }
@@ -58,6 +56,8 @@ const FilterLabel = styled.label`
     font-size: 10px;
     font-family: inherit;
     outline: 0 none;
+    border-bottom: 1px solid black;
+    border-bottom-height: 90px;
   }
 `
 const FlexContainer = styled.section`
@@ -66,9 +66,4 @@ const FlexContainer = styled.section`
 const ContainerHR = styled.section`
   display: flex;
   justify-content: space-between;
-  hr {
-    width: 80%;
-    margin: 0 15px;
-    color: grey;
-  }
 `

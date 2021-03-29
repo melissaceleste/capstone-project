@@ -19,7 +19,6 @@ export default function Filter({
             value={userInputMinPrice}
             onChange={event => setUserInputMinPrice(event.target.value)}
           />
-          <hr />
           <InputIcon> €</InputIcon>
         </InputIconWrapper>
         -
@@ -31,7 +30,6 @@ export default function Filter({
             value={userInputMaxPrice}
             onChange={event => setUserInputMaxPrice(event.target.value)}
           />
-          <hr />
           <InputIcon> €</InputIcon>
         </InputIconWrapper>
       </FlexContainer>
@@ -63,6 +61,7 @@ const FilterLabel = styled.label`
     letter-spacing: 0.2em;
     font-size: 10px;
     outline: 0 none;
+    border-bottom: 1px solid black;
   }
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
@@ -73,11 +72,6 @@ const FilterLabel = styled.label`
   /* Firefox */
   input[type='number'] {
     -moz-appearance: textfield;
-  }
-  hr {
-    width: 80%;
-    margin-top: 0;
-    color: grey;
   }
 `
 const FlexContainer = styled.section`

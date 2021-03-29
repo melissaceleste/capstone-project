@@ -28,7 +28,12 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
       <FilterShowButton
         onClick={() => setFilterContainerVisible(!filterContainerVisible)}
       >
-        <img src={filtersrc} alt="Filter öffnen" width="40" height="auto" />
+        <FilterIcon
+          src={filtersrc}
+          alt="Filter öffnen"
+          width="40"
+          height="auto"
+        />
       </FilterShowButton>
       <section hidden={!filterContainerVisible}>
         <FormContainer>
@@ -128,18 +133,15 @@ const MyClosetPageLayout = styled.main`
   z-index: auto;
   display: grid;
   color: black;
-  p {
-    text-align: center;
-    margin: 50px 50px 20px;
-  }
-  img {
-    margin-left: 45%;
-  }
+  text-align: center;
 `
 const FilterShowButton = styled.button`
   border: none;
   background-color: transparent;
   margin-left: 70%;
+`
+const FilterIcon = styled.img`
+  margin-left: 45%;
 `
 
 const FormContainer = styled.form`

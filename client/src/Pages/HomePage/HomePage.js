@@ -27,7 +27,12 @@ export default function HomePage({ cards, setCards }) {
       ) : (
         <Link to="/addnew" style={{ textDecoration: 'none', color: 'black' }}>
           <p>Upsala. Schnell lade deine Fotos hoch!</p>
-          <img src={plussrc} alt="Foto aufnehmen" width="30" height="auto" />
+          <PlusIcon
+            src={plussrc}
+            alt="Foto aufnehmen"
+            width="30"
+            height="auto"
+          />
         </Link>
       )}
     </HomePageLayout>
@@ -48,9 +53,6 @@ const HomePageLayout = styled.main`
     text-align: center;
     margin: 50px 50px 20px;
   }
-  img {
-    margin-left: 45%;
-  }
 `
 const RandomizerButton = styled.button`
   background-color: transparent;
@@ -62,4 +64,7 @@ const RandomizerButton = styled.button`
   width: 100%;
   margin: 20px auto auto;
   padding: 5px;
+`
+const PlusIcon = styled.img`
+  margin-left: 45%;
 `
