@@ -53,18 +53,11 @@ const FilterLabel = styled.label`
   input {
     background-color: transparent;
     appearance: none;
-    padding: 5px;
-    border: none;
     width: 130px;
     margin: 0;
-    text-align: center;
     letter-spacing: 0.2em;
     font-size: 10px;
-    outline: 0 none;
     border-bottom: 1px solid black;
-    &:focus {
-      box-shadow: 2px 3px #cc99ff;
-    }
   }
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,

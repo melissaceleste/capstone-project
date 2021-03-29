@@ -135,7 +135,6 @@ const MyClosetPageLayout = styled.main`
   z-index: auto;
   display: grid;
   color: black;
-  text-align: center;
 `
 const FilterShowButton = styled.button`
   border: none;
@@ -154,11 +153,9 @@ const FormContainer = styled.form`
   padding: 10px;
   width: 90%;
   margin: 10px auto 15px;
-  text-transform: uppercase;
   h1 {
     font-size: 13px;
     margin: 2px;
-
     letter-spacing: 0.2em;
     font-weight: 300;
     color: black;

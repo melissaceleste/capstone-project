@@ -40,7 +40,6 @@ const CardContainer = styled.section`
     letter-spacing: 0.2em;
     text-align: center;
     opacity: 1;
-    text-transform: uppercase;
   }
   img {
     border-radius: 20px;
@@ -53,7 +52,6 @@ const CardContainer = styled.section`
     padding: 0;
     letter-spacing: 0.1em;
     opacity: 1;
-    text-transform: uppercase;
     font-size: 10px;
   }
   button {

@@ -11,7 +11,25 @@ export default createGlobalStyle`
     line-height: 1.5;
     font-size:12px;
     height: 100vh;
-    
+    text-transform: uppercase;
+    text-align: center;
+  }
+  input{
+    text-align:center;
+    outline: none;
+    caret-color: transparent;
+    padding: 5px;
+    font-size:12px;
+    border:none;
+    ::placeholder {
+      letter-spacing: 0.2em;
+      text-align: center;
+      opacity: 1;
+      text-transform: uppercase;
+    }
+    &:focus {
+      box-shadow: 2px 3px #cc99ff;
+    }
   }
   `
 /* weiß

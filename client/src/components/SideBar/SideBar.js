@@ -37,7 +37,6 @@ const H1 = styled.h1`
   bottom: 104px;
   left: -2px;
   font-size: 2em;
-  text-transform: uppercase;
   text-align: center;
 `
 const Nav = styled.nav`
@@ -77,7 +76,6 @@ const NavButton = styled.button`
   border: 1px solid white;
   border-radius: 20px;
   color: white;
-  text-transform: uppercase;
   font-size: 18px;
   &.active {
     color: black;

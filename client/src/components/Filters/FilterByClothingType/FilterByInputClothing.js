@@ -54,14 +54,10 @@ const FilterLabel = styled.label`
     background-color: transparent;
     appearance: none;
     opacity: 1;
-    padding: 5px;
     width: 90%;
-    outline: 0 none;
-    caret-color: transparent;
     text-align: center;
     letter-spacing: 0.2em;
     font-weight: 300;
-    text-transform: uppercase;
     border-bottom: 1px solid black;
   }
 `

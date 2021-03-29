@@ -13,7 +13,6 @@ export default function SmallCard({ name, urls = [''] }) {
 
 const CardContainer = styled.section`
   background-color: #ffffff;
-  text-align: center;
   border-radius: 20px;
   width: 300px;
   height: 350px;
@@ -23,9 +22,7 @@ const CardContainer = styled.section`
     margin-top: 10px;
     margin-bottom: 0;
     letter-spacing: 0.2em;
-    text-align: center;
     opacity: 1;
-    text-transform: uppercase;
   }
   img {
     border-radius: 20px;

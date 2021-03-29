@@ -13,8 +13,6 @@ export default function Header() {
 }
 
 const HeaderContainer = styled.header`
-  text-transform: uppercase;
-  text-align: center;
   width: 100%;
   background-color: white;
   border-radius: 20px;

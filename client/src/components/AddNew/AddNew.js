@@ -1,11 +1,8 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
-import axios from 'axios'
 import uploadsrc from './upload.svg'
-
-const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
-const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
+import postImageData from '../../services/sendImageData'
 
 export default function AddNew({ onAddNewCard }) {
   const [imageURLs, setImageURLs] = useState([])
@@ -41,22 +38,22 @@ export default function AddNew({ onAddNewCard }) {
             </div>
           ) : (
             <div>
-              <p> Bitte lade ein Foto hoch</p>{' '}
+              <p> Bitte lade ein Foto hoch</p>
               <img src={uploadsrc} alt="" width="60px" />
             </div>
           )}
         </UploadLabel>
 
         <label>
-          <InputTypeNormal placeholder="Name" name="nameOfClothing" />
+          <InputTypeDefault placeholder="Name" name="nameOfClothing" />
         </label>
 
         <label>
-          <InputTypeNormal placeholder="Geschäft" name="store" />
+          <InputTypeDefault placeholder="Geschäft" name="store" />
         </label>
         <label>
           <InputIconWrapper>
-            <InputTypeNormal
+            <InputTypeDefault
               placeholder="Preis"
               name="price"
               type="number"
@@ -69,7 +66,7 @@ export default function AddNew({ onAddNewCard }) {
         <label>
           <div>Kaufdatum</div>
 
-          <InputTypeNormal type="date" name="date" placeholder="Kaufdatum" />
+          <InputTypeDefault type="date" name="date" placeholder="Kaufdatum" />
         </label>
         <div>Kleidungsart</div>
         <ContainerClothingType>
@@ -134,20 +131,7 @@ export default function AddNew({ onAddNewCard }) {
   )
 
   function upload(event) {
-    const url = `https://api.cloudinary.com/v1_1/${CLOUDNAME}/upload`
-
-    const formData = new FormData()
-    formData.append('file', event.target.files[0])
-    formData.append('upload_preset', PRESET)
-
-    axios
-      .post(url, formData, {
-        headers: {
-          'Content-type': 'multipart/form-data',
-        },
-      })
-      .then(onImageSave)
-      .catch(err => console.error(err))
+    postImageData(onImageSave, event)
   }
 
   function onImageSave(response) {
@@ -191,30 +175,14 @@ const AddNewContainer = styled.form`
     opacity: 1;
     letter-spacing: 0.2em;
     font-weight: 300;
-    text-transform: uppercase;
-  }
-  label {
-    text-transform: uppercase;
   }
   input {
-    font-size: 12px;
     background-color: transparent;
-    padding: 5px;
     width: 90%;
-    outline: 0 none;
-    caret-color: transparent;
     appearance: none;
-    text-align: center;
     color: white;
-    &:focus {
-      box-shadow: 2px 3px #cc99ff;
-    }
     ::placeholder {
-      letter-spacing: 0.2em;
-      text-align: center;
       color: white;
-      opacity: 1;
-      text-transform: uppercase;
     }
   }
   input::-webkit-outer-spin-button,
@@ -234,7 +202,6 @@ const Comment = styled.p`
   text-align: center;
   color: white;
   opacity: 1;
-  text-transform: uppercase;
   font-size: 10px;
 `
 const Upload = styled.input`
@@ -274,8 +241,7 @@ const ContainerClothingType = styled.section`
 const ClothingTypeInput = styled.input`
   border-bottom: 1px solid transparent;
 `
-const InputTypeNormal = styled.input`
-  border: none;
+const InputTypeDefault = styled.input`
   border-bottom: 1px solid white;
 `
 const SubmitButton = styled.button`
