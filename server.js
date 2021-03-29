@@ -1,18 +1,18 @@
-const express = require('express') // Import express (Framework für node)
-const { v4: uuidv4 } = require('uuid') // Import UUID, nachdem wir npm install uuid gemacht haben
+const express = require('express')
+const { v4: uuidv4 } = require('uuid')
 const setupMongo = require('./setupMongo')
 
 require('dotenv').config()
-const { PORT = 4000 } = process.env // .env
-// const mongoose = require('mongoose') // Import mongoose
+const { PORT = 4000 } = process.env
 
 setupMongo()
 
-const app = express() // damit bekommen wir eine Express-app - App ist hier eine Instanz - keine App wie wir sie können
+const app = express()
 
-app.use(express.json()) //erste middleware-Funktion, müssen wir aufrufen, damit wir danach klassische Middlewares mit den HTTP-Methods schreiben können
+app.use(express.json())
 
-// -----import der Card:----
+app.use(express.static('./client/build'))
+
 app.use('/api/cards', require('./routes/cards'))
 
 app.use(require('./routes/error'))
