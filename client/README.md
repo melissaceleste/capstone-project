@@ -19,7 +19,7 @@ Further tooling:
 
 - Styled-components
 - Storybook
-- Jest and testing-libary
+- Jest and testing-library
 
 #### Running the project
 

@@ -29,16 +29,14 @@ export default function AddNew({ onAddNewCard }) {
 
         <label>
           <input placeholder="Name" name="nameOfClothing" />
-          <hr />
         </label>
         <label>
           <div>Kaufdatum</div>
 
           <input type="date" name="date" placeholder="Kaufdatum" />
-          <hr />
         </label>
         <label>
-          <input placeholder="Geschäft" name="store" /> <hr />
+          <input placeholder="Geschäft" name="store" />
         </label>
         <label>
           <InputIconWrapper>
@@ -49,7 +47,7 @@ export default function AddNew({ onAddNewCard }) {
               step="0.01"
               min="0"
             />
-            <hr />
+
             <InputIcon> €</InputIcon>
           </InputIconWrapper>
         </label>
@@ -147,7 +145,6 @@ export default function AddNew({ onAddNewCard }) {
       id: uuidv4(),
       name: nameOfClothing.value,
       urls: imageURLs,
-      file: imageURLs,
       store: store.value,
       price: price.value,
       date: date.value,
@@ -169,7 +166,7 @@ const AddNewContainer = styled.form`
     #ffffff,
     #abbaab
   );  */
-  background-color: black;
+  background-color: #111;
   color: white;
   box-shadow: 3px 3px 3px #eee;
   padding: 10px;
@@ -187,11 +184,7 @@ const AddNewContainer = styled.form`
     font-weight: 300;
     text-transform: uppercase;
   }
-  hr {
-    width: 90%;
-    margin-top: 0;
-    color: white;
-  }
+
   label {
     text-transform: uppercase;
   }
@@ -207,6 +200,7 @@ const AddNewContainer = styled.form`
     text-align: center;
     color: white;
     margin-left: 18px;
+    border-bottom: 1px solid white;
     ::placeholder {
       letter-spacing: 0.2em;
       text-align: center;
@@ -261,6 +255,9 @@ const ClothingTypeInput = styled.input`
     margin: 0 50px;
     margin-left: 105px;
     display: block;
+    :label {
+      color: red;
+    }
   }
 `
 const SubmitButton = styled.button`

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
-  // id: { type: uuid },
   name: {
     type: String,
   },
@@ -19,8 +18,8 @@ const schema = new mongoose.Schema({
   },
   urls: {
     // url: String,
-    type: String,
-    data: Buffer, //  allows us to store our image as data in the form of arrays
+    type: Array,
+    //  data: Buffer, //  allows us to store our image as data in the form of arrays
   },
 })
 

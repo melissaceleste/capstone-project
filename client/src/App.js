@@ -23,17 +23,8 @@ function App() {
 
   // ---- post/create ----
 
-  function addNewCard(id, name, store, price, date, clothingType, urls) {
-    createCard(
-      id,
-      name,
-      store,
-      price,
-      date,
-      clothingType,
-      urls
-      // JSON.stringify(urls)
-    ).then(data => setCards([data, ...cards]))
+  function addNewCard(newCard) {
+    createCard(newCard).then(() => getCards().then(data => setCards([...data])))
   }
 
   // ----- delete----

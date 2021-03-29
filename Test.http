@@ -1,0 +1,15 @@
+### Get all cards
+GET http://localhost:4000/api/cards
+
+### Post card
+POST http://localhost:4000/api/cards
+Content-Type: application/json
+
+{
+    "name": "Hosenanzug",
+    "store": "monki",
+     "price": 60,
+    "date": "2000-03-16",
+    "clothingType": "Kleid",
+    "urls": ["https://res.cloudinary.com/dy2xcnf5l/image/upload/v1616846340/cao2netne8gojgu6s9hq.jpg"]
+}
