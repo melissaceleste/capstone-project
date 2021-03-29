@@ -49,7 +49,7 @@ const FilterLabel = styled.label`
     appearance: none;
     padding: 5px;
     border: none;
-    width: 99%;
+    width: 130px;
     margin: 0;
     text-align: center;
     letter-spacing: 0.2em;
@@ -57,11 +57,14 @@ const FilterLabel = styled.label`
     font-family: inherit;
     outline: 0 none;
     border-bottom: 1px solid black;
-    border-bottom-height: 90px;
+    &:focus {
+      box-shadow: 2px 3px #cc99ff;
+    }
   }
 `
 const FlexContainer = styled.section`
   display: flex;
+  justify-content: space-around;
 `
 const ContainerHR = styled.section`
   display: flex;

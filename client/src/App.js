@@ -9,25 +9,16 @@ import getCards from './services/getCards'
 import deleteCards from './services/deleteCard'
 
 function App() {
-  /*  const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
-
-  useEffect(() => {
-    saveToLocal('cards', cards)
-  }, [cards])
- */
   const [cards, setCards] = useState([])
-  // ----- get -------
+
   useEffect(() => {
     getCards().then(data => setCards([...data]))
   }, [])
-
-  // ---- post/create ----
 
   function addNewCard(newCard) {
     createCard(newCard).then(() => getCards().then(data => setCards([...data])))
   }
 
-  // ----- delete----
   function deleteCard(currentId) {
     deleteCards(currentId).then(() => {
       const newCardList = cards.filter(card => card._id !== currentId)
@@ -61,22 +52,6 @@ function App() {
       <Route path={['/', '/mycloset', '/addnew']}></Route>
     </>
   )
-  /*   function addNewCard(newCard) {
-    setCards([newCard, ...cards])
-  }
-  function saveToLocal(key, data) {
-    localStorage.setItem(key, JSON.stringify(data))
-  }
-  function loadFromLocal(key) {
-    const jsonString = localStorage.getItem(key)
-    const data = JSON.parse(jsonString)
-    return data
-  }
-
-  function deleteCard(currentId) {
-    const newCardList = cards.filter(card => card.id !== currentId)
-    setCards(newCardList)
-  } */
 }
 
 export default App

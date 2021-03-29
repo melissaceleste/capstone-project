@@ -25,6 +25,9 @@ const FilterLabel = styled.label`
     caret-color: transparent;
     border-bottom: 1px solid black;
     text-align: center;
+    &:focus {
+      box-shadow: 2px 3px #cc99ff;
+    }
     ::placeholder {
       letter-spacing: 0.2em;
       text-align: center;

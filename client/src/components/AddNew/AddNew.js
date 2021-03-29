@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
 import axios from 'axios'
+import uploadsrc from './upload.svg'
 
 const CLOUDNAME = process.env.REACT_APP_CLOUDINARY_CLOUDNAME
 const PRESET = process.env.REACT_APP_CLOUDINARY_PRESET
@@ -26,9 +27,26 @@ export default function AddNew({ onAddNewCard }) {
           {image ? (
             <img src={image} alt="" style={{ width: '100%' }} />
           ) : (
-            <Upload type="file" name="file" onChange={upload} />
+            <Upload
+              type="file"
+              name="file"
+              onChange={upload}
+              required="required"
+            />
+          )}
+
+          {image ? (
+            <div>
+              <p> Foto ist erfolgreich hochgeladen:) </p>
+            </div>
+          ) : (
+            <div>
+              <p> Bitte lade ein Foto hoch</p>{' '}
+              <img src={uploadsrc} alt="" width="60px" />
+            </div>
           )}
         </UploadLabel>
+
         <label>
           <InputTypeNormal placeholder="Name" name="nameOfClothing" />
         </label>
@@ -137,6 +155,7 @@ export default function AddNew({ onAddNewCard }) {
     setImageURLs([...imageURLs, url])
     setImage(response.data.url)
   }
+
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
@@ -155,17 +174,6 @@ export default function AddNew({ onAddNewCard }) {
 }
 
 const AddNewContainer = styled.form`
-  /*   background-color: #abbaab; 
-  background: -webkit-linear-gradient(
-    to bottom,
-    #ffffff,
-    #abbaab
-  ); 
-  background: linear-gradient(
-    to bottom,
-    #ffffff,
-    #abbaab
-  );  */
   background-color: #111;
   color: white;
   box-shadow: 3px 3px 3px #eee;
@@ -198,7 +206,9 @@ const AddNewContainer = styled.form`
     appearance: none;
     text-align: center;
     color: white;
-    //margin-left: 18px;
+    &:focus {
+      box-shadow: 2px 3px #cc99ff;
+    }
     ::placeholder {
       letter-spacing: 0.2em;
       text-align: center;
@@ -207,13 +217,11 @@ const AddNewContainer = styled.form`
       text-transform: uppercase;
     }
   }
-  /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-  /* Firefox */
   input[type='number'] {
     -moz-appearance: textfield;
   }
@@ -233,15 +241,18 @@ const Upload = styled.input`
   display: none;
 `
 const UploadLabel = styled.label`
-  color: white;
-  font-size: 17px;
+  color: black;
+  font-size: 12px;
   border: 1px solid #999;
   border-radius: 3px;
   padding: 15px;
   outline: none;
   letter-spacing: 0.2em;
-  :before {
-    content: 'Foto hochladen';
+  background-color: white;
+  display: grid;
+  gap: 10px;
+  p {
+    color: black;
   }
 `
 const InputIconWrapper = styled.div`
@@ -249,23 +260,19 @@ const InputIconWrapper = styled.div`
 `
 const InputIcon = styled.div`
   position: absolute;
-  left: 90%;
+  left: 56%;
   top: 3px;
   color: grey;
 `
 const ContainerClothingType = styled.section`
   text-align: center;
   label {
-    // margin: 10px;
     font-size: 12px;
     padding: 10px;
   }
 `
 const ClothingTypeInput = styled.input`
   border-bottom: 1px solid transparent;
-  :checked {
-    border-bottom: 1px solid teal;
-  }
 `
 const InputTypeNormal = styled.input`
   border: none;

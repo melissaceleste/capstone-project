@@ -103,12 +103,14 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
       )}
     </MyClosetPageLayout>
   )
+
   function resetFilter() {
     setUserInputName('')
     setUserInputStore('')
     setUserInputClothingType('')
     // setUserInputFromDate('')
   }
+
   function filterCards(cards) {
     return cards.filter(
       card =>
@@ -143,7 +145,6 @@ const FilterShowButton = styled.button`
 const FilterIcon = styled.img`
   margin-left: 45%;
 `
-
 const FormContainer = styled.form`
   display: grid;
   gap: 10px;

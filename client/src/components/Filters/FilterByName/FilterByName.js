@@ -1,13 +1,9 @@
 import styled from 'styled-components/macro'
-import { useState } from 'react'
 
 export default function FilterByName({ userInputName, setUserInputName }) {
-  const [click, setClick] = useState(false)
-  const handleClick = () => setClick(!click)
   return (
-    <FilterLabel onClick={handleClick}>
+    <FilterLabel>
       <input
-        clicked={click}
         placeholder="  Name "
         value={userInputName}
         onChange={event => setUserInputName(event.target.value)}
@@ -27,9 +23,12 @@ const FilterLabel = styled.label`
     background-color: transparent;
     padding: 5px;
     width: 90%;
-    outline: 0 none;
+    outline: none;
     caret-color: transparent;
     border-bottom: 1px solid black;
+    &:focus {
+      box-shadow: 2px 3px #cc99ff;
+    }
     ::placeholder {
       text-align: center;
       letter-spacing: 0.2em;
@@ -37,10 +36,5 @@ const FilterLabel = styled.label`
       color: black;
       opacity: 1;
     }
-  }
-  hr {
-    width: 90%;
-    margin-top: 0;
-    color: ${clicked => (clicked ? 'grey' : 'pink')};
   }
 `
