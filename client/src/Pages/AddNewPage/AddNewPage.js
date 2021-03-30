@@ -27,7 +27,6 @@ export default function AddNewPage({
             onDeleteCard={onDeleteCard}
           />
         ))}
-        {console.log(cards)}
       </ResultContainer>
     </AddNewPageLayout>
   )
