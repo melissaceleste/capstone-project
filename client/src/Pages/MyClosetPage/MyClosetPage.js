@@ -86,7 +86,6 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
                 price={price}
                 date={date}
                 clothingType={clothingType}
-                //images={images}
                 setCards={setCards}
                 onDeleteCard={onDeleteCard}
               />
