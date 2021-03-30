@@ -69,26 +69,23 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
         <ResultContainer>
           {filteredCards.map(
             ({
-              name, // image,
+              name, 
               urls,
               _id,
               store,
               price,
               date,
               clothingType,
-              //images,
             }) => (
               <Card
                 key={_id}
                 id={_id}
                 urls={urls}
-                //image={image}
                 name={name}
                 store={store}
                 price={price}
                 date={date}
                 clothingType={clothingType}
-                //images={images}
                 setCards={setCards}
                 onDeleteCard={onDeleteCard}
               />
