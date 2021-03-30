@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     getCards().then(data => setCards([...data]))
-  }, []).catch(error => handleError(error))
+  }, []) /* .catch(error => handleError(error)) */
 
   function addNewCard(newCard) {
     createCard(newCard).then(() => getCards().then(data => setCards([...data])))
@@ -51,9 +51,9 @@ function App() {
       <Route path={['/', '/mycloset', '/addnew']}></Route>
     </>
   )
-  function handleError() {
-    //
-  }
+  /*   function handleError() {
+    
+  } */
 }
 
 export default App

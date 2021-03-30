@@ -68,15 +68,7 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
       {cards.length !== 0 ? (
         <ResultContainer>
           {filteredCards.map(
-            ({
-              name, 
-              urls,
-              _id,
-              store,
-              price,
-              date,
-              clothingType,
-            }) => (
+            ({ name, urls, _id, store, price, date, clothingType }) => (
               <Card
                 key={_id}
                 id={_id}
@@ -94,8 +86,11 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
         </ResultContainer>
       ) : (
         <Link to="/addnew" style={{ textDecoration: 'none', color: 'black' }}>
-          <p>Upsala. Schnell lade deine Fotos hoch!</p>
-          <img src={plussrc} alt="Foto aufnehmen" width="30" height="auto" />
+          <div>
+            {' '}
+            <p>Upsala. Schnell lade deine Fotos hoch!</p>
+            <img src={plussrc} alt="Foto aufnehmen" width="30" height="auto" />
+          </div>
         </Link>
       )}
     </MyClosetPageLayout>
@@ -132,6 +127,9 @@ const MyClosetPageLayout = styled.main`
   z-index: auto;
   display: grid;
   color: black;
+  div {
+    margin-top: 70px;
+  }
 `
 const FilterShowButton = styled.button`
   border: none;
