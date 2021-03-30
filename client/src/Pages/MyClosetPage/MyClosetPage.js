@@ -81,7 +81,6 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
                 key={_id}
                 id={_id}
                 urls={urls}
-                //image={image}
                 name={name}
                 store={store}
                 price={price}
