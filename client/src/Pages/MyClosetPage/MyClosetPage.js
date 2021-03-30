@@ -69,7 +69,7 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
         <ResultContainer>
           {filteredCards.map(
             ({
-              name, // image,
+              name, 
               urls,
               _id,
               store,
