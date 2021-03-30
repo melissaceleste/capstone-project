@@ -76,7 +76,6 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
               price,
               date,
               clothingType,
-              //images,
             }) => (
               <Card
                 key={_id}
