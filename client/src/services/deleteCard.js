@@ -1,6 +1,6 @@
 export default function deleteCard(id) {
   return fetch(`/api/cards/${id}`, {
-    method: 'Delete',
+    method: 'DELETE',
     headers: {
       'content-type': 'application/json',
     },
