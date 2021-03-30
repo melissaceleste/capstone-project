@@ -4,6 +4,7 @@ import Header from './components/Header/Header'
 import AddNewPage from './Pages/AddNewPage/AddNewPage'
 import HomePage from './Pages/HomePage/HomePage'
 import MyClosetPage from './Pages/MyClosetPage/MyClosetPage'
+import WelcomePage from './Pages/WelcomePage/WelcomePage'
 import createCard from './services/createCard'
 import getCards from './services/getCards'
 import deleteCards from './services/deleteCard'
@@ -27,8 +28,8 @@ function App() {
 
   return (
     <>
-      <Header />
       <Switch>
+        <WelcomePage />
         <Route exact path="/">
           <HomePage cards={cards} setCards={setCards} />
         </Route>

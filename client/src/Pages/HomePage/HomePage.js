@@ -3,34 +3,38 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import SmallCard from '../../components/SmallCard/SmallCard'
 import plussrc from './plus.svg'
+import Header from '../../components/Header/Header'
 
 export default function HomePage({ cards, setCards }) {
   const [randomCard, setRandomCard] = useState(cardsRandomizer())
   return (
-    <HomePageLayout>
-      {randomCard.length !== 0 ? (
-        <div>
-          <SmallCard
-            name={randomCard[0].name}
-            store={randomCard[0].store}
-            price={randomCard[0].price}
-            date={randomCard[0].date}
-            clothingType={randomCard[0].clothingType}
-            urls={randomCard[0].urls}
-            cards={cards}
-            setCards={() => setCards()}
-          />
-          <RandomizerButton onClick={() => setRandomCard(cardsRandomizer())}>
-            nochmal
-          </RandomizerButton>
-        </div>
-      ) : (
-        <Link to="/addnew" style={{ textDecoration: 'none', color: 'black' }}>
-          <p>Upsala. Schnell lade deine Fotos hoch!</p>
-          <img src={plussrc} alt="Foto aufnehmen" width="30" height="auto" />
-        </Link>
-      )}
-    </HomePageLayout>
+    <>
+      <Header />
+      <HomePageLayout>
+        {randomCard.length !== 0 ? (
+          <div>
+            <SmallCard
+              name={randomCard[0].name}
+              store={randomCard[0].store}
+              price={randomCard[0].price}
+              date={randomCard[0].date}
+              clothingType={randomCard[0].clothingType}
+              urls={randomCard[0].urls}
+              cards={cards}
+              setCards={() => setCards()}
+            />
+            <RandomizerButton onClick={() => setRandomCard(cardsRandomizer())}>
+              nochmal
+            </RandomizerButton>
+          </div>
+        ) : (
+          <Link to="/addnew" style={{ textDecoration: 'none', color: 'black' }}>
+            <p>Upsala. Schnell lade deine Fotos hoch!</p>
+            <img src={plussrc} alt="Foto aufnehmen" width="30" height="auto" />
+          </Link>
+        )}
+      </HomePageLayout>
+    </>
   )
   function cardsRandomizer() {
     return JSON.parse(JSON.stringify(cards)).sort(() => 0.5 - Math.random())

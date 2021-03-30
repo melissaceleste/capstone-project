@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import Card from '../../components/Card/Card'
 import AddNew from '../../components/AddNew/AddNew'
+import Header from '../../components/Header/Header'
 
 export default function AddNewPage({
   onAddNewCard,
@@ -9,26 +10,29 @@ export default function AddNewPage({
   onDeleteCard,
 }) {
   return (
-    <AddNewPageLayout>
-      <AddNew onAddNewCard={onAddNewCard} />
-      <ResultContainer>
-        {cards.map(card => (
-          <Card
-            key={card._id}
-            id={card._id}
-            name={card.name}
-            store={card.store}
-            price={card.price}
-            date={card.date}
-            clothingType={card.clothingType}
-            urls={card.urls}
-            cards={cards}
-            setCards={() => setCards()}
-            onDeleteCard={onDeleteCard}
-          />
-        ))}
-      </ResultContainer>
-    </AddNewPageLayout>
+    <>
+      <Header />
+      <AddNewPageLayout>
+        <AddNew onAddNewCard={onAddNewCard} />
+        <ResultContainer>
+          {cards.map(card => (
+            <Card
+              key={card._id}
+              id={card._id}
+              name={card.name}
+              store={card.store}
+              price={card.price}
+              date={card.date}
+              clothingType={card.clothingType}
+              urls={card.urls}
+              cards={cards}
+              setCards={() => setCards()}
+              onDeleteCard={onDeleteCard}
+            />
+          ))}
+        </ResultContainer>
+      </AddNewPageLayout>
+    </>
   )
 }
 const AddNewPageLayout = styled.main`
