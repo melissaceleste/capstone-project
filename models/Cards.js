@@ -17,9 +17,7 @@ const schema = new mongoose.Schema({
     type: String,
   },
   urls: {
-    // url: String,
     type: Array,
-    //  data: Buffer, //  allows us to store our image as data in the form of arrays
   },
 })
 
