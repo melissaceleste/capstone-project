@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     getCards().then(data => setCards([...data]))
-  }, [])
+  }, []).catch(error => handleError(error))
 
   function addNewCard(newCard) {
     createCard(newCard).then(() => getCards().then(data => setCards([...data])))
@@ -21,8 +21,7 @@ function App() {
 
   function deleteCard(currentId) {
     deleteCards(currentId).then(() => {
-      const newCardList = cards.filter(card => card._id !== currentId)
-      setCards(newCardList)
+      getCards().then(data => setCards([...data]))
     })
   }
 
@@ -52,6 +51,9 @@ function App() {
       <Route path={['/', '/mycloset', '/addnew']}></Route>
     </>
   )
+  function handleError() {
+    //
+  }
 }
 
 export default App
