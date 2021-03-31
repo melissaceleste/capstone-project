@@ -153,6 +153,7 @@ export default function AddNew({ onAddNewCard }) {
       date: date.value,
       clothingType: clothingType.value,
     })
+    window.scrollTo(0, document.body.scrollHeight)
     form.reset()
   }
 }

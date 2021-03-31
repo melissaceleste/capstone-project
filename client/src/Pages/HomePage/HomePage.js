@@ -20,9 +20,11 @@ export default function HomePage({
   return (
     <>
       <Header hideHeader={hideHeader} setHideHeader={setHideHeader} />
+
       <HomePageLayout>
         {randomCard.length !== 0 ? (
           <div>
+            <p> Wie wär's heute hiermit? </p>
             <SmallCard
               name={randomCard[0].name}
               store={randomCard[0].store}
@@ -34,7 +36,7 @@ export default function HomePage({
               setCards={() => setCards()}
             />
             <RandomizerButton onClick={() => cardsRandomizer()}>
-              nochmal
+              Was gibt es noch?
             </RandomizerButton>
           </div>
         ) : (
@@ -55,14 +57,16 @@ export default function HomePage({
 const HomePageLayout = styled.main`
   display: grid;
   justify-content: center;
-  gap: 20px;
   width: 100%;
   margin-top: 100px;
   margin-bottom: 70px;
   padding-top: 30px;
   p {
     text-align: center;
-    margin: 50px 50px 20px;
+    margin: 0 50px 30px;
+    text-transform: none;
+    letter-spacing: 0.1em;
+    font-size: 16px;
   }
 `
 const RandomizerButton = styled.button`
@@ -75,4 +79,6 @@ const RandomizerButton = styled.button`
   width: 100%;
   margin: 20px auto auto;
   padding: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
 `

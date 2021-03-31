@@ -16,8 +16,8 @@ export default function MyClosetPage({
   cards,
   setCards,
   onDeleteCard,
-  hideHeader,
-  setHideHeader,
+  hideContent,
+  handleHideContent,
 }) {
   const [userInputName, setUserInputName] = useState('')
   const [userInputStore, setUserInputStore] = useState('')
@@ -32,7 +32,7 @@ export default function MyClosetPage({
   const [filterContainerVisible, setFilterContainerVisible] = useState(false)
   return (
     <>
-      <Header hideHeader={hideHeader} setHideHeader={setHideHeader} />
+      <Header hideHeader={hideContent} setHideHeader={handleHideContent} />
       <MyClosetPageLayout>
         <FilterShowButton
           onClick={() => setFilterContainerVisible(!filterContainerVisible)}
@@ -150,6 +150,8 @@ const FilterShowButton = styled.button`
   border: none;
   background-color: transparent;
   margin-left: 70%;
+  position: fixed;
+  fill: pink;
 `
 const FilterIcon = styled.img`
   margin-left: 45%;
@@ -162,7 +164,7 @@ const FormContainer = styled.form`
   box-shadow: 3px 3px 3px #eee;
   padding: 10px;
   width: 90%;
-  margin: 10px auto 15px;
+  margin: 45px auto 15px;
   h1 {
     font-size: 13px;
     margin: 2px;
@@ -176,4 +178,5 @@ const ResultContainer = styled.section`
   display: grid;
   justify-content: center;
   gap: 20px;
+  margin-top: 45px;
 `

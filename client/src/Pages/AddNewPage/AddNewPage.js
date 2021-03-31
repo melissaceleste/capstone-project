@@ -8,12 +8,12 @@ export default function AddNewPage({
   cards,
   setCards,
   onDeleteCard,
-  hideHeader,
-  setHideHeader,
+  hideContent,
+  handleHideContent,
 }) {
   return (
     <>
-      <Header hideHeader={hideHeader} setHideHeader={setHideHeader} />
+      <Header hideHeader={hideContent} setHideHeader={handleHideContent} />
       <AddNewPageLayout>
         <AddNew onAddNewCard={onAddNewCard} />
         <ResultContainer>

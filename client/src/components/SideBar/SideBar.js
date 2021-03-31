@@ -20,7 +20,11 @@ export default function SideBar() {
         <NavButton onClick={handleClick} as={NavLink} exact to="/">
           inspire me
         </NavButton>
-        <NavButton onClick={handleClick} as={NavLink} to="/mycloset">
+        <NavButton
+          onClick={handleClick && window.scrollTo(0, 0)}
+          as={NavLink}
+          to="/mycloset"
+        >
           my closet
         </NavButton>
         <NavButton onClick={handleClick} as={NavLink} to="/addnew">

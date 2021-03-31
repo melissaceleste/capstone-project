@@ -1,19 +1,15 @@
 import styled from 'styled-components/macro'
 
 export default function WelcomePage({
-  loadingPage,
-  hideLandingPage,
-  setHideLandingPage,
+  handleLoadingPage,
+  hideWelcomePage,
+  setHideWelcomePage,
 }) {
   setTimeout(() => {
-    setHideLandingPage(true)
+    setHideWelcomePage(true)
   }, 5500)
   return (
-    <PageLayout
-      hidePage={hideLandingPage}
-      finishedLoading={loadingPage}
-      className={loadingPage && 'fadeOut'}
-    >
+    <PageLayout hidePage={hideWelcomePage}>
       {/*  <img src={bildsrc} alt="" width="300px" height="" /> */}
       <HelloSection>
         <p></p>
@@ -31,19 +27,17 @@ export default function WelcomePage({
         </AnimationWrapper>
       </HelloSection>
 
-      <i class="fas fa-spinner fa-spin"></i>
+      {/*      <i class="fas fa-spinner fa-spin"></i> */}
     </PageLayout>
   )
 }
 
 const PageLayout = styled.section`
   z-index: 0;
-  display: ${props => (props.hidePage ? 'none' : 'grid')};
+  display: ${props => (props.hidePage ? 'none' : '')};
   height: 100vh;
   align-items: center;
   padding: 10px;
-
-  grid-template-rows: 1fr 1fr;
   &.fadeOut {
     opacity: 0.4;
     transition: all 6s;
@@ -55,7 +49,7 @@ const PageLayout = styled.section`
 `
 const HelloSection = styled.section`
   background-color: white;
-  margin-top: 50%;
+  margin-top: 70%;
   p {
     font-size: 25px;
     margin: 0;

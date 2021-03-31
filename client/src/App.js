@@ -9,13 +9,8 @@ import getCards from './services/getCards'
 import deleteCards from './services/deleteCard'
 
 function App() {
-  const [hidePage, setHidePage] = useState(false)
-
-  const [loadingLandingPage, setIsLoadingLandingPage] = useState(false)
-  window.setTimeout(() => {
-    setIsLoadingLandingPage(true)
-  }, 2000)
-
+  // verstecken
+  const [hideContent, setHideContent] = useState(false)
   const [cards, setCards] = useState([])
 
   useEffect(() => {
@@ -37,15 +32,14 @@ function App() {
       <Switch>
         <Route exact path="/">
           <WelcomePage
-            loadingPage={loadingLandingPage}
-            hideLandingPage={hidePage}
-            setHideLandingPage={setHidePage}
+            hideWelcomePage={hideContent}
+            setHideWelcomePage={setHideContent}
           />
           <HomePage
             cards={cards}
             setCards={setCards}
-            hideHeader={hidePage}
-            setHideHeader={setHidePage}
+            hideHeader={hideContent}
+            setHideHeader={setHideContent}
           />
         </Route>
         <Route path="/mycloset">
@@ -53,8 +47,8 @@ function App() {
             cards={cards}
             setCards={setCards}
             onDeleteCard={deleteCard}
-            hideHeader={hidePage}
-            setHideHeader={setHidePage}
+            hideContent={hideContent}
+            handleHideContent={setHideContent}
           />
         </Route>
         <Route path="/addnew">
@@ -63,8 +57,8 @@ function App() {
             setCards={setCards}
             onAddNewCard={addNewCard}
             onDeleteCard={deleteCard}
-            hideHeader={hidePage}
-            setHideHeader={setHidePage}
+            hideContent={hideContent}
+            handleHideContent={setHideContent}
           />
         </Route>
       </Switch>

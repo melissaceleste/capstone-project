@@ -12,10 +12,10 @@ export default function Card({
 }) {
   return (
     <CardContainer>
-      <h2>{name}</h2>
       {urls.map(({ url }) => (
         <img key={url} src={url} alt="" width="100" height="auto" />
       ))}
+      <h2>{name}</h2>
       <ul>
         <li>{clothingType}</li>
         <li>{store}</li>
@@ -33,9 +33,10 @@ const CardContainer = styled.section`
   width: 200px;
   box-shadow: 1px 6px 11px 9px #eee;
   position: relative;
+  padding: 5px;
   h2 {
     font-size: 15px;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 0;
     letter-spacing: 0.2em;
     text-align: center;
