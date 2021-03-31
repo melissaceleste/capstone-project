@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Header from './components/Header/Header'
 import AddNewPage from './Pages/AddNewPage/AddNewPage'
 import HomePage from './Pages/HomePage/HomePage'
 import MyClosetPage from './Pages/MyClosetPage/MyClosetPage'
@@ -10,6 +9,13 @@ import getCards from './services/getCards'
 import deleteCards from './services/deleteCard'
 
 function App() {
+  const [hidePage, setHidePage] = useState(false)
+
+  const [loadingLandingPage, setIsLoadingLandingPage] = useState(false)
+  window.setTimeout(() => {
+    setIsLoadingLandingPage(true)
+  }, 2000)
+
   const [cards, setCards] = useState([])
 
   useEffect(() => {
@@ -29,15 +35,26 @@ function App() {
   return (
     <>
       <Switch>
-        <WelcomePage />
         <Route exact path="/">
-          <HomePage cards={cards} setCards={setCards} />
+          <WelcomePage
+            loadingPage={loadingLandingPage}
+            hideLandingPage={hidePage}
+            setHideLandingPage={setHidePage}
+          />
+          <HomePage
+            cards={cards}
+            setCards={setCards}
+            hideHeader={hidePage}
+            setHideHeader={setHidePage}
+          />
         </Route>
         <Route path="/mycloset">
           <MyClosetPage
             cards={cards}
             setCards={setCards}
             onDeleteCard={deleteCard}
+            hideHeader={hidePage}
+            setHideHeader={setHidePage}
           />
         </Route>
         <Route path="/addnew">
@@ -46,6 +63,8 @@ function App() {
             setCards={setCards}
             onAddNewCard={addNewCard}
             onDeleteCard={deleteCard}
+            hideHeader={hidePage}
+            setHideHeader={setHidePage}
           />
         </Route>
       </Switch>

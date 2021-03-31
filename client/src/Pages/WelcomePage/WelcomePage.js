@@ -1,59 +1,92 @@
 import styled from 'styled-components/macro'
-import bildsrc from './bild.jpg'
-import bild1src from './bild1.jpg'
-import bild2src from './bild2.jpg'
-import bild3src from './bild3.jpg'
-import bildendesrc from './bildende.webp'
 
-export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
+export default function WelcomePage({
+  loadingPage,
+  hideLandingPage,
+  setHideLandingPage,
+}) {
+  setTimeout(() => {
+    setHideLandingPage(true)
+  }, 5500)
   return (
-    <PageLayout>
-      <img src={bildsrc} alt="" width="300px" height="" />
-      <NameSection>
-        <div> C</div>
-        <div> O</div>
-        <div> U</div>
-        <div> C</div>
-        <div> O</div>
-        <div> U</div>
-      </NameSection>
-      <AnimationWrapper>
-        <section>
-          {' '}
-          <Span01>◐ </Span01>
-          <Span02> ◌ </Span02>
-          <Span03> ◦ </Span03>
-          <Span04> ◯</Span04>
-          <Span05> ◐ </Span05>
-          <Span06> ◌ </Span06>
-          <Span07> ◦ </Span07>
-          <Span08> ◯</Span08>
-        </section>
-      </AnimationWrapper>
+    <PageLayout
+      hidePage={hideLandingPage}
+      finishedLoading={loadingPage}
+      className={loadingPage && 'fadeOut'}
+    >
+      {/*  <img src={bildsrc} alt="" width="300px" height="" /> */}
+      <HelloSection>
+        <p></p>
+        <AnimationWrapper>
+          <section>
+            <Span01>◐</Span01>
+            <Span02>◌</Span02>
+            <Span03>◦</Span03>
+            <Span04>◯</Span04>
+            <Span05>◐</Span05>
+            <Span06>◌</Span06>
+            <Span07>◦</Span07>
+            <Span08>◯</Span08>
+          </section>
+        </AnimationWrapper>
+      </HelloSection>
+
+      <i class="fas fa-spinner fa-spin"></i>
     </PageLayout>
   )
 }
 
 const PageLayout = styled.section`
+  z-index: 0;
+  display: ${props => (props.hidePage ? 'none' : 'grid')};
   height: 100vh;
   align-items: center;
   padding: 10px;
-  img {
-    margin-top: 50px;
-    border-radius: 90px;
+
+  grid-template-rows: 1fr 1fr;
+  &.fadeOut {
+    opacity: 0.4;
+    transition: all 6s;
   }
-  /*   button {
-    &.active {
-      display: none;
-    } */
+  i {
+    font-size: 20px;
+    margin-top: 80%;
+  }
 `
-const NameSection = styled.section`
-  margin: 20px;
-  font-size: 25px;
-  display: flex;
-  justify-content: center;
+const HelloSection = styled.section`
+  background-color: white;
+  margin-top: 50%;
+  p {
+    font-size: 25px;
+    margin: 0;
+  }
+  p:before {
+    content: '';
+    animation: animate 4s;
+  }
+  @keyframes animate {
+    0% {
+      content: 'Hello!';
+    }
+    20% {
+      content: 'Moin!';
+    }
+    40% {
+      content: 'Aloha!';
+    }
+    60% {
+      content: 'Ciao!';
+    }
+    80% {
+      content: 'Huhu!';
+    }
+    100% {
+      content: 'Coucou!';
+    }
+  }
 `
 const AnimationWrapper = styled.div`
+  margin-top: 0;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -74,35 +107,35 @@ const AnimationWrapper = styled.div`
 `
 const Span01 = styled.span`
   animation-delay: span 0.1s;
-  animation: span 4s linear 1s reverse;
+  animation: span 4s linear 1s infinite reverse;
 `
 const Span02 = styled.span`
   animation-delay: span 0.2s;
-  animation: span 4s linear 0.1s reverse;
+  animation: span 4s linear 0.1s infinite reverse;
 `
 const Span03 = styled.span`
   animation-delay: span 0.3s;
-  animation: span 4s linear 0.2s reverse;
+  animation: span 4s linear 0.2s infinite reverse;
 `
 const Span04 = styled.span`
   animation-delay: span 0.4s;
-  animation: span 4s linear 0.3s reverse;
+  animation: span 4s linear 0.3s infinite reverse;
 `
 const Span05 = styled.span`
   animation-delay: span 0.5s;
-  animation: span 4s linear 0.4s reverse;
+  animation: span 4s linear 0.4s infinite reverse;
 `
 const Span06 = styled.span`
   animation-delay: span 0.6s;
-  animation: span 4s linear 0.5s reverse;
+  animation: span 4s linear 0.5s infinite reverse;
 `
 const Span07 = styled.span`
   animation-delay: span 0.7s;
-  animation: span 4s linear 0.6s reverse;
+  animation: span 4s linear 0.6s infinite reverse;
 `
 const Span08 = styled.span`
   animation-delay: 0.8s;
-  animation: span 4s linear 0.7s reverse;
+  animation: span 4s linear 0.7s infinite reverse;
 `
 
 /* 

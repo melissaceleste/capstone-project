@@ -1,15 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import SmallCard from '../../components/SmallCard/SmallCard'
 import plussrc from './plus.svg'
 import Header from '../../components/Header/Header'
 
-export default function HomePage({ cards, setCards }) {
-  const [randomCard, setRandomCard] = useState(cardsRandomizer())
+export default function HomePage({
+  cards,
+  setCards,
+  hideHeader,
+  setHideHeader,
+}) {
+  const [randomCard, setRandomCard] = useState([])
+  useEffect(() => {
+    cardsRandomizer()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cards])
+
   return (
     <>
-      <Header />
+      <Header hideHeader={hideHeader} setHideHeader={setHideHeader} />
       <HomePageLayout>
         {randomCard.length !== 0 ? (
           <div>
@@ -23,7 +33,7 @@ export default function HomePage({ cards, setCards }) {
               cards={cards}
               setCards={() => setCards()}
             />
-            <RandomizerButton onClick={() => setRandomCard(cardsRandomizer())}>
+            <RandomizerButton onClick={() => cardsRandomizer()}>
               nochmal
             </RandomizerButton>
           </div>
@@ -37,7 +47,9 @@ export default function HomePage({ cards, setCards }) {
     </>
   )
   function cardsRandomizer() {
-    return JSON.parse(JSON.stringify(cards)).sort(() => 0.5 - Math.random())
+    return setRandomCard(
+      JSON.parse(JSON.stringify(cards)).sort(() => 0.5 - Math.random())
+    )
   }
 }
 const HomePageLayout = styled.main`

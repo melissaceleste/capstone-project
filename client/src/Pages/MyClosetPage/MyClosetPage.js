@@ -12,7 +12,13 @@ import Header from '../../components/Header/Header'
 import plussrc from './plus.svg'
 import filtersrc from './filter1.png'
 
-export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
+export default function MyClosetPage({
+  cards,
+  setCards,
+  onDeleteCard,
+  hideHeader,
+  setHideHeader,
+}) {
   const [userInputName, setUserInputName] = useState('')
   const [userInputStore, setUserInputStore] = useState('')
   const [userInputClothingType, setUserInputClothingType] = useState('')
@@ -26,7 +32,7 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
   const [filterContainerVisible, setFilterContainerVisible] = useState(false)
   return (
     <>
-      <Header />
+      <Header hideHeader={hideHeader} setHideHeader={setHideHeader} />
       <MyClosetPageLayout>
         <FilterShowButton
           onClick={() => setFilterContainerVisible(!filterContainerVisible)}
