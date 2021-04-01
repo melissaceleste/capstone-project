@@ -30,5 +30,11 @@ export default createGlobalStyle`
     &:focus {
       box-shadow: 2px 3px #cc99ff;
     }
+    button{
+      outline: black;
+      :focus {
+    outline: black;
+}
+    }
   }
   `

@@ -7,6 +7,7 @@ import postImageData from '../../services/sendImageData'
 export default function AddNew({ onAddNewCard }) {
   const [imageURLs, setImageURLs] = useState([])
   const [image, setImage] = useState('')
+  const [popUpWindow, setPopUpWindow] = useState(false)
 
   return (
     <>
@@ -20,30 +21,44 @@ export default function AddNew({ onAddNewCard }) {
           Umso mehr Infos du speicherst, umso einfacher kannst du deine
           Lieblingsteile später wieder finden:)
         </Comment>
-        <UploadLabel>
-          {image ? (
-            <img src={image} alt="" style={{ width: '100%' }} />
-          ) : (
+        {/*   <button onClick={() => window.open(/addnew, _self )}> </button>
+        <button   onClick={() => openPopUp()}> </button>
+{
+    window.open('test-open-window.html','win1');
+} */}
+        <ButtonContainer>
+          <button onClick={() => setPopUpWindow(!popUpWindow)}>
+            {' '}
+            Bitte lade ein Foto hoch
+          </button>
+        </ButtonContainer>
+        <PopUpWindow hidden={!popUpWindow}>
+          {' '}
+          <UploadLabel>
             <Upload
               type="file"
               name="file"
               onChange={upload}
               required="required"
             />
-          )}
 
-          {image ? (
-            <div>
-              <p> Foto ist erfolgreich hochgeladen:) </p>
-            </div>
-          ) : (
-            <div>
-              <p> Bitte lade ein Foto hoch</p>
-              <img src={uploadsrc} alt="" width="60px" />
-            </div>
-          )}
-        </UploadLabel>
-
+            {image ? (
+              <div>
+                <p> Foto ist erfolgreich hochgeladen:) </p>
+                <button type="button" onClick={() => setPopUpWindow()}>
+                  {' '}
+                  schließen{' '}
+                </button>
+              </div>
+            ) : (
+              <div>
+                <p>hier klicken um Foto hochzuladen</p>
+                <img src={uploadsrc} alt="" width="60px" />
+              </div>
+            )}
+          </UploadLabel>
+        </PopUpWindow>
+        <img src={image} alt="" style={{ width: '100%' }} />
         <label>
           <InputTypeDefault placeholder="Name" name="nameOfClothing" />
         </label>
@@ -153,9 +168,15 @@ export default function AddNew({ onAddNewCard }) {
       date: date.value,
       clothingType: clothingType.value,
     })
+    /*     deleteImage() */
     window.scrollTo(0, document.body.scrollHeight)
     form.reset()
   }
+
+  /* function deleteImage(imageURLs, setImageURLs, index) {
+    imageURLs.filter(imageUrl => imageUrl.id !== currentId)
+    setImageURLs()
+  } */
 }
 
 const AddNewContainer = styled.form`
@@ -205,6 +226,29 @@ const Comment = styled.p`
   opacity: 1;
   font-size: 10px;
 `
+const ButtonContainer = styled.div`
+  button {
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid white;
+    font-size: 16px;
+    width: 100%;
+    padding: 5px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    opacity: 1;
+    text-transform: uppercase;
+  }
+`
+const PopUpWindow = styled.div`
+  position: fixed;
+  z-index: 1;
+  width: 300px;
+  height: 100px;
+  background-color: white;
+`
+
 const Upload = styled.input`
   display: none;
 `
