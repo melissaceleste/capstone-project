@@ -141,10 +141,8 @@ const MyClosetPageLayout = styled.main`
   margin-bottom: 80px;
   z-index: auto;
   display: grid;
+  gap: 0;
   color: black;
-  div {
-    margin-top: 70px;
-  }
 `
 const FilterShowButton = styled.button`
   border: none;
@@ -154,15 +152,13 @@ const FilterShowButton = styled.button`
   fill: pink;
 `
 const FilterIcon = styled.img`
-  margin-left: 45%;
+  margin-left: 80%;
 `
 const FormContainer = styled.form`
-  display: grid;
-  gap: 10px;
+  padding: 10px;
   background-color: transparent;
   border: 2px solid black;
   box-shadow: 3px 3px 3px #eee;
-  padding: 10px;
   width: 90%;
   margin: 45px auto 15px;
   h1 {

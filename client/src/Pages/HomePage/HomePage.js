@@ -58,7 +58,7 @@ const HomePageLayout = styled.main`
   display: grid;
   justify-content: center;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 80px;
   margin-bottom: 70px;
   padding-top: 30px;
   p {
@@ -77,7 +77,7 @@ const RandomizerButton = styled.button`
   box-shadow: 1px 1px 1px darkgrey;
   font-size: 16px;
   width: 100%;
-  margin: 20px auto auto;
+  margin: 35px auto auto;
   padding: 5px;
   text-transform: uppercase;
   letter-spacing: 0.2em;

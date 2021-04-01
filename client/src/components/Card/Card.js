@@ -13,7 +13,7 @@ export default function Card({
   return (
     <CardContainer>
       {urls.map(({ url }) => (
-        <img key={url} src={url} alt="" width="100" height="auto" />
+        <img key={url} src={url} alt="" width="170" height="auto" />
       ))}
       <h2>{name}</h2>
       <ul>
@@ -35,8 +35,8 @@ const CardContainer = styled.section`
   position: relative;
   padding: 5px;
   h2 {
-    font-size: 15px;
-    margin-top: 5px;
+    font-size: 14px;
+    margin-top: 0;
     margin-bottom: 0;
     letter-spacing: 0.2em;
     text-align: center;
@@ -57,10 +57,11 @@ const CardContainer = styled.section`
   }
   button {
     border: none;
-    background-color: transparent;
+    background-color: white;
+    border-radius: 10px;
     font-size: 16px;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 0;
+    top: 7px;
   }
 `

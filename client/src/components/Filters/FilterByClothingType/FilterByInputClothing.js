@@ -49,6 +49,8 @@ const FilterLabel = styled.label`
   width: 100%;
   padding: 0;
   select {
+    padding: 5px;
+    text-transform: uppercase;
     border: none;
     font-size: 12px;
     background-color: transparent;

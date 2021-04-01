@@ -37,7 +37,7 @@ const FilterLabel = styled.label`
   padding: 0;
   div {
     font-size: 12px;
-    margin: 0;
+    margin-top: 4px;
     text-align: center;
     letter-spacing: 0.2em;
     font-weight: 300;

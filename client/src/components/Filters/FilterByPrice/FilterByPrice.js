@@ -49,6 +49,8 @@ const FilterLabel = styled.label`
     letter-spacing: 0.2em;
     font-weight: 300;
     opacity: 1;
+    margin-top: 4px;
+    margin-bottom: 0;
   }
   input {
     background-color: transparent;
@@ -73,6 +75,7 @@ const FilterLabel = styled.label`
 const FlexContainer = styled.section`
   display: flex;
   justify-content: space-around;
+  margin: 0;
 `
 const InputIconWrapper = styled.section`
   position: relative;
