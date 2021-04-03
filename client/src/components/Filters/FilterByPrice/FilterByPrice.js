@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 Filter.propTypes = {
-  userInputMinPrice: PropTypes.number.isRequired,
-  setUserInputMinPrice: PropTypes.func.isRequired,
-  userInputMaxPrice: PropTypes.number.isRequired,
-  setUserInputMaxPrice: PropTypes.func.isRequired,
+  userInputMinPrice: PropTypes.number,
+  setUserInputMinPrice: PropTypes.func,
+  userInputMaxPrice: PropTypes.number,
+  setUserInputMaxPrice: PropTypes.func,
 }
 
 export default function Filter({

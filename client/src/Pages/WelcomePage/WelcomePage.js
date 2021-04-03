@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 WelcomePage.propTypes = {
-  handleLoadingPage: PropTypes.func.isRequired,
-  hideWelcomePage: PropTypes.string.isRequired,
-  setHideWelcomePage: PropTypes.func.isRequired,
+  handleLoadingPage: PropTypes.func,
+  hideWelcomePage: PropTypes.string,
+  setHideWelcomePage: PropTypes.func,
 }
 
 export default function WelcomePage({

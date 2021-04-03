@@ -6,7 +6,7 @@ import postImageData from '../../services/sendImageData'
 import uploadsrc from './upload.svg'
 
 AddNew.propTypes = {
-  onAddNewCard: PropTypes.func.isRequired,
+  onAddNewCard: PropTypes.func,
 }
 
 export default function AddNew({ onAddNewCard }) {
@@ -70,7 +70,7 @@ export default function AddNew({ onAddNewCard }) {
                 </CloseButton>
                 <p>hier klicken um Foto hochzuladen</p>
                 <img src={uploadsrc} alt="" width="60px" />
-                <i hidden={!loadingIcon} class="fas fa-spinner fa-spin"></i>
+                <i hidden={!loadingIcon} className="fas fa-spinner fa-spin"></i>
               </div>
             )}
           </UploadLabel>

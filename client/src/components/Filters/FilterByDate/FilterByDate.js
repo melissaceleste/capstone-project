@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 FilterByDate.propTypes = {
-  userInputFromDate: PropTypes.string.isRequired,
-  setUserInputFromDate: PropTypes.func.isRequired,
-  userInputToDate: PropTypes.string.isRequired,
-  setUserInputToDate: PropTypes.func.isRequired,
+  userInputFromDate: PropTypes.string,
+  setUserInputFromDate: PropTypes.func,
+  userInputToDate: PropTypes.string,
+  setUserInputToDate: PropTypes.func,
 }
 
 export default function FilterByDate({

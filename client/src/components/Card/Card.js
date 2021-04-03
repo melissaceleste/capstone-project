@@ -2,15 +2,15 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 Card.propTypes = {
-  onAddNewCard: PropTypes.func.isRequired,
+  onAddNewCard: PropTypes.func,
   name: PropTypes.string,
   id: PropTypes.string,
   store: PropTypes.string,
   price: PropTypes.number,
   date: PropTypes.string,
   clothingType: PropTypes.string,
-  onDeleteCard: PropTypes.func.isRequired,
-  urls: PropTypes.array.isRequired,
+  onDeleteCard: PropTypes.func,
+  urls: PropTypes.array,
 }
 
 export default function Card({

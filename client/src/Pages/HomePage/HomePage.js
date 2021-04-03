@@ -7,10 +7,10 @@ import SmallCard from '../../components/SmallCard/SmallCard'
 import plussrc from './plus.svg'
 
 HomePage.propTypes = {
-  cards: PropTypes.array.isRequired,
-  setCards: PropTypes.func.isRequired,
-  hideHeader: PropTypes.string.isRequired,
-  handleHideHeader: PropTypes.func.isRequired,
+  cards: PropTypes.array,
+  setCards: PropTypes.func,
+  hideHeader: PropTypes.string,
+  handleHideHeader: PropTypes.func,
 }
 
 export default function HomePage({

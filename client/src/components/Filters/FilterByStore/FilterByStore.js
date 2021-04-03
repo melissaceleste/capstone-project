@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 FilterByStore.propTypes = {
-  userInputStore: PropTypes.string.isRequired,
-  setUserInputStore: PropTypes.func.isRequired,
+  userInputStore: PropTypes.string,
+  setUserInputStore: PropTypes.func,
 }
 
 export default function FilterByStore({ userInputStore, setUserInputStore }) {

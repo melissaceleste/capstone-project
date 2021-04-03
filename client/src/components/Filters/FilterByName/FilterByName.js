@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 FilterByName.propTypes = {
-  userInputName: PropTypes.string.isRequired,
-  setUserInputName: PropTypes.func.isRequired,
+  userInputName: PropTypes.string,
+  setUserInputName: PropTypes.func,
 }
 
 export default function FilterByName({ userInputName, setUserInputName }) {

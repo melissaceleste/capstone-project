@@ -6,13 +6,11 @@ describe('AddNew', () => {
   it('renders a form with 12 inputs and a submit-button', () => {
     render(<AddNew />)
     expect(screen.getByText('hinzufügen')).toBeInTheDocument()
-    expect(
-      screen.getByPlaceholderText(/z.B. Minikleid oder Lieblingskleid/i)
-    ).toBeInTheDocument()
+    expect(screen.getByText('Bitte lade ein Foto hoch')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/Name/i)).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/Geschäft/i)).toBeInTheDocument()
+    expect(screen.getByPlaceholderText(/Preis/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/Kaufdatum/i)).toBeInTheDocument()
-    expect(screen.getByPlaceholderText(/Monki/i)).toBeInTheDocument()
-    expect(screen.getByPlaceholderText(/35/i)).toBeInTheDocument()
-    expect(screen.getByLabelText(/Oberteil/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/Kleid/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/Rock/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/Hose/i)).toBeInTheDocument()
@@ -30,10 +28,10 @@ describe('AddNew', () => {
   it('calls onSubmit with form data', () => {
     const callback = jest.fn()
     render(<AddNew onAddNewCard={callback} />)
-    userEvent.type(screen.getByLabelText(/name/i), 'Top')
+    userEvent.type(screen.getByPlaceholderText(/name/i), 'Top')
     userEvent.type(screen.getByLabelText(/Kaufdatum/i), '2020-04-01')
-    userEvent.type(screen.getByPlaceholderText(/Monki/i), 'Zara')
-    userEvent.type(screen.getByPlaceholderText(/35/i), '40')
+    userEvent.type(screen.getByPlaceholderText(/Geschäft/i), 'Zara')
+    userEvent.type(screen.getByPlaceholderText(/Preis/i), '40')
     fireEvent.change(screen.getByLabelText('Oberteil'), {
       target: { value: 'Oberteil' },
     })

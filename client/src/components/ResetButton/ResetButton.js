@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 ResetButton.propTypes = {
-  handleResetFilter: PropTypes.func.isRequired,
+  handleResetFilter: PropTypes.func,
 }
 
 export default function ResetButton({ handleResetFilter }) {

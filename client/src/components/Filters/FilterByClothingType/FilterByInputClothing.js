@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 FilterByClothingType.propTypes = {
-  showAllClothingTypes: PropTypes.func.isRequired,
-  userInputClothingType: PropTypes.string.isRequired,
-  setUserInputClothingType: PropTypes.func.isRequired,
+  showAllClothingTypes: PropTypes.func,
+  userInputClothingType: PropTypes.string,
+  setUserInputClothingType: PropTypes.func,
 }
 
 export default function FilterByClothingType({

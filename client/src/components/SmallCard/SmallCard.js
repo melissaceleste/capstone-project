@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 
 SmallCard.propTypes = {
   name: PropTypes.string,
-  urls: PropTypes.array.isRequired,
+  urls: PropTypes.array,
 }
 
 export default function SmallCard({ name, urls = [''] }) {

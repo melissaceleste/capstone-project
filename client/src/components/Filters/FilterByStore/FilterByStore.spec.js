@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react'
 import FilterByStore from './FilterByStore'
 
 describe('FilterByStore', () => {
-  it('renders an input with the placeholder "z.B. Monki"', () => {
+  it('renders an input with the placeholder "Geschäft"', () => {
     render(<FilterByStore />)
-    expect(screen.getByPlaceholderText('z.B. Monki')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Geschäft')).toBeInTheDocument()
   })
 })

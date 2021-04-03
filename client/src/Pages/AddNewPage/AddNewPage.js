@@ -5,12 +5,12 @@ import AddNew from '../../components/AddNew/AddNew'
 import Header from '../../components/Header/Header'
 
 AddNewPage.propTypes = {
-  onAddNewCard: PropTypes.func.isRequired,
-  cards: PropTypes.array.isRequired,
-  setCards: PropTypes.func.isRequired,
-  onDeleteCard: PropTypes.func.isRequired,
-  hideContent: PropTypes.string.isRequired,
-  handleHideContent: PropTypes.func.isRequired,
+  onAddNewCard: PropTypes.func,
+  cards: PropTypes.array,
+  setCards: PropTypes.func,
+  onDeleteCard: PropTypes.func,
+  hideContent: PropTypes.string,
+  handleHideContent: PropTypes.func,
 }
 
 export default function AddNewPage({

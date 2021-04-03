@@ -14,11 +14,11 @@ import plussrc from './plus.svg'
 import filtersrc from './filter1.png'
 
 MyClosetPage.propTypes = {
-  cards: PropTypes.array.isRequired,
-  setCards: PropTypes.func.isRequired,
-  onDeleteCard: PropTypes.func.isRequired,
-  hideContent: PropTypes.string.isRequired,
-  handleHideContent: PropTypes.func.isRequired,
+  cards: PropTypes.array,
+  setCards: PropTypes.func,
+  onDeleteCard: PropTypes.func,
+  hideContent: PropTypes.string,
+  handleHideContent: PropTypes.func,
 }
 
 export default function MyClosetPage({
