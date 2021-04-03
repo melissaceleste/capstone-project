@@ -8,7 +8,11 @@ export default function SideBar() {
 
   return (
     <>
-      <label htmlFor="navi-toggle" onClick={handleClick}>
+      <label
+        htmlFor="navi-toggle"
+        onClick={handleClick}
+        aria-label="navigation"
+      >
         <Button clicked={click}>
           <div />
           <div />
@@ -33,7 +37,7 @@ export default function SideBar() {
 
 const H1 = styled.h1`
   position: relative;
-  color: white;
+  color: var(--color-white);
   bottom: 104px;
   left: -2px;
   font-size: 2em;
@@ -68,18 +72,18 @@ const Nav = styled.nav`
   transition: transform 0.3s ease-in-out;
 `
 const NavButton = styled.button`
-  background-color: ${props => props.isActive && 'color: white;'};
+  background-color: ${props => props.isActive && 'color: var(--color-white);'};
   ${props => props.isActive && 'border:3px solid black'}
   padding: 20px;
   margin: 30px;
   text-align: center;
-  border: 1px solid white;
+  border: 1px solid var(--color-white);
   border-radius: 20px;
-  color: white;
+  color: var(--color-white);
   font-size: 18px;
   &.active {
-    color: black;
-    border: 3px solid white;
+    color: var(--color-black);
+    border: 3px solid var(--color-black);
   }
 `
 const Button = styled.button`
@@ -103,7 +107,7 @@ const Button = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    background: ${({ clicked }) => (clicked ? 'black' : 'black')};
+    background: var(--color-black);
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;

@@ -1,4 +1,17 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+
+Card.propTypes = {
+  onAddNewCard: PropTypes.func,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  store: PropTypes.string,
+  price: PropTypes.number,
+  date: PropTypes.string,
+  clothingType: PropTypes.string,
+  onDeleteCard: PropTypes.func,
+  urls: PropTypes.array,
+}
 
 export default function Card({
   name,
@@ -12,30 +25,34 @@ export default function Card({
 }) {
   return (
     <CardContainer>
-      <h2>{name}</h2>
       {urls.map(({ url }) => (
-        <img key={url} src={url} alt="" width="100" height="auto" />
+        <img key={url} src={url} alt="" width="170" height="auto" />
       ))}
+      <h2>{name}</h2>
       <ul>
         <li>{clothingType}</li>
         <li>{store}</li>
         <li>{price !== null ? price + '€' : ''} </li>
         <li>{date} </li>
       </ul>
-      <button onClick={() => onDeleteCard(id)}> ✕ </button>
+      <button onClick={() => onDeleteCard(id)} aria-label="delete">
+        ✕
+      </button>
     </CardContainer>
   )
 }
+
 const CardContainer = styled.section`
-  background-color: #ffffff;
+  background-color: var(--color-cards);
   text-align: center;
   border-radius: 20px;
   width: 200px;
-  box-shadow: 1px 6px 11px 9px #eee;
+  box-shadow: 1px 6px 11px 9px var(--color-boxshadow);
   position: relative;
+  padding: 5px;
   h2 {
-    font-size: 15px;
-    margin-top: 10px;
+    font-size: 14px;
+    margin-top: 0;
     margin-bottom: 0;
     letter-spacing: 0.2em;
     text-align: center;
@@ -56,10 +73,11 @@ const CardContainer = styled.section`
   }
   button {
     border: none;
-    background-color: transparent;
+    background-color: var(--color-white);
+    border-radius: 10px;
     font-size: 16px;
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 0;
+    top: 7px;
   }
 `

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import SmallCard from './SmallCard'
 
-import imageFile from '../../components/minikleid.png'
+import imageFile from './minikleid.png'
 
 describe('SmallCard', () => {
   it('renders a SmallCard with a name and an image', () => {

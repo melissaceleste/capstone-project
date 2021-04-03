@@ -1,4 +1,12 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+
+FilterByDate.propTypes = {
+  userInputFromDate: PropTypes.string,
+  setUserInputFromDate: PropTypes.func,
+  userInputToDate: PropTypes.string,
+  setUserInputToDate: PropTypes.func,
+}
 
 export default function FilterByDate({
   userInputFromDate,
@@ -16,6 +24,7 @@ export default function FilterByDate({
           max={userInputToDate}
           defaultValue={userInputFromDate}
           onChange={event => setUserInputFromDate(event.target.value)}
+          aria-label="minimum-date"
         />
         -
         <input
@@ -24,6 +33,7 @@ export default function FilterByDate({
           min={userInputFromDate}
           defaultValue={userInputToDate}
           onChange={event => setUserInputToDate(event.target.value)}
+          aria-label="maximum-date"
         />
       </FlexContainer>
       <ContainerHR></ContainerHR>
@@ -32,27 +42,27 @@ export default function FilterByDate({
 }
 
 const FilterLabel = styled.label`
-  background-color: transparent;
+  background-color: var(--color-transparent);
   width: 100%;
   padding: 0;
   div {
     font-size: 12px;
-    margin: 0;
+    margin-top: 4px;
     text-align: center;
     letter-spacing: 0.2em;
     font-weight: 300;
-    color: black;
+    color: var(--color-black);
     opacity: 1;
   }
   input {
-    background-color: transparent;
+    background-color: var(--color-transparent);
     appearance: none;
     width: 130px;
     margin: 0;
     letter-spacing: 0.2em;
     font-size: 10px;
     font-family: inherit;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--color-black);
   }
 `
 const FlexContainer = styled.section`

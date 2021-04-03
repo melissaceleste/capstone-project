@@ -1,4 +1,12 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+
+Filter.propTypes = {
+  userInputMinPrice: PropTypes.number,
+  setUserInputMinPrice: PropTypes.func,
+  userInputMaxPrice: PropTypes.number,
+  setUserInputMaxPrice: PropTypes.func,
+}
 
 export default function Filter({
   userInputMinPrice,
@@ -18,6 +26,7 @@ export default function Filter({
             min="0"
             value={userInputMinPrice}
             onChange={event => setUserInputMinPrice(event.target.value)}
+            aria-label="minimum-price"
           />
           <InputIcon> €</InputIcon>
         </InputIconWrapper>
@@ -29,6 +38,7 @@ export default function Filter({
             type="number"
             value={userInputMaxPrice}
             onChange={event => setUserInputMaxPrice(event.target.value)}
+            aria-label="maximum-price"
           />
           <InputIcon> €</InputIcon>
         </InputIconWrapper>
@@ -38,10 +48,10 @@ export default function Filter({
 }
 
 const FilterLabel = styled.label`
-  background-color: transparent;
+  background-color: var(--color-transparent);
   width: 100%;
   padding: 0;
-  color: black;
+  color: var(--color-black);
   div {
     font-size: 12px;
     margin: 0;
@@ -49,15 +59,17 @@ const FilterLabel = styled.label`
     letter-spacing: 0.2em;
     font-weight: 300;
     opacity: 1;
+    margin-top: 4px;
+    margin-bottom: 0;
   }
   input {
-    background-color: transparent;
+    background-color: var(--color-transparent);
     appearance: none;
     width: 130px;
     margin: 0;
     letter-spacing: 0.2em;
     font-size: 10px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--color-black);
   }
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
@@ -73,6 +85,7 @@ const FilterLabel = styled.label`
 const FlexContainer = styled.section`
   display: flex;
   justify-content: space-around;
+  margin: 0;
 `
 const InputIconWrapper = styled.section`
   position: relative;

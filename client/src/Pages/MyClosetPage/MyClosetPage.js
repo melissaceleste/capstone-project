@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
@@ -8,10 +9,25 @@ import FilterByName from '../../components/Filters/FilterByName/FilterByName'
 import FilterByPrice from '../../components/Filters/FilterByPrice/FilterByPrice'
 import FilterByStore from '../../components/Filters/FilterByStore/FilterByStore'
 import ResetButton from '../../components/ResetButton/ResetButton'
+import Header from '../../components/Header/Header'
 import plussrc from './plus.svg'
 import filtersrc from './filter1.png'
 
-export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
+MyClosetPage.propTypes = {
+  cards: PropTypes.array,
+  setCards: PropTypes.func,
+  onDeleteCard: PropTypes.func,
+  hideContent: PropTypes.string,
+  handleHideContent: PropTypes.func,
+}
+
+export default function MyClosetPage({
+  cards,
+  setCards,
+  onDeleteCard,
+  hideContent,
+  handleHideContent,
+}) {
   const [userInputName, setUserInputName] = useState('')
   const [userInputStore, setUserInputStore] = useState('')
   const [userInputClothingType, setUserInputClothingType] = useState('')
@@ -24,83 +40,90 @@ export default function MyClosetPage({ cards, setCards, onDeleteCard }) {
   const filteredCards = filterCards(cards)
   const [filterContainerVisible, setFilterContainerVisible] = useState(false)
   return (
-    <MyClosetPageLayout>
-      <FilterShowButton
-        onClick={() => setFilterContainerVisible(!filterContainerVisible)}
-      >
-        <FilterIcon
-          src={filtersrc}
-          alt="Filter öffnen"
-          width="40"
-          height="auto"
-        />
-      </FilterShowButton>
-      <section hidden={!filterContainerVisible}>
-        <FormContainer>
-          <h1>Such nach deinem Kleidungsstück...</h1>
-          <FilterByName
-            userInputName={userInputName}
-            setUserInputName={setUserInputName}
+    <>
+      <Header hideHeader={hideContent} setHideHeader={handleHideContent} />
+      <MyClosetPageLayout>
+        <FilterShowButton
+          onClick={() => setFilterContainerVisible(!filterContainerVisible)}
+          aria-label="show filter"
+        >
+          <FilterIcon
+            src={filtersrc}
+            alt="Filter öffnen"
+            width="40"
+            height="auto"
           />
-          <FilterByStore
-            userInputStore={userInputStore}
-            setUserInputStore={setUserInputStore}
-          />
-          <FilterByClothingType
-            userInputClothingType={setUserInputClothingType}
-            setUserInputClothingType={setUserInputClothingType}
-          />
-          <FilterByPrice
-            userInputMinPrice={userInputMinPrice}
-            setUserInputMinPrice={setUserInputMinPrice}
-            userInputMaxPrice={userInputMaxPrice}
-            setUserInputMaxPrice={setUserInputMaxPrice}
-          />
-          <FilterByDate
-            userInputFromDate={userInputFromDate}
-            setUserInputFromDate={setUserInputFromDate}
-            userInputToDate={userInputToDate}
-            setUserInputToDate={setUserInputToDate}
-          />
-          <ResetButton handleResetFilter={resetFilter} />
-        </FormContainer>
-      </section>
-      {cards.length !== 0 ? (
-        <ResultContainer>
-          {filteredCards.map(
-            ({ name, urls, _id, store, price, date, clothingType }) => (
-              <Card
-                key={_id}
-                id={_id}
-                urls={urls}
-                name={name}
-                store={store}
-                price={price}
-                date={date}
-                clothingType={clothingType}
-                setCards={setCards}
-                onDeleteCard={onDeleteCard}
+        </FilterShowButton>
+        <section hidden={!filterContainerVisible}>
+          <FormContainer>
+            <h1>Such nach deinem Kleidungsstück...</h1>
+            <FilterByName
+              userInputName={userInputName}
+              setUserInputName={setUserInputName}
+            />
+            <FilterByStore
+              userInputStore={userInputStore}
+              setUserInputStore={setUserInputStore}
+            />
+            <FilterByClothingType
+              userInputClothingType={setUserInputClothingType}
+              setUserInputClothingType={setUserInputClothingType}
+            />
+            <FilterByPrice
+              userInputMinPrice={userInputMinPrice}
+              setUserInputMinPrice={setUserInputMinPrice}
+              userInputMaxPrice={userInputMaxPrice}
+              setUserInputMaxPrice={setUserInputMaxPrice}
+            />
+            <FilterByDate
+              userInputFromDate={userInputFromDate}
+              setUserInputFromDate={setUserInputFromDate}
+              userInputToDate={userInputToDate}
+              setUserInputToDate={setUserInputToDate}
+            />
+            <ResetButton handleResetFilter={resetFilter} />
+          </FormContainer>
+        </section>
+        {cards.length !== 0 ? (
+          <ResultContainer>
+            {filteredCards.map(
+              ({ name, urls, _id, store, price, date, clothingType }) => (
+                <Card
+                  key={_id}
+                  id={_id}
+                  urls={urls}
+                  name={name}
+                  store={store}
+                  price={price}
+                  date={date}
+                  clothingType={clothingType}
+                  setCards={setCards}
+                  onDeleteCard={onDeleteCard}
+                />
+              )
+            )}
+          </ResultContainer>
+        ) : (
+          <Link to="/addnew" style={{ textDecoration: 'none', color: 'black' }}>
+            <div>
+              <p>Upsala. Schnell lade deine Fotos hoch!</p>
+              <img
+                src={plussrc}
+                alt="Foto aufnehmen"
+                width="30"
+                height="auto"
               />
-            )
-          )}
-        </ResultContainer>
-      ) : (
-        <Link to="/addnew" style={{ textDecoration: 'none', color: 'black' }}>
-          <div>
-            {' '}
-            <p>Upsala. Schnell lade deine Fotos hoch!</p>
-            <img src={plussrc} alt="Foto aufnehmen" width="30" height="auto" />
-          </div>
-        </Link>
-      )}
-    </MyClosetPageLayout>
+            </div>
+          </Link>
+        )}
+      </MyClosetPageLayout>
+    </>
   )
 
   function resetFilter() {
     setUserInputName('')
     setUserInputStore('')
     setUserInputClothingType('')
-    // setUserInputFromDate('')
   }
 
   function filterCards(cards) {
@@ -126,34 +149,31 @@ const MyClosetPageLayout = styled.main`
   margin-bottom: 80px;
   z-index: auto;
   display: grid;
-  color: black;
-  div {
-    margin-top: 70px;
-  }
+  gap: 0;
+  color: var(--color-black);
 `
 const FilterShowButton = styled.button`
   border: none;
-  background-color: transparent;
+  background-color: var(--color-transparent);
   margin-left: 70%;
+  position: fixed;
 `
 const FilterIcon = styled.img`
-  margin-left: 45%;
+  margin-left: 80%;
 `
 const FormContainer = styled.form`
-  display: grid;
-  gap: 10px;
-  background-color: transparent;
-  border: 2px solid black;
-  box-shadow: 3px 3px 3px #eee;
   padding: 10px;
+  background-color: var(--color-transparent);
+  border: 2px solid var(--color-black);
+  box-shadow: 3px 3px 3px #eee;
   width: 90%;
-  margin: 10px auto 15px;
+  margin: 45px auto 15px;
   h1 {
     font-size: 13px;
     margin: 2px;
     letter-spacing: 0.2em;
     font-weight: 300;
-    color: black;
+    color: var(--color-black);
     opacity: 1;
   }
 `
@@ -161,4 +181,5 @@ const ResultContainer = styled.section`
   display: grid;
   justify-content: center;
   gap: 20px;
+  margin-top: 45px;
 `

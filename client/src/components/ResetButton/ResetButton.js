@@ -1,15 +1,20 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+
+ResetButton.propTypes = {
+  handleResetFilter: PropTypes.func,
+}
 
 export default function ResetButton({ handleResetFilter }) {
   return <Button onclick={handleResetFilter}> Filter zurücksetzen </Button>
 }
 
 const Button = styled.button`
-  background-color: transparent;
-  color: black;
+  background-color: var(--color-transparent);
+  color: var(--color-black);
   border-radius: 5px;
-  border: 2px solid black;
-  box-shadow: 1px 1px 1px darkgrey;
+  border: 2px solid var(--color-black);
+  box-shadow: 1px 1px 1px var(--color-boxshadow);
   font-size: 16px;
   width: 100%;
   margin: 20px auto auto;
