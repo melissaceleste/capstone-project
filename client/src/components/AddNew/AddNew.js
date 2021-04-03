@@ -107,7 +107,7 @@ export default function AddNew({ onAddNewCard }) {
         <label>
           <div>Kaufdatum</div>
 
-          <InputTypeDefault
+          <DateInput
             autocomplete="off"
             type="date"
             name="date"
@@ -329,6 +329,13 @@ const InputIcon = styled.div`
   left: 56%;
   top: 3px;
   color: var(--color-grey);
+`
+const DateInput = styled.input`
+  border-bottom: 1px solid var(--color-white);
+  margin-left: 10px;
+  letter-spacing: 0.2em;
+  opacity: 1;
+  text-transform: uppercase;
 `
 const ContainerClothingType = styled.section`
   text-align: center;
