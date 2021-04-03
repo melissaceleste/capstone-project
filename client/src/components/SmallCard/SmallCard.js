@@ -1,4 +1,10 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+
+SmallCard.propTypes = {
+  name: PropTypes.string,
+  urls: PropTypes.array.isRequired,
+}
 
 export default function SmallCard({ name, urls = [''] }) {
   return (
@@ -12,12 +18,12 @@ export default function SmallCard({ name, urls = [''] }) {
 }
 
 const CardContainer = styled.section`
-  background-color: #ffffff;
+  background-color: var(--color-cards);
   text-align: center;
   border-radius: 20px;
   width: 300px;
   height: 350px;
-  box-shadow: 1px 6px 11px 9px #eee;
+  box-shadow: 1px 6px 11px 9px var(--color-boxshadow);
   margin-left: 10px;
   justify-content: center;
   padding: 5px;

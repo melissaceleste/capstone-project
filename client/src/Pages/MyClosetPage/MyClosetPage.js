@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
@@ -11,6 +12,14 @@ import ResetButton from '../../components/ResetButton/ResetButton'
 import Header from '../../components/Header/Header'
 import plussrc from './plus.svg'
 import filtersrc from './filter1.png'
+
+MyClosetPage.propTypes = {
+  cards: PropTypes.array.isRequired,
+  setCards: PropTypes.func.isRequired,
+  onDeleteCard: PropTypes.func.isRequired,
+  hideContent: PropTypes.string.isRequired,
+  handleHideContent: PropTypes.func.isRequired,
+}
 
 export default function MyClosetPage({
   cards,
@@ -36,6 +45,7 @@ export default function MyClosetPage({
       <MyClosetPageLayout>
         <FilterShowButton
           onClick={() => setFilterContainerVisible(!filterContainerVisible)}
+          aria-label="show filter"
         >
           <FilterIcon
             src={filtersrc}
@@ -96,7 +106,6 @@ export default function MyClosetPage({
         ) : (
           <Link to="/addnew" style={{ textDecoration: 'none', color: 'black' }}>
             <div>
-              {' '}
               <p>Upsala. Schnell lade deine Fotos hoch!</p>
               <img
                 src={plussrc}
@@ -115,7 +124,6 @@ export default function MyClosetPage({
     setUserInputName('')
     setUserInputStore('')
     setUserInputClothingType('')
-    // setUserInputFromDate('')
   }
 
   function filterCards(cards) {
@@ -142,22 +150,21 @@ const MyClosetPageLayout = styled.main`
   z-index: auto;
   display: grid;
   gap: 0;
-  color: black;
+  color: var(--color-black);
 `
 const FilterShowButton = styled.button`
   border: none;
-  background-color: transparent;
+  background-color: var(--color-transparent);
   margin-left: 70%;
   position: fixed;
-  fill: pink;
 `
 const FilterIcon = styled.img`
   margin-left: 80%;
 `
 const FormContainer = styled.form`
   padding: 10px;
-  background-color: transparent;
-  border: 2px solid black;
+  background-color: var(--color-transparent);
+  border: 2px solid var(--color-black);
   box-shadow: 3px 3px 3px #eee;
   width: 90%;
   margin: 45px auto 15px;
@@ -166,7 +173,7 @@ const FormContainer = styled.form`
     margin: 2px;
     letter-spacing: 0.2em;
     font-weight: 300;
-    color: black;
+    color: var(--color-black);
     opacity: 1;
   }
 `

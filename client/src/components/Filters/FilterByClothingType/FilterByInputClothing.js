@@ -1,4 +1,11 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+
+FilterByClothingType.propTypes = {
+  showAllClothingTypes: PropTypes.func.isRequired,
+  userInputClothingType: PropTypes.string.isRequired,
+  setUserInputClothingType: PropTypes.func.isRequired,
+}
 
 export default function FilterByClothingType({
   showAllClothingTypes,
@@ -45,7 +52,7 @@ export default function FilterByClothingType({
 }
 
 const FilterLabel = styled.label`
-  background-color: transparent;
+  background-color: var(--color-transparent);
   width: 100%;
   padding: 0;
   select {
@@ -53,13 +60,13 @@ const FilterLabel = styled.label`
     text-transform: uppercase;
     border: none;
     font-size: 12px;
-    background-color: transparent;
+    background-color: var(--color-transparent);
     appearance: none;
     opacity: 1;
     width: 90%;
     text-align: center;
     letter-spacing: 0.2em;
     font-weight: 300;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--color-black);
   }
 `

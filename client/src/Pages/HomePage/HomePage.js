@@ -1,9 +1,17 @@
+import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import Header from '../../components/Header/Header'
 import SmallCard from '../../components/SmallCard/SmallCard'
 import plussrc from './plus.svg'
-import Header from '../../components/Header/Header'
+
+HomePage.propTypes = {
+  cards: PropTypes.array.isRequired,
+  setCards: PropTypes.func.isRequired,
+  hideHeader: PropTypes.string.isRequired,
+  handleHideHeader: PropTypes.func.isRequired,
+}
 
 export default function HomePage({
   cards,
@@ -70,11 +78,11 @@ const HomePageLayout = styled.main`
   }
 `
 const RandomizerButton = styled.button`
-  background-color: transparent;
-  color: black;
+  background-color: var(--color-transparent);
+  color: var(--color-black);
   border-radius: 5px;
-  border: 2px solid black;
-  box-shadow: 1px 1px 1px darkgrey;
+  border: 2px solid var(--color-black);
+  box-shadow: 1px 1px 1px var(--color-boxshadow);
   font-size: 16px;
   width: 100%;
   margin: 35px auto auto;

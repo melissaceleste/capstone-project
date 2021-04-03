@@ -1,7 +1,17 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Card from '../../components/Card/Card'
 import AddNew from '../../components/AddNew/AddNew'
 import Header from '../../components/Header/Header'
+
+AddNewPage.propTypes = {
+  onAddNewCard: PropTypes.func.isRequired,
+  cards: PropTypes.array.isRequired,
+  setCards: PropTypes.func.isRequired,
+  onDeleteCard: PropTypes.func.isRequired,
+  hideContent: PropTypes.string.isRequired,
+  handleHideContent: PropTypes.func.isRequired,
+}
 
 export default function AddNewPage({
   onAddNewCard,
@@ -37,6 +47,7 @@ export default function AddNewPage({
     </>
   )
 }
+
 const AddNewPageLayout = styled.main`
   display: grid;
   justify-content: center;

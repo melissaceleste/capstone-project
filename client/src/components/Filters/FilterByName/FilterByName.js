@@ -1,4 +1,10 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+
+FilterByName.propTypes = {
+  userInputName: PropTypes.string.isRequired,
+  setUserInputName: PropTypes.func.isRequired,
+}
 
 export default function FilterByName({ userInputName, setUserInputName }) {
   return (
@@ -7,21 +13,22 @@ export default function FilterByName({ userInputName, setUserInputName }) {
         placeholder="  Name "
         value={userInputName}
         onChange={event => setUserInputName(event.target.value)}
+        aria-label="name"
       />
     </FilterLabel>
   )
 }
 
 const FilterLabel = styled.label`
-  background-color: transparent;
+  background-color: var(--color-transparent);
   width: 100%;
   padding: 0;
   input {
-    background-color: transparent;
+    background-color: var(--color-transparent);
     width: 90%;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--color-black);
     ::placeholder {
-      color: black;
+      color: var(--color-black);
     }
   }
 `

@@ -1,13 +1,19 @@
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
-import uploadsrc from './upload.svg'
 import postImageData from '../../services/sendImageData'
+import uploadsrc from './upload.svg'
+
+AddNew.propTypes = {
+  onAddNewCard: PropTypes.func.isRequired,
+}
 
 export default function AddNew({ onAddNewCard }) {
   const [imageURLs, setImageURLs] = useState([])
   const [image, setImage] = useState('')
   const [popUpWindow, setPopUpWindow] = useState(false)
+  const [loadingIcon, setLoadingIcon] = useState(false)
 
   return (
     <>
@@ -16,59 +22,79 @@ export default function AddNew({ onAddNewCard }) {
         action="/profile"
         method="post"
         enctype="multipart/form-data"
+        autocomplete="off"
       >
         <Comment>
           Umso mehr Infos du speicherst, umso einfacher kannst du deine
           Lieblingsteile später wieder finden:)
         </Comment>
-        {/*   <button onClick={() => window.open(/addnew, _self )}> </button>
-        <button   onClick={() => openPopUp()}> </button>
-{
-    window.open('test-open-window.html','win1');
-} */}
+
         <ButtonContainer>
           <button onClick={() => setPopUpWindow(!popUpWindow)}>
-            {' '}
             Bitte lade ein Foto hoch
           </button>
         </ButtonContainer>
+
         <PopUpWindow hidden={!popUpWindow}>
-          {' '}
-          <UploadLabel>
+          <UploadLabel aria-label="upload image">
             <Upload
               type="file"
               name="file"
               onChange={upload}
               required="required"
+              onClick={() => setLoadingIcon(!loadingIcon)}
             />
 
             {image ? (
               <div>
                 <p> Foto ist erfolgreich hochgeladen:) </p>
-                <button type="button" onClick={() => setPopUpWindow()}>
-                  {' '}
-                  schließen{' '}
-                </button>
+                <DoneButton
+                  type="button"
+                  onClick={() => setPopUpWindow()}
+                  aria-label="uploaded"
+                >
+                  ✓
+                </DoneButton>
+                {/* <button type="button" onClick={() => deleteImage()}>
+                  löschen
+                </button> */}
               </div>
             ) : (
               <div>
+                <CloseButton
+                  type="button"
+                  onClick={() => setPopUpWindow()}
+                  aria-label="close"
+                >
+                  ✕
+                </CloseButton>
                 <p>hier klicken um Foto hochzuladen</p>
                 <img src={uploadsrc} alt="" width="60px" />
+                <i hidden={!loadingIcon} class="fas fa-spinner fa-spin"></i>
               </div>
             )}
           </UploadLabel>
         </PopUpWindow>
-        <img src={image} alt="" style={{ width: '100%' }} />
-        <label>
-          <InputTypeDefault placeholder="Name" name="nameOfClothing" />
-        </label>
 
-        <label>
-          <InputTypeDefault placeholder="Geschäft" name="store" />
+        <img src={image} alt="" style={{ width: '100%' }} />
+        <label aria-label="type name">
+          <InputTypeDefault
+            autocomplete="off"
+            placeholder="Name"
+            name="nameOfClothing"
+          />
         </label>
-        <label>
+        <label aria-label="type store">
+          <InputTypeDefault
+            autocomplete="off"
+            placeholder="Geschäft"
+            name="store"
+          />
+        </label>
+        <label aria-label="type price">
           <InputIconWrapper>
             <InputTypeDefault
+              autocomplete="off"
               placeholder="Preis"
               name="price"
               type="number"
@@ -81,7 +107,12 @@ export default function AddNew({ onAddNewCard }) {
         <label>
           <div>Kaufdatum</div>
 
-          <InputTypeDefault type="date" name="date" placeholder="Kaufdatum" />
+          <InputTypeDefault
+            autocomplete="off"
+            type="date"
+            name="date"
+            placeholder="Kaufdatum"
+          />
         </label>
         <div>Kleidungsart</div>
         <ContainerClothingType>
@@ -147,6 +178,7 @@ export default function AddNew({ onAddNewCard }) {
 
   function upload(event) {
     postImageData(onImageSave, event)
+    // setLoadingIcon(!loadingIcon)
   }
 
   function onImageSave(response) {
@@ -168,21 +200,24 @@ export default function AddNew({ onAddNewCard }) {
       date: date.value,
       clothingType: clothingType.value,
     })
-    /*     deleteImage() */
     window.scrollTo(0, document.body.scrollHeight)
     form.reset()
   }
 
-  /* function deleteImage(imageURLs, setImageURLs, index) {
+  /*  function deleteImage(imageURLs, setImageURLs, ) {
     imageURLs.filter(imageUrl => imageUrl.id !== currentId)
     setImageURLs()
+  } */
+
+  /*  function deleteImage(imageURLs, setImageURLs, id) {
+    setImageURLs([...imageURLs.slice(0, id), ...imageURLs.slice(id + 1)])
   } */
 }
 
 const AddNewContainer = styled.form`
-  background-color: #111;
-  color: white;
-  box-shadow: 3px 3px 3px #eee;
+  background-color: var(--color-lightblack);
+  color: var(--color-white);
+  box-shadow: 3px 3px 3px var(--color-boxshadow);
   padding: 10px;
   width: 90%;
   margin: 10px auto;
@@ -193,18 +228,18 @@ const AddNewContainer = styled.form`
     font-size: 12px;
     margin-left: 6px;
     text-align: center;
-    color: white;
+    color: var(--color-white);
     opacity: 1;
     letter-spacing: 0.2em;
     font-weight: 300;
   }
   input {
-    background-color: transparent;
+    background-color: var(--color-transparent);
     width: 90%;
     appearance: none;
-    color: white;
+    color: var(--color-white);
     ::placeholder {
-      color: white;
+      color: var(--color-white);
     }
   }
   input::-webkit-outer-spin-button,
@@ -217,21 +252,21 @@ const AddNewContainer = styled.form`
   }
 `
 const Comment = styled.p`
-  color: grey;
+  color: var(--color-grey);
   text-align: center;
-  color: white;
+  color: var(--color-white);
   letter-spacing: 0.2em;
   text-align: center;
-  color: white;
+  color: var(--color-white);
   opacity: 1;
   font-size: 10px;
 `
 const ButtonContainer = styled.div`
   button {
-    background-color: transparent;
-    color: white;
+    background-color: var(--color-transparent);
+    color: var(--color-white);
     border-radius: 5px;
-    border: 2px solid white;
+    border: 2px solid var(--color-white);
     font-size: 16px;
     width: 100%;
     padding: 5px;
@@ -244,27 +279,46 @@ const ButtonContainer = styled.div`
 const PopUpWindow = styled.div`
   position: fixed;
   z-index: 1;
-  width: 300px;
-  height: 100px;
-  background-color: white;
+  width: 311px;
+  height: 120px;
+  background-color: var(--color-white);
+  box-shadow: -1px 1px 41px 500px rgba(255, 254, 245, 0.65);
+  i {
+    color: var(--color-black);
+  }
+`
+const CloseButton = styled.button`
+  border: none;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  font-size: 16px;
+  position: absolute;
+  right: 0;
+  top: 7px;
+`
+const DoneButton = styled.button`
+  border: none;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  font-size: 16px;
+  position: absolute;
+  left: 137px;
+  top: 87px;
 `
 
 const Upload = styled.input`
   display: none;
 `
 const UploadLabel = styled.label`
-  color: black;
   font-size: 12px;
-  border: 1px solid #999;
-  border-radius: 3px;
-  padding: 15px;
+  padding: 28px;
   outline: none;
   letter-spacing: 0.2em;
-  background-color: white;
+  background-color: var(--color-white);
   display: grid;
   gap: 10px;
   p {
-    color: black;
+    color: var(--color-black);
   }
 `
 const InputIconWrapper = styled.div`
@@ -274,7 +328,7 @@ const InputIcon = styled.div`
   position: absolute;
   left: 56%;
   top: 3px;
-  color: grey;
+  color: var(--color-grey);
 `
 const ContainerClothingType = styled.section`
   text-align: center;
@@ -287,13 +341,13 @@ const ClothingTypeInput = styled.input`
   border-bottom: 1px solid transparent;
 `
 const InputTypeDefault = styled.input`
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--color-white);
 `
 const SubmitButton = styled.button`
   background-color: transparent;
-  color: white;
+  color: var(--color-white);
   border-radius: 5px;
-  border: 2px solid white;
+  border: 2px solid var(--color-white);
   font-size: 16px;
   width: 100%;
   padding: 5px;

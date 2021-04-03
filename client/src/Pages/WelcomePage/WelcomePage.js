@@ -1,4 +1,11 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+
+WelcomePage.propTypes = {
+  handleLoadingPage: PropTypes.func.isRequired,
+  hideWelcomePage: PropTypes.string.isRequired,
+  setHideWelcomePage: PropTypes.func.isRequired,
+}
 
 export default function WelcomePage({
   handleLoadingPage,
@@ -9,8 +16,7 @@ export default function WelcomePage({
     setHideWelcomePage(true)
   }, 5500)
   return (
-    <PageLayout hidePage={hideWelcomePage}>
-      {/*  <img src={bildsrc} alt="" width="300px" height="" /> */}
+    <PageLayout hidePage={hideWelcomePage} aria-label="loading">
       <HelloSection>
         <p></p>
         <AnimationWrapper>
@@ -26,8 +32,6 @@ export default function WelcomePage({
           </section>
         </AnimationWrapper>
       </HelloSection>
-
-      {/*      <i class="fas fa-spinner fa-spin"></i> */}
     </PageLayout>
   )
 }
@@ -48,7 +52,7 @@ const PageLayout = styled.section`
   }
 `
 const HelloSection = styled.section`
-  background-color: white;
+  background-color: var(--color-white);
   margin-top: 70%;
   p {
     font-size: 25px;
@@ -85,7 +89,6 @@ const AnimationWrapper = styled.div`
   justify-content: center;
   text-align: center;
   font-size: 24px;
-  //animation: span 5s infinite ease-in-out;
 
   @keyframes span {
     0%,
@@ -131,22 +134,3 @@ const Span08 = styled.span`
   animation-delay: 0.8s;
   animation: span 4s linear 0.7s infinite reverse;
 `
-
-/* 
-const Span01 = styled.span`
-  animation-delay: 0.1s;
-  animation: span 1s infinite ease-in;
-`
-const Span03 = styled.span`
-  animation-delay: 0.3s;
-  animation: span 2s infinite ease-in;
-`
-const Span04 = styled.span`
-  animation-delay: 0.4s;
-  animation: span 3s infinite ease-in;
-`
-const Span05 = styled.span`
-  animation-delay: 0.5s;
-  animation: span 4s infinite ease-in;
-`
- */

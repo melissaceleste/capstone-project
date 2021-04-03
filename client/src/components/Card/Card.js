@@ -1,4 +1,17 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+
+Card.propTypes = {
+  onAddNewCard: PropTypes.func.isRequired,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  store: PropTypes.string,
+  price: PropTypes.number,
+  date: PropTypes.string,
+  clothingType: PropTypes.string,
+  onDeleteCard: PropTypes.func.isRequired,
+  urls: PropTypes.array.isRequired,
+}
 
 export default function Card({
   name,
@@ -22,16 +35,19 @@ export default function Card({
         <li>{price !== null ? price + '€' : ''} </li>
         <li>{date} </li>
       </ul>
-      <button onClick={() => onDeleteCard(id)}> ✕ </button>
+      <button onClick={() => onDeleteCard(id)} aria-label="delete">
+        ✕
+      </button>
     </CardContainer>
   )
 }
+
 const CardContainer = styled.section`
-  background-color: #ffffff;
+  background-color: var(--color-cards);
   text-align: center;
   border-radius: 20px;
   width: 200px;
-  box-shadow: 1px 6px 11px 9px #eee;
+  box-shadow: 1px 6px 11px 9px var(--color-boxshadow);
   position: relative;
   padding: 5px;
   h2 {
@@ -57,7 +73,7 @@ const CardContainer = styled.section`
   }
   button {
     border: none;
-    background-color: white;
+    background-color: var(--color-white);
     border-radius: 10px;
     font-size: 16px;
     position: absolute;

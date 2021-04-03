@@ -1,6 +1,18 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
+
+:root {
+  // background addnew form
+  --color-lightblack :#111;
+  --color-white: white; // var(--color-white);
+  --color-boxshadow: #eee; // var(--color-boxshadow);
+  --color-transparent: transparent; // var(--color-transparent);
+  --color-black: black; // var(--color-black);
+  --color-grey: grey; // var(--color-grey);
+  --color-cards: #ffffff; // var(--color-cards);
+  }
+
   * {
     box-sizing: border-box
   }
@@ -13,6 +25,7 @@ export default createGlobalStyle`
     height: 100vh;
     text-transform: uppercase;
     text-align: center;
+    background-color: var(--color-white);
   }
   input{
     text-align:center;

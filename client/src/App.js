@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import AddNewPage from './Pages/AddNewPage/AddNewPage'
-import HomePage from './Pages/HomePage/HomePage'
-import MyClosetPage from './Pages/MyClosetPage/MyClosetPage'
-import WelcomePage from './Pages/WelcomePage/WelcomePage'
+import AddNewPage from './pages/AddNewPage/AddNewPage'
+import HomePage from './pages/HomePage/HomePage'
+import MyClosetPage from './pages/MyClosetPage/MyClosetPage'
+import WelcomePage from './pages/WelcomePage/WelcomePage'
 import createCard from './services/createCard'
 import getCards from './services/getCards'
 import deleteCards from './services/deleteCard'
 
 function App() {
-  // verstecken
   const [hideContent, setHideContent] = useState(false)
   const [cards, setCards] = useState([])
 
