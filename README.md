@@ -12,8 +12,8 @@ coucou! is your partner in crime when struggeling with questions and thoughts li
 
 [view current version](https://coucou-by-melissa.herokuapp.com/)
 
-<img src="client/src/assets/screenshot.png" width="250px">
-<img src="client/src/assets/screenshot2.png" width="250px">
+<img src="client/src/assets/screenshot-big.png" width="500px">
+
 ## Installation and usage
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
