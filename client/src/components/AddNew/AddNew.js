@@ -70,7 +70,6 @@ export default function AddNew({ onAddNewCard }) {
                 </CloseButton>
                 <p>hier klicken um Foto hochzuladen</p>
                 <img src={uploadsrc} alt="" width="60px" />
-                <i hidden={!loadingIcon} className="fas fa-spinner fa-spin"></i>
               </div>
             )}
           </UploadLabel>
@@ -274,6 +273,7 @@ const ButtonContainer = styled.div`
     text-align: center;
     opacity: 1;
     text-transform: uppercase;
+    outline: none;
   }
 `
 const PopUpWindow = styled.div`
@@ -295,6 +295,7 @@ const CloseButton = styled.button`
   position: absolute;
   right: 0;
   top: 7px;
+  outline: none;
 `
 const DoneButton = styled.button`
   border: none;
@@ -304,6 +305,7 @@ const DoneButton = styled.button`
   position: absolute;
   left: 137px;
   top: 87px;
+  outline: none;
 `
 
 const Upload = styled.input`
@@ -336,6 +338,12 @@ const DateInput = styled.input`
   letter-spacing: 0.2em;
   opacity: 1;
   text-transform: uppercase;
+  padding-left: 5px;
+  ::-webkit-inner-spin-button,
+  ::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+  }
 `
 const ContainerClothingType = styled.section`
   text-align: center;
@@ -362,4 +370,5 @@ const SubmitButton = styled.button`
   text-align: center;
   opacity: 1;
   text-transform: uppercase;
+  outline: none;
 `

@@ -79,5 +79,6 @@ const CardContainer = styled.section`
     position: absolute;
     right: 0;
     top: 7px;
+    outline: none;
   }
 `

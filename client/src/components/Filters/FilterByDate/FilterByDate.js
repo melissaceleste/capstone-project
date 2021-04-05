@@ -63,6 +63,13 @@ const FilterLabel = styled.label`
     font-size: 10px;
     font-family: inherit;
     border-bottom: 1px solid var(--color-black);
+    text-transform: uppercase;
+    padding-left: 5px;
+    ::-webkit-inner-spin-button,
+    ::-webkit-calendar-picker-indicator {
+      display: none;
+      -webkit-appearance: none;
+    }
   }
 `
 const FlexContainer = styled.section`

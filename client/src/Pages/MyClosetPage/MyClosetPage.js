@@ -154,12 +154,15 @@ const MyClosetPageLayout = styled.main`
 `
 const FilterShowButton = styled.button`
   border: none;
+  outline: none;
   background-color: var(--color-transparent);
   margin-left: 70%;
   position: fixed;
 `
 const FilterIcon = styled.img`
   margin-left: 80%;
+  outline: none;
+  border: none;
 `
 const FormContainer = styled.form`
   padding: 10px;

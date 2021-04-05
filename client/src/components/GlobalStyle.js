@@ -16,6 +16,7 @@ export default createGlobalStyle`
   * {
     box-sizing: border-box
   }
+
   body {
     margin: 0;
     font-family:  'Helvetica Neue', sans-serif;
@@ -24,8 +25,9 @@ export default createGlobalStyle`
     font-size:12px;
     height: 100vh;
     text-transform: uppercase;
-    text-align: center;
+    text-align: center !important;
     background-color: var(--color-white);
+    cursor: none;
   }
   input{
     text-align:center;
@@ -44,10 +46,15 @@ export default createGlobalStyle`
       box-shadow: 2px 3px #cc99ff;
     }
     button{
+      outline: none;
+      :focus {
+    outline: black;
+}}
+    
+    img {
       outline: black;
       :focus {
     outline: black;
-}
-    }
+}}
   }
   `

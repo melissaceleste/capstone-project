@@ -89,4 +89,5 @@ const RandomizerButton = styled.button`
   padding: 5px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+  outline: none;
 `

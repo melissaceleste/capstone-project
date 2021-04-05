@@ -30,7 +30,7 @@ export default function FilterByClothingType({
         onChange={event => setUserInputClothingType(event.target.value)}
       >
         <option value="" disabled hidden>
-          Kleidungstyp
+          {''}Kleidungstyp
         </option>
         {showAllClothingTypes && (
           <option key="allClothingTypes" value="all">
@@ -55,16 +55,18 @@ const FilterLabel = styled.label`
   background-color: var(--color-transparent);
   width: 100%;
   padding: 0;
+  text-align: center !important;
   select {
-    padding: 5px;
+    padding: 5px 0 5px 90px;
+    outline: none;
     text-transform: uppercase;
     border: none;
     font-size: 12px;
     background-color: var(--color-transparent);
-    appearance: none;
+    appearance: none !important;
     opacity: 1;
     width: 90%;
-    text-align: center;
+    text-align: center !important;
     letter-spacing: 0.2em;
     font-weight: 300;
     border-bottom: 1px solid var(--color-black);

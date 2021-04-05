@@ -23,4 +23,5 @@ const Button = styled.button`
   text-align: center;
   opacity: 1;
   text-transform: uppercase;
+  outline: none;
 `

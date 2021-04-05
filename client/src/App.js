@@ -7,6 +7,7 @@ import WelcomePage from './pages/WelcomePage/WelcomePage'
 import createCard from './services/createCard'
 import getCards from './services/getCards'
 import deleteCards from './services/deleteCard'
+import styled from 'styled-components/macro'
 
 function App() {
   const [hideContent, setHideContent] = useState(false)
@@ -64,9 +65,6 @@ function App() {
       <Route path={['/', '/mycloset', '/addnew']}></Route>
     </>
   )
-  /*   function handleError() {
-    
-  } */
 }
 
 export default App
