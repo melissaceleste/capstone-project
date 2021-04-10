@@ -41,7 +41,7 @@ export default function AddNew({ onAddNewCard }) {
               type="file"
               name="file"
               onChange={upload}
-              required="required"
+              
               onClick={() => setLoadingIcon(!loadingIcon)}
             />
 
