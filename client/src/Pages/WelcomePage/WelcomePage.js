@@ -2,21 +2,21 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 WelcomePage.propTypes = {
-  handleLoadingPage: PropTypes.func,
   hideWelcomePage: PropTypes.string,
   setHideWelcomePage: PropTypes.func,
 }
 
 export default function WelcomePage({
-  handleLoadingPage,
   hideWelcomePage,
   setHideWelcomePage,
+  loadingPage,
 }) {
   setTimeout(() => {
     setHideWelcomePage(true)
   }, 5500)
   return (
-    <PageLayout hidePage={hideWelcomePage} aria-label="loading">
+    <PageLayout      
+     hidePage={hideWelcomePage} aria-label="loading">
       <HelloSection>
         <p></p>
         <AnimationWrapper>

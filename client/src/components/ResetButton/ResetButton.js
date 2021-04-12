@@ -6,7 +6,7 @@ ResetButton.propTypes = {
 }
 
 export default function ResetButton({ handleResetFilter }) {
-  return <Button onclick={handleResetFilter}> Filter zurücksetzen </Button>
+  return <Button name="reset" onclick={handleResetFilter}> Filter zurücksetzen </Button>
 }
 
 const Button = styled.button`

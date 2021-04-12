@@ -16,8 +16,7 @@ HomePage.propTypes = {
 export default function HomePage({
   cards,
   setCards,
-  hideHeader,
-  setHideHeader,
+  hideHomePage
 }) {
   const [randomCard, setRandomCard] = useState([])
   useEffect(() => {
@@ -26,10 +25,8 @@ export default function HomePage({
   }, [cards])
 
   return (
-    <>
-      <Header hideHeader={hideHeader} setHideHeader={setHideHeader} />
-
-      <HomePageLayout>
+      <HomePageLayout    hidePage={hideHomePage}>
+      <Header/>
         {randomCard.length !== 0 ? (
           <div>
             <p> Wie wär's heute hiermit? </p>
@@ -43,7 +40,7 @@ export default function HomePage({
               cards={cards}
               setCards={() => setCards()}
             />
-            <RandomizerButton onClick={() => cardsRandomizer()}>
+            <RandomizerButton name="randomize" onClick={() => cardsRandomizer()}>
               Was gibt es noch?
             </RandomizerButton>
           </div>
@@ -54,7 +51,7 @@ export default function HomePage({
           </Link>
         )}
       </HomePageLayout>
-    </>
+
   )
   function cardsRandomizer() {
     return setRandomCard(
@@ -62,8 +59,8 @@ export default function HomePage({
     )
   }
 }
-const HomePageLayout = styled.main`
-  display: grid;
+const HomePageLayout = styled.div`
+  display: ${props => (props.hidePage ? 'grid' : 'none')};
   justify-content: center;
   width: 100%;
   margin-top: 80px;

@@ -17,14 +17,11 @@ export default function AddNewPage({
   onAddNewCard,
   cards,
   setCards,
-  onDeleteCard,
-  hideContent,
-  handleHideContent,
+  onDeleteCard
 }) {
   return (
-    <>
-      <Header hideHeader={hideContent} setHideHeader={handleHideContent} />
       <AddNewPageLayout>
+      <Header/>
         <AddNew onAddNewCard={onAddNewCard} />
         <ResultContainer>
           {cards.map(card => (
@@ -44,11 +41,10 @@ export default function AddNewPage({
           ))}
         </ResultContainer>
       </AddNewPageLayout>
-    </>
   )
 }
 
-const AddNewPageLayout = styled.main`
+const AddNewPageLayout = styled.div`
   display: grid;
   justify-content: center;
   gap: 20px;

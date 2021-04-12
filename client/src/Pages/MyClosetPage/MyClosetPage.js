@@ -25,8 +25,6 @@ export default function MyClosetPage({
   cards,
   setCards,
   onDeleteCard,
-  hideContent,
-  handleHideContent,
 }) {
   const [userInputName, setUserInputName] = useState('')
   const [userInputStore, setUserInputStore] = useState('')
@@ -40,9 +38,8 @@ export default function MyClosetPage({
   const filteredCards = filterCards(cards)
   const [filterContainerVisible, setFilterContainerVisible] = useState(false)
   return (
-    <>
-      <Header hideHeader={hideContent} setHideHeader={handleHideContent} />
       <MyClosetPageLayout>
+      <Header  />
         <FilterShowButton
           onClick={() => setFilterContainerVisible(!filterContainerVisible)}
           aria-label="show filter"
@@ -117,7 +114,6 @@ export default function MyClosetPage({
           </Link>
         )}
       </MyClosetPageLayout>
-    </>
   )
 
   function resetFilter() {
@@ -143,7 +139,7 @@ export default function MyClosetPage({
   }
 }
 
-const MyClosetPageLayout = styled.main`
+const MyClosetPageLayout = styled.div`
   width: 100%;
   margin-top: 70px;
   margin-bottom: 80px;

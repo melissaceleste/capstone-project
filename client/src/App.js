@@ -7,7 +7,6 @@ import WelcomePage from './pages/WelcomePage/WelcomePage'
 import createCard from './services/createCard'
 import getCards from './services/getCards'
 import deleteCards from './services/deleteCard'
-import styled from 'styled-components/macro'
 
 function App() {
   const [hideContent, setHideContent] = useState(false)
@@ -38,8 +37,9 @@ function App() {
           <HomePage
             cards={cards}
             setCards={setCards}
-            hideHeader={hideContent}
-            setHideHeader={setHideContent}
+
+            hideHomePage={hideContent}
+            setHideHomePage={setHideContent}
           />
         </Route>
         <Route path="/mycloset">
@@ -47,8 +47,6 @@ function App() {
             cards={cards}
             setCards={setCards}
             onDeleteCard={deleteCard}
-            hideContent={hideContent}
-            handleHideContent={setHideContent}
           />
         </Route>
         <Route path="/addnew">
@@ -57,8 +55,6 @@ function App() {
             setCards={setCards}
             onAddNewCard={addNewCard}
             onDeleteCard={deleteCard}
-            hideContent={hideContent}
-            handleHideContent={setHideContent}
           />
         </Route>
       </Switch>
