@@ -21,13 +21,13 @@ export default function SideBar() {
       </label>
       <Nav clicked={click}>
         <H1>coucou!</H1>
-        <NavButton onClick={handleClick} as={NavLink} exact to="/">
+        <NavButton name="home" onClick={handleClick} as={NavLink} exact to="/">
           inspire me
         </NavButton>
-        <NavButton onClick={handleClick} as={NavLink} to="/mycloset">
+        <NavButton name="mycloset" onClick={handleClick} as={NavLink} to="/mycloset">
           my closet
         </NavButton>
-        <NavButton onClick={handleClick} as={NavLink} to="/addnew">
+        <NavButton name="new" onClick={handleClick} as={NavLink} to="/addnew">
           new
         </NavButton>
       </Nav>

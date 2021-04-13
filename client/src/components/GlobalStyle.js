@@ -27,7 +27,6 @@ export default createGlobalStyle`
     text-transform: uppercase;
     text-align: center !important;
     background-color: var(--color-white);
-    cursor: none;
   }
   input{
     text-align:center;

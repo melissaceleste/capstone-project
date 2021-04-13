@@ -7,7 +7,6 @@ import WelcomePage from './pages/WelcomePage/WelcomePage'
 import createCard from './services/createCard'
 import getCards from './services/getCards'
 import deleteCards from './services/deleteCard'
-import styled from 'styled-components/macro'
 
 function App() {
   const [hideContent, setHideContent] = useState(false)
@@ -15,7 +14,7 @@ function App() {
 
   useEffect(() => {
     getCards().then(data => setCards([...data]))
-  }, []) /* .catch(error => handleError(error)) */
+  .catch(error => handleError(error))}, [])
 
   function addNewCard(newCard) {
     createCard(newCard).then(() => getCards().then(data => setCards([...data])))
@@ -25,6 +24,10 @@ function App() {
     deleteCards(currentId).then(() => {
       getCards().then(data => setCards([...data]))
     })
+  }
+
+  function handleError() {
+console.log("Hier ist wohl etwas falsch gelaufen. Versuch es noch einmal")
   }
 
   return (
@@ -38,8 +41,9 @@ function App() {
           <HomePage
             cards={cards}
             setCards={setCards}
-            hideHeader={hideContent}
-            setHideHeader={setHideContent}
+
+            hideHomePage={hideContent}
+            setHideHomePage={setHideContent}
           />
         </Route>
         <Route path="/mycloset">
@@ -47,8 +51,6 @@ function App() {
             cards={cards}
             setCards={setCards}
             onDeleteCard={deleteCard}
-            hideContent={hideContent}
-            handleHideContent={setHideContent}
           />
         </Route>
         <Route path="/addnew">
@@ -57,8 +59,6 @@ function App() {
             setCards={setCards}
             onAddNewCard={addNewCard}
             onDeleteCard={deleteCard}
-            hideContent={hideContent}
-            handleHideContent={setHideContent}
           />
         </Route>
       </Switch>

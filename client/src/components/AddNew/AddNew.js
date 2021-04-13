@@ -30,7 +30,7 @@ export default function AddNew({ onAddNewCard }) {
         </Comment>
 
         <ButtonContainer>
-          <button onClick={() => setPopUpWindow(!popUpWindow)}>
+          <button name="open" onClick={() => setPopUpWindow(!popUpWindow)}>
             Bitte lade ein Foto hoch
           </button>
         </ButtonContainer>
@@ -41,7 +41,6 @@ export default function AddNew({ onAddNewCard }) {
               type="file"
               name="file"
               onChange={upload}
-              required="required"
               onClick={() => setLoadingIcon(!loadingIcon)}
             />
 
