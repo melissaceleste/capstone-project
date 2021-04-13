@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     getCards().then(data => setCards([...data]))
-  }, []) /* .catch(error => handleError(error)) */
+  .catch(error => handleError(error))}, [])
 
   function addNewCard(newCard) {
     createCard(newCard).then(() => getCards().then(data => setCards([...data])))
@@ -24,6 +24,10 @@ function App() {
     deleteCards(currentId).then(() => {
       getCards().then(data => setCards([...data]))
     })
+  }
+
+  function handleError() {
+console.log("Hier ist wohl etwas falsch gelaufen. Versuch es noch einmal")
   }
 
   return (
